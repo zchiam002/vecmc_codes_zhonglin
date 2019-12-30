@@ -1,0 +1,15 @@
+Name,v1,v2
+ch_c_f_c_4nc,m_perc,-
+ch_e_f_c_4nc,m_perc,-
+ch_evap_ret_4nc,t_in,-
+ch1_4nc_cond,m_perc,t_out
+ch2_4nc_cond,m_perc,t_out
+ch3_4nc_cond,m_perc,t_out
+cp_nwk_4nc,m_perc,tinout
+gv2_ss_4nc,m_perc,t_in
+hsb_ss_4nc,m_perc,t_in
+para_nwk_con_4nc,delp,-
+pfa_ss_4nc,m_perc,t_in
+ser_ss_4nc,m_perc,t_in
+sp1_temp_4nc,t_inout,-
+sp2_temp_4nc,t_inout,-

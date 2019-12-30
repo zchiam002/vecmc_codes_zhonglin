@@ -1,0 +1,95 @@
+\documentclass[a4paper]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+
+\begin{document}
+\title{Mono-Objective Genetic Algorithm in Python}
+\author {}
+\maketitle
+
+\centerline{Reference Manual} 
+\newpage
+
+\tableofcontents
+
+\clearpage
+
+\section{Introduction}
+
+This is an implementation of the Genetic Algorithm in Python. 
+\\
+\\The added features for faster resolution times are as follows:
+
+\begin{enumerate}
+\item Handling variable types differently (continuous, binary, discrete)
+\item Conversion of variables into binary equivalent 
+\item User defined choice of selection mechanism 
+\item Parallel computing 
+\end{enumerate}
+
+\subsection{Basic genetic algorithm structure}
+
+The basic structure of the genetic algorithm is as follows:
+
+\begin{enumerate}
+\item Initialize a population of agents
+\item Evaluate the fitness of the agents in the population 
+\item For the predefined number of generations: 
+\begin{enumerate}
+\item Select parents for the creation of offsprings
+\item Use the parents to create offsprings 
+\item Apply mutation mechanism for diversity 
+\item Evaluate the fitness of this new population 
+\end{enumerate}
+\item Extract the agents with best fitness 
+\end{enumerate}
+
+\section{Installation}
+
+At the moment, this code only works in Windows\textregistered. The folder has to be copied into the directory 'C:\textbackslash'  as some internal commands are hard-coded.
+
+\subsection{Required python packages}
+
+\begin{enumerate}
+\item pandas 
+\item numpy 
+\item datetime 
+\item matplotlib
+\item math 
+\item copy
+\item random
+\item multiprocessing 
+\end{enumerate}
+
+\subsection{Using the package}
+Important files and locations to take note of:
+
+\begin{enumerate}
+\item Input data: \texttt{ ga\_mono\_simple\-setup.py}
+\begin{enumerate}
+\item Population size (e.g. population = 200).
+\item Number of generations to run the algorithm for (e.g. generations = 1000)
+\item Selection mechanism to determine the agents populating the parent pool
+\begin{enumerate}
+\item Available options: 1. \texttt{roulette\_wheel} and 2. \texttt{tournament\_selection}
+\item 
+\end{enumerate}
+\item Determine the size of the parent pool 
+\begin{enumerate}
+\item The variable  \texttt{crossover\_perc} is used to determine the size of the parent pool
+\item e.g. \texttt{crossover\_perc} = 0.5, means that the parent pool will be 50\% of the population size
+\end{enumerate}
+\end{enumerate}
+\end{enumerate}
+
+
+
+
+
+\section{Modules}
+\section{References}
+
+\end {document}

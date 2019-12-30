@@ -1,0 +1,9 @@
+,Name,Value
+0,chilled_water_setpoint,5
+1,gv2_dt_target,1.5
+2,hsb_dt_target,6.5
+3,pfa_dt_target,3
+4,ser_dt_target,3
+5,piecewise_steps,4
+6,bilinear_pieces,20
+7,twb_approach_limit,5
