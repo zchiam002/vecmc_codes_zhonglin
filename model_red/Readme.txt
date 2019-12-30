@@ -1,3 +1,6 @@
-This folder contains models and reduction techniques
+Main folder name: model_red
+
+Subfolders:
+	1. control_
 
 
