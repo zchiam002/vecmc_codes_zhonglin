@@ -1,0 +1,1880 @@
+
+Gurobi 7.0.2 (win64) logging started 05/20/18 01:19:38
+
+
+Gurobi 7.0.2 (win64) logging started 05/20/18 01:19:38
+
+
+Gurobi Optimizer version 7.0.2 build v7.0.2rc1 (win64)
+Copyright (c) 2017, Gurobi Optimization, Inc.
+
+
+Gurobi Optimizer version 7.0.2 build v7.0.2rc1 (win64)
+Copyright (c) 2017, Gurobi Optimization, Inc.
+
+
+Gurobi 7.0.2 (win64) logging started 05/20/18 01:19:38
+
+Read LP format model from file C:\Optimization_zlc\slave_convex_handlers\solver_lp_format_holder\thread_16\script_16.lp
+Reading time = 0.03 seconds
+obj: 1264 rows, 1142 columns, 10018 nonzeros
+Optimize a model with 1264 rows, 1142 columns and 10018 nonzeros
+Variable types: 566 continuous, 576 integer (576 binary)
+Coefficient statistics:
+Read LP format model from file C:\Optimization_zlc\slave_convex_handlers\solver_lp_format_holder\thread_28\script_28.lp
+  Objective range  [2e-01, 2e+03]
+Reading time = 0.03 seconds
++00]
+  RHS range        [2e-01, 8e+02]
+obj: 1264 rows, 1142 columns, 10018 nonzeros
+Optimize a model with 1264 rows, 1142 columns and 10018 nonzeros
+Variable types: 566 continuous, 576 integer (576 binary)
+Coefficient statistics:
+  Matrix range     [3e-03, 1e+04]
+  Objective range  [4e-01, 5e+03]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [2e-01, 8e+02]
+
+Gurobi Optimizer version 7.0.2 build v7.0.2rc1 (win64)
+Copyright (c) 2017, Gurobi Optimization, Inc.
+
+
+Gurobi 7.0.2 (win64) logging started 05/20/18 01:19:38
+
+
+Gurobi Optimizer version 7.0.2 build v7.0.2rc1 (win64)
+Copyright (c) 2017, Gurobi Optimization, Inc.
+
+Presolve removed 761 rows and 700 columns
+Presolve time: 0.01s
+
+Explored 0 nodes (0 simplex iterations) in 0.01 seconds
+Thread count was 1 (of 8 available processors)
+
+Solution count 0
+Pool objective bound 0
+
+Model is infeasible or unbounded
+Best objective -, best bound -, gap -
+
+Unable to retrieve attribute 'X'
+
+Read LP format model from file C:\Optimization_zlc\slave_convex_handlers\solver_lp_format_holder\thread_12\script_12.lp
+Reading time = 0.03 seconds
+obj: 1264 rows, 1142 columns, 10018 nonzeros
+Optimize a model with 1264 rows, 1142 columns and 10018 nonzeros
+Variable types: 566 continuous, 576 integer (576 binary)
+Coefficient statistics:
+  Matrix range     [1e-03, 7e+03]
+  Objective range  [6e-02, 7e+02]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [2e-01, 8e+02]
+Read LP format model from file C:\Optimization_zlc\slave_convex_handlers\solver_lp_format_holder\thread_0\script_0.lp
+Reading time = 0.03 seconds
+obj: 1264 rows, 1142 columns, 10018 nonzeros
+Optimize a model with 1264 rows, 1142 columns and 10018 nonzeros
+Variable types: 566 continuous, 576 integer (576 binary)
+Coefficient statistics:
+  Matrix range     [3e-03, 1e+04]
+  Objective range  [3e-01, 4e+03]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [2e-01, 8e+02]
+
+Gurobi 7.0.2 (win64) logging started 05/20/18 01:19:38
+
+Presolve removed 889 rows and 817 columns
+
+Gurobi 7.0.2 (win64) logging started 05/20/18 01:19:38
+
+Presolve time: 0.06s
+Presolved: 375 rows, 325 columns, 2542 nonzeros
+Variable types: 160 continuous, 165 integer (165 binary)
+
+Gurobi Optimizer version 7.0.2 build v7.0.2rc1 (win64)
+Copyright (c) 2017, Gurobi Optimization, Inc.
+
+
+Gurobi Optimizer version 7.0.2 build v7.0.2rc1 (win64)
+Copyright (c) 2017, Gurobi Optimization, Inc.
+
+
+Root relaxation: objective 1.710566e+03, 454 iterations, 0.01 seconds
+Read LP format model from file C:\Optimization_zlc\slave_convex_handlers\solver_lp_format_holder\thread_4\script_4.lp
+Reading time = 0.02 seconds
+obj: 1264 rows, 1142 columns, 10018 nonzeros
+Optimize a model with 1264 rows, 1142 columns and 10018 nonzeros
+Variable types: 566 continuous, 576 integer (576 binary)
+Coefficient statistics:
+  Matrix range     [3e-03, 2e+04]
+  Objective range  [6e-01, 8e+03]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [2e-01, 8e+02]
+Read LP format model from file C:\Optimization_zlc\slave_convex_handlers\solver_lp_format_holder\thread_20\script_20.lp
+Reading time = 0.02 seconds
+obj: 1264 rows, 1142 columns, 10018 nonzeros
+Optimize a model with 1264 rows, 1142 columns and 10018 nonzeros
+Variable types: 566 continuous, 576 integer (576 binary)
+Coefficient statistics:
+  Matrix range     [1e-03, 7e+03]
+  Objective range  [2e-01, 2e+03]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [2e-01, 8e+02]
+
+Gurobi 7.0.2 (win64) logging started 05/20/18 01:19:38
+
+
+Gurobi Optimizer version 7.0.2 build v7.0.2rc1 (win64)
+Copyright (c) 2017, Gurobi Optimization, Inc.
+
+
+Presolve removed 777 rows and 716 columns
+Presolve time: 0.01s
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+Read LP format model from file C:\Optimization_zlc\slave_convex_handlers\solver_lp_format_holder\thread_8\script_8.lp
+Presolve removed 795 rows and 735 columns
+
+Explored 0 nodes (0 simplex iterations) in 0.05 seconds
+Reading time = 0.02 seconds
+Thread count was 1 (of 8 available processors)
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+Solution count 0Presolve time: 0.09s
+
+Pool objective bound 0
+
+Model is infeasible or unbounded
+obj: 1264 rows, 1142 columns, 10018 nonzeros
+
+Optimize a model with 1264 rows, 1142 columns and 10018 nonzeros
+
+Variable types: 566 continuous, 576 integer (576 binary)
+     0     0 1710.56634    0   13          - 1710.56634      -     -    0s
+Unable to retrieve attribute 'X'
+
+Coefficient statistics:
+Presolved: 469 rows, 407 columns, 3278 nonzeros
+  Matrix range     [3e-03, 7e+03]
+  Objective range  [9e-02, 1e+03]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [2e-01, 8e+02]
+Variable types: 200 continuous, 207 integer (207 binary)
+Presolve removed 613 rows and 565 columns
+     0     0 1710.56634    0   14          - 1710.56634      -     -    0s
+Presolve time: 0.12s
+Presolve removed 859 rows and 799 columns
+
+Root relaxation: objective 1.461713e+03, 605 iterations, 0.01 seconds
+Presolved: 651 rows, 577 columns, 4535 nonzeros
+Presolve time: 0.07s
+Variable types: 284 continuous, 293 integer (293 binary)
+     0     0 1710.56634    0   14          - 1710.56634      -     -    0s
+Presolved: 405 rows, 343 columns, 2685 nonzeros
+Variable types: 168 continuous, 175 integer (175 binary)
+
+Root relaxation: objective 8.733459e+02, 234 iterations, 0.00 seconds
+     0     0 1710.56634    0   18          - 1710.56634      -     -    0s
+     0     0 1710.56634    0   17          - 1710.56634      -     -    0s
+
+Root relaxation: objective 3.236540e+02, 388 iterations, 0.01 seconds
+
+     0     0 1710.56634    0   20          - 1710.56634      -     -    0s
+
+Presolve removed 477 rows and 438 columns
+     0     0 1710.56634    0   20          - 1710.56634      -     -    0s
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+Presolve time: 0.12s
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+Presolved: 787 rows, 704 columns, 5874 nonzeros
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+     0     0 1461.71251    0   12          - 1461.71251      -     -    0s
+
+Gurobi 7.0.2 (win64) logging started 05/20/18 01:19:38
+
+
+
+Variable types: 346 continuous, 358 integer (358 binary)
+
+Gurobi Optimizer version 7.0.2 build v7.0.2rc1 (win64)
+     0     0  323.65404    0   11          -  323.65404      -     -    0s
+     0     0 1461.71251    0   15          - 1461.71251      -     -    0s
+     0     0  873.34592    0    8          -  873.34592      -     -    0s
+     0     0 1461.71251    0   14          - 1461.71251      -     -    0s
+Copyright (c) 2017, Gurobi Optimization, Inc.
+
+     0     0  340.89971    0   17          -  340.89971      -     -    0s
+     0     2 1710.56634    0   20          - 1710.56634      -     -    0s
+     0     0 1001.88776    0   18          - 1001.88776      -     -    0s
+
+Root relaxation: objective 5.115281e+02, 946 iterations, 0.04 seconds
+Read LP format model from file C:\Optimization_zlc\slave_convex_handlers\solver_lp_format_holder\thread_24\script_24.lp
+Reading time = 0.02 seconds
+     0     0 1461.71251    0   11          - 1461.71251      -     -    0s
+obj: 1264 rows, 1142 columns, 10018 nonzeros
+     0     0 1002.07586    0   29          - 1002.07586      -     -    0s
+Optimize a model with 1264 rows, 1142 columns and 10018 nonzeros
+Variable types: 566 continuous, 576 integer (576 binary)
+Coefficient statistics:
+  Matrix range     [1e-03, 7e+03]
+  Objective range  [3e-02, 5e+02]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [2e-01, 8e+02]
+     0     0  378.57704    0   22          -  378.57704      -     -    0s
+     0     0 1002.30151    0   29          - 1002.30151      -     -    0s
+     0     0 1461.71251    0   11          - 1461.71251      -     -    0s
+
+     0     0 1002.82103    0   26          - 1002.82103      -     -    0s
+     0     0 1461.71251    0   11          - 1461.71251      -     -    0s
+     0     0  378.59895    0   26          -  378.59895      -     -    0s
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+     0     0 1002.82103    0   25          - 1002.82103      -     -    0s
+     0     0 1461.71251    0   11          - 1461.71251      -     -    0s
+     0     0  378.60696    0   20          -  378.60696      -     -    0s
+
+H    0     0                    1127.6808036 1002.82103  11.1%     -    0s
+     0     0 1461.71251    0   11          - 1461.71251      -     -    0s
+     0     0  378.60722    0   24          -  378.60722      -     -    0s
+     0     0  511.52808    0   16          -  511.52808      -     -    0s
+     0     0 1461.71251    0   11          - 1461.71251      -     -    0s
+     0     0  378.60836    0   24          -  378.60836      -     -    0s
+H    0     0                     756.3661490  511.52808  32.4%     -    0s
+Presolve removed 672 rows and 613 columns
+*  146    63              33    2674.8470110 1710.56634  36.0%  19.6    0s
+Presolve time: 0.17s
+     0     0  519.56107    0   12  756.36615  519.56107  31.3%     -    0s
+     0     0  378.60836    0   23          -  378.60836      -     -    0s
+H    0     0                     511.5365336  378.60836  26.0%     -    0s
+Presolved: 592 rows, 529 columns, 4161 nonzeros
+     0     0 1002.82103    0    8 1127.68080 1002.82103  11.1%     -    0s
+     0     0  519.56107    0   11  756.36615  519.56107  31.3%     -    0s
+Variable types: 261 continuous, 268 integer (268 binary)
+*  283    62              35    1970.2348400 1710.56634  13.2%  20.3    0s
+     0     0 1002.82103    0   19 1127.68080 1002.82103  11.1%     -    0s
+
+Root relaxation: objective 1.841325e+02, 338 iterations, 0.01 seconds
+     0     0  555.72056    0   15  756.36615  555.72056  26.5%     -    0s
+     0     0 1002.82103    0   21 1127.68080 1002.82103  11.1%     -    0s
+H    0     0                     743.8059678  555.72056  25.3%     -    0s
+     0     2 1461.71251    0   11          - 1461.71251      -     -    0s
+*  428    27              28    1760.5419245 1710.90100  2.82%  22.0    0s
+
+     0     0 1002.82103    0   20 1127.68080 1002.82103  11.1%     -    0s
+     0     0  555.72056    0   13  743.80597  555.72056  25.3%     -    0s
+*  429    27              28    1733.6718509 1710.90100  1.31%  21.9    0s
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+     0     0 1002.82103    0   28 1127.68080 1002.82103  11.1%     -    0s
+     0     0 1013.46803    0   24 1127.68080 1013.46803  10.1%     -    0s
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+     0     0  555.72056    0   13  743.80597  555.72056  25.3%     -    0s
+     0     0  378.60836    0   10  511.53653  378.60836  26.0%     -    0s
+     0     0  378.60836    0   18  511.53653  378.60836  26.0%     -    0s
+
+     0     0 1013.46803    0   24 1127.68080 1013.46803  10.1%     -    0s
+     0     0  555.72056    0   17  743.80597  555.72056  25.3%     -    0s
+
+     0     0  378.60836    0   19  511.53653  378.60836  26.0%     -    0s
+     0     0  184.13251    0   11          -  184.13251      -     -    0s
+     0     0  479.09745    0   16  511.53653  479.09745  6.34%     -    1s
+     0     0 1013.46803    0   24 1127.68080 1013.46803  10.1%     -    0s
+     0     0  555.72056    0   17  743.80597  555.72056  25.3%     -    0s
+     0     0  479.09745    0   16  511.53653  479.09745  6.34%     -    1s
+     0     0  184.13251    0   17          -  184.13251      -     -    0s
+  Gomory: 9
+     0     0  479.20177    0   15  511.53653  479.20177  6.32%     -    1s
+     0     0 1013.46803    0   24 1127.68080 1013.46803  10.1%     -    1s
+     0     0  479.20177    0   15  511.53653  479.20177  6.32%     -    1s
+     0     0  479.22177    0   15  511.53653  479.22177  6.32%     -    1s
+  Cover: 16
+  Implied bound: 3
+     0     0  213.41656    0   15          -  213.41656      -     -    0s
+     0     0  479.27500    0   13  511.53653  479.27500  6.31%     -    1s
+     0     0 1013.46803    0   24 1127.68080 1013.46803  10.1%     -    1s
+  MIR: 4
+     0     0  479.29509    0   15  511.53653  479.29509  6.30%     -    1s
+     0     2  555.72056    0   17  743.80597  555.72056  25.3%     -    1s
+  Flow cover: 2
+     0     0  219.27598    0   12          -  219.27598      -     -    0s
+  GUB cover: 7
+     0     0  479.29509    0   17  511.53653  479.29509  6.30%     -    1s
+  Inf proof: 4
+*  217    16              32    1561.8855879 1467.47565  6.04%  23.3    1s
+
+Explored 471 nodes (12142 simplex iterations) in 1.26 seconds
+     0     2 1013.46803    0   22 1127.68080 1013.46803  10.1%     -    1s
+     0     0  223.46953    0   13          -  223.46953      -     -    0s
+Thread count was 8 (of 8 available processors)
+     0     0  479.41765    0   15  511.53653  479.41765  6.28%     -    1s
+1733.67      0     0  224.95750    0   20          -  224.95750      -     -    0s
+*   21    12               6     706.2126185  609.67257  13.7%  55.7    1s
+1760.54 1970.23      0     0  224.95750    0   21          -  224.95750      -     -    0s
+2674.85      0     0  479.55227    0   15  511.53653  479.55227  6.25%     -    1s
+
+*   23     9               7     668.6192692  609.67257  8.82%  51.5    1s
+     0     0  226.63873    0    8          -  226.63873      -     -    0s
+Pool objective bound 1733.67
+
+
+Cutting planes:
+     0     0  226.65577    0   10          -  226.65577      -     -    0s
+     0     0  479.60753    0   14  511.53653  479.60753  6.24%     -    1s
+Optimal solution found (tolerance 1.00e-04)
+  Gomory: 3
+*   46    11               8     631.0259198  609.67257  3.38%  33.1    1s
+Best objective 1.733671850873e+03, best bound 1.733671850873e+03, gap 0.0000%
+  Cover: 5
+     0     0  479.60753    0   14  511.53653  479.60753  6.24%     -    1s
+     0     0  227.56342    0   13          -  227.56342      -     -    0s
+  Implied bound: 2
+  Clique: 1
+
+*   59     5               7     609.6725667  609.67257  0.00%  27.3    1s
+  MIR: 1
+Wrote result file 'C:\Optimization_zlc\slave_convex_handlers\solver_lp_format_holder\thread_28\out.sol'
+  Flow cover: 2
+
+     0     0  227.82607    0   25          -  227.82607      -     -    0s
+  GUB cover: 2
+
+
+  Mod-K: 1
+Cutting planes:
+
+Explored 302 nodes (6994 simplex iterations) in 1.32 seconds
+  Gomory: 3
+Cutting planes:
+  Cover: 6
+Thread count was 8 (of 8 available processors)
+  Learned: 2
+
+Solution count 1:   Implied bound: 1
+  Gomory: 2
+  MIR: 4
+1561.89   Implied bound: 1
+  Flow cover: 6
+
+  MIR: 9
+
+Explored 68 nodes (3607 simplex iterations) in 1.23 seconds
+Pool objective bound 1561.89
+  Flow cover: 4
+Thread count was 8 (of 8 available processors)
+
+  GUB cover: 1
+
+Solution count 6: Optimal solution found (tolerance 1.00e-04)
+     0     0  227.82607    0   24          -  227.82607      -     -    0s
+
+Explored 83 nodes (4311 simplex iterations) in 1.28 seconds
+609.673 Best objective 1.561885587891e+03, best bound 1.561885587891e+03, gap 0.0000%
+631.026 Thread count was 8 (of 8 available processors)
+668.619 
+Solution count 1: ... 756.3661127.68 
+
+
+Wrote result file 'C:\Optimization_zlc\slave_convex_handlers\solver_lp_format_holder\thread_0\out.sol'
+Pool objective bound 609.673
+Pool objective bound 1127.68
+
+
+
+Optimal solution found (tolerance 1.00e-04)
+Optimal solution found (tolerance 1.00e-04)
+Best objective 6.096725667206e+02, best bound 6.096725667206e+02, gap 0.0000%
+Best objective 1.127680803632e+03, best bound 1.127680803632e+03, gap 0.0000%
+     0     0  229.24452    0   13          -  229.24452      -     -    0s
+
+
+Wrote result file 'C:\Optimization_zlc\slave_convex_handlers\solver_lp_format_holder\thread_8\out.sol'
+Wrote result file 'C:\Optimization_zlc\slave_convex_handlers\solver_lp_format_holder\thread_20\out.sol'
+
+     0     0  229.24452    0   20          -  229.24452      -     -    0s
+
+     0     0  229.25295    0   20          -  229.25295      -     -    0s
+     0     0  229.25295    0   24          -  229.25295      -     -    0s
+     0     0  479.60753    0    4  511.53653  479.60753  6.24%     -    1s
+     0     0  229.72054    0   15          -  229.72054      -     -    0s
+     0     0  479.60753    0   16  511.53653  479.60753  6.24%     -    1s
+     0     0  229.73837    0   17          -  229.73837      -     -    1s
+     0     0  479.60753    0   12  511.53653  479.60753  6.24%     -    1s
+H    0     0                     497.0006160  479.60753  3.50%     -    1s
+     0     0  229.95430    0   10          -  229.95430      -     -    1s
+     0     0  479.60753    0   13  497.00062  479.60753  3.50%     -    1s
+     0     0  229.95430    0   11          -  229.95430      -     -    1s
+     0     0  479.60753    0   13  497.00062  479.60753  3.50%     -    1s
+     0     0  479.63012    0   14  497.00062  479.63012  3.50%     -    1s
+     0     0  230.26284    0   15          -  230.26284      -     -    1s
+     0     0  479.82909    0   13  497.00062  479.82909  3.46%     -    1s
+     0     0  230.26284    0   15          -  230.26284      -     -    1s
+     0     0  479.91368    0   10  497.00062  479.91368  3.44%     -    1s
+     0     0  230.26284    0   16          -  230.26284      -     -    1s
+     0     0  479.91368    0   12  497.00062  479.91368  3.44%     -    1s
+     0     0  479.91368    0   12  497.00062  479.91368  3.44%     -    1s
+H    0     0                     496.2264039  479.91368  3.29%     -    1s
+     0     0  234.28821    0   14          -  234.28821      -     -    1s
+     0     0  480.01745    0   12  496.22640  480.01745  3.27%     -    1s
+     0     0  482.04379    0   11  496.22640  482.04379  2.86%     -    1s
+     0     0  234.28821    0   14          -  234.28821      -     -    1s
+     0     0  482.12949    0   10  496.22640  482.12949  2.84%     -    1s
+     0     0  482.12949    0   10  496.22640  482.12949  2.84%     -    1s
+H    0     0                     496.2264039  482.12949  2.84%     -    1s
+     0     0  482.12949    0    8  496.22640  482.12949  2.84%     -    2s
+     0     0  482.12949    0    9  496.22640  482.12949  2.84%     -    2s
+     0     2  234.28821    0   14          -  234.28821      -     -    1s
+     0     0  482.12949    0   11  496.22640  482.12949  2.84%     -    2s
+     0     0  485.72163    0   13  496.22640  485.72163  2.12%     -    2s
+H    0     0                     495.2741052  485.72163  1.93%     -    2s
+     0     0  485.81818    0   15  495.27411  485.81818  1.91%     -    2s
+     0     0  485.91389    0   13  495.27411  485.91389  1.89%     -    2s
+     0     0  485.91389    0   13  495.27411  485.91389  1.89%     -    2s
+     0     0  485.92004    0   18  495.27411  485.92004  1.89%     -    2s
+     0     0  485.92004    0   18  495.27411  485.92004  1.89%     -    2s
+     0     2  485.92004    0   18  495.27411  485.92004  1.89%     -    2s
+H   35    15                     495.2309697  493.78845  0.29%   5.9    2s
+
+Cutting planes:
+  Gomory: 3
+  Cover: 2
+  MIR: 5
+  GUB cover: 1
+
+Explored 46 nodes (3640 simplex iterations) in 2.87 seconds
+Thread count was 8 (of 8 available processors)
+
+Solution count 6: 495.231 495.274 496.226 ... 511.537
+Pool objective bound 495.231
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 4.952309697089e+02, best bound 4.952309697089e+02, gap 0.0000%
+
+
+Cutting planes:
+Wrote result file 'C:\Optimization_zlc\slave_convex_handlers\solver_lp_format_holder\thread_12\out.sol'
+  Gomory: 2
+
+  Cover: 3
+  Implied bound: 6
+  Clique: 1
+  MIR: 2
+  Flow cover: 4
+  GUB cover: 3
+
+Explored 544 nodes (16976 simplex iterations) in 2.57 seconds
+Thread count was 8 (of 8 available processors)
+
+Solution count 0
+Pool objective bound 1e+100
+
+Model is infeasible or unbounded
+Best objective -, best bound -, gap -
+
+Unable to retrieve attribute 'X'
+
+
+Gurobi 7.0.2 (win64) logging started 05/20/18 01:20:01
+
+
+Gurobi Optimizer version 7.0.2 build v7.0.2rc1 (win64)
+Copyright (c) 2017, Gurobi Optimization, Inc.
+
+Read LP format model from file C:\Optimization_zlc\slave_convex_handlers\solver_lp_format_holder\thread_17\script_17.lp
+Reading time = 0.03 seconds
+obj: 1264 rows, 1142 columns, 10018 nonzeros
+Optimize a model with 1264 rows, 1142 columns and 10018 nonzeros
+Variable types: 566 continuous, 576 integer (576 binary)
+Coefficient statistics:
+  Matrix range     [8e-04, 7e+03]
+  Objective range  [1e-01, 2e+03]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [2e-01, 8e+02]
+Presolve removed 905 rows and 835 columns
+Presolve time: 0.05s
+Presolved: 359 rows, 307 columns, 2369 nonzeros
+Variable types: 151 continuous, 156 integer (156 binary)
+
+Root relaxation: objective 7.878576e+02, 211 iterations, 0.00 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0  787.85757    0    5          -  787.85757      -     -    0s
+
+Gurobi 7.0.2 (win64) logging started 05/20/18 01:20:01
+
+
+Gurobi Optimizer version 7.0.2 build v7.0.2rc1 (win64)
+Copyright (c) 2017, Gurobi Optimization, Inc.
+
+     0     0  858.11144    0   18          -  858.11144      -     -    0s
+Read LP format model from file C:\Optimization_zlc\slave_convex_handlers\solver_lp_format_holder\thread_5\script_5.lp
+     0     0  867.65746    0   22          -  867.65746      -     -    0s
+Reading time = 0.04 seconds
+     0     0  868.24112    0   24          -  868.24112      -     -    0s
+obj: 1264 rows, 1142 columns, 10018 nonzeros
+H    0     0                    1160.0392160  868.24112  25.2%     -    0s
+Optimize a model with 1264 rows, 1142 columns and 10018 nonzeros
+     0     0  868.27479    0   25 1160.03922  868.27479  25.2%     -    0s
+Variable types: 566 continuous, 576 integer (576 binary)
+     0     0  868.44262    0   27 1160.03922  868.44262  25.1%     -    0s
+Coefficient statistics:
+     0     0  868.44262    0   23 1160.03922  868.44262  25.1%     -    0s
+  Matrix range     [2e-03, 8e+03]
+  Objective range  [3e-01, 4e+03]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [2e-01, 8e+02]
+     0     2  868.44262    0   23 1160.03922  868.44262  25.1%     -    0s
+Presolve removed 883 rows and 811 columns
+Presolve time: 0.06s
+Presolved: 381 rows, 331 columns, 2552 nonzeros
+Variable types: 163 continuous, 168 integer (168 binary)
+
+Root relaxation: objective 1.043961e+03, 257 iterations, 0.01 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0 1043.96080    0   11          - 1043.96080      -     -    0s
+H   63     3                    1044.0847574 1012.49916  3.03%  48.3    0s
+     0     0 1067.34499    0   15          - 1067.34499      -     -    0s
+     0     0 1067.34499    0   13          - 1067.34499      -     -    0s
+     0     0 1157.54870    0   12          - 1157.54870      -     -    0s
+     0     0 1159.51696    0    9          - 1159.51696      -     -    0s
+     0     0 1200.44120    0   15          - 1200.44120      -     -    0s
+     0     0 1202.42708    0   16          - 1202.42708      -     -    0s
+     0     0 1226.35152    0   12          - 1226.35152      -     -    0s
+     0     0 1229.00183    0   22          - 1229.00183      -     -    0s
+     0     0 1233.41855    0   20          - 1233.41855      -     -    0s
+     0     0 1234.10172    0   20          - 1234.10172      -     -    0s
+*   99    11              25    1027.0559922 1015.56158  1.12%  37.5    0s
+     0     0 1240.61844    0   25          - 1240.61844      -     -    0s
+     0     0 1241.72338    0   29          - 1241.72338      -     -    0s
+*  138     7              29    1015.5615757 1015.56158  0.00%  30.0    0s
+     0     0 1243.25814    0   24          - 1243.25814      -     -    0s
+
+Cutting planes:
+     0     0 1243.58336    0   20          - 1243.58336      -     -    0s
+  Gomory: 1
+  Cover: 5
+H    0     0                    1979.5348895 1243.58336  37.2%     -    0s
+  Implied bound: 4
+  MIR: 2
+     0     0 1273.90292    0   19 1979.53489 1273.90292  35.6%     -    0s
+  Flow cover: 4
+  GUB cover: 5
+     0     0 1281.66071    0   27 1979.53489 1281.66071  35.3%     -    0s
+
+Explored 151 nodes (5137 simplex iterations) in 0.94 seconds
+     0     0 1281.94432    0   27 1979.53489 1281.94432  35.2%     -    0s
+Thread count was 8 (of 8 available processors)
+
+Solution count 4:      0     0 1281.94432    0   27 1979.53489 1281.94432  35.2%     -    0s
+1015.56 1027.06      0     0 1282.02243    0   26 1979.53489 1282.02243  35.2%     -    0s
+1044.08 1160.04 
+     0     0 1282.02243    0   26 1979.53489 1282.02243  35.2%     -    0s
+Pool objective bound 1015.56
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 1.015561575741e+03, best bound 1.015561575741e+03, gap 0.0000%
+     0     2 1282.02243    0   25 1979.53489 1282.02243  35.2%     -    0s
+
+Wrote result file 'C:\Optimization_zlc\slave_convex_handlers\solver_lp_format_holder\thread_17\out.sol'
+
+*   31    12               9    1310.3362984 1309.69785  0.05%  32.1    0s
+
+Cutting planes:
+  Gomory: 3
+  Cover: 9
+  MIR: 5
+  Flow cover: 5
+  GUB cover: 2
+
+Explored 44 nodes (2433 simplex iterations) in 0.71 seconds
+Thread count was 8 (of 8 available processors)
+
+Solution count 2: 1310.34 1979.53 
+Pool objective bound 1310.34
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 1.310336298425e+03, best bound 1.310336298425e+03, gap 0.0000%
+
+Wrote result file 'C:\Optimization_zlc\slave_convex_handlers\solver_lp_format_holder\thread_5\out.sol'
+
+
+Gurobi 7.0.2 (win64) logging started 05/20/18 01:20:03
+
+
+Gurobi Optimizer version 7.0.2 build v7.0.2rc1 (win64)
+Copyright (c) 2017, Gurobi Optimization, Inc.
+
+Read LP format model from file C:\Optimization_zlc\slave_convex_handlers\solver_lp_format_holder\thread_29\script_29.lp
+Reading time = 0.03 seconds
+obj: 1264 rows, 1142 columns, 10018 nonzeros
+Optimize a model with 1264 rows, 1142 columns and 10018 nonzeros
+Variable types: 566 continuous, 576 integer (576 binary)
+Coefficient statistics:
+  Matrix range     [2e-03, 7e+03]
+  Objective range  [1e-01, 2e+03]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [2e-01, 8e+02]
+
+Gurobi 7.0.2 (win64) logging started 05/20/18 01:20:04
+
+
+Gurobi Optimizer version 7.0.2 build v7.0.2rc1 (win64)
+Copyright (c) 2017, Gurobi Optimization, Inc.
+
+Presolve removed 619 rows and 559 columns
+Presolve time: 0.13s
+Presolved: 645 rows, 583 columns, 4786 nonzeros
+Variable types: 287 continuous, 296 integer (296 binary)
+Read LP format model from file C:\Optimization_zlc\slave_convex_handlers\solver_lp_format_holder\thread_9\script_9.lp
+Reading time = 0.03 seconds
+obj: 1264 rows, 1142 columns, 10018 nonzeros
+Optimize a model with 1264 rows, 1142 columns and 10018 nonzeros
+Variable types: 566 continuous, 576 integer (576 binary)
+Coefficient statistics:
+  Matrix range     [1e-03, 7e+03]
+  Objective range  [6e-02, 7e+02]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [2e-01, 8e+02]
+
+Root relaxation: objective 5.950105e+02, 399 iterations, 0.01 seconds
+
+Presolve removed 602 rows and 555 columns
+Presolve time: 0.12s
+Presolved: 662 rows, 587 columns, 4632 nonzeros
+Variable types: 289 continuous, 298 integer (298 binary)
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+
+Root relaxation: objective 3.154704e+02, 380 iterations, 0.01 seconds
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+
+     0     0  595.01049    0   13          -  595.01049      -     -    0s
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+     0     0  595.01049    0   13          -  595.01049      -     -    0s
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0  315.47044    0    8          -  315.47044      -     -    0s
+     0     0  595.01049    0   20          -  595.01049      -     -    0s
+     0     0  595.01049    0   20          -  595.01049      -     -    0s
+     0     0  459.96607    0   15          -  459.96607      -     -    0s
+     0     0  475.48423    0   15          -  475.48423      -     -    0s
+     0     0  475.70845    0   18          -  475.70845      -     -    0s
+
+Gurobi 7.0.2 (win64) logging started 05/20/18 01:20:04
+
+     0     0  595.01049    0    9          -  595.01049      -     -    0s
+
+Gurobi Optimizer version 7.0.2 build v7.0.2rc1 (win64)
+Copyright (c) 2017, Gurobi Optimization, Inc.
+
+     0     0  482.05617    0   19          -  482.05617      -     -    0s
+
+Gurobi 7.0.2 (win64) logging started 05/20/18 01:20:04
+
+H    0     0                     792.1661825  595.01049  24.9%     -    0s
+
+Gurobi Optimizer version 7.0.2 build v7.0.2rc1 (win64)
+Copyright (c) 2017, Gurobi Optimization, Inc.
+
+     0     0  482.05617    0   19          -  482.05617      -     -    0s
+H    0     0                     511.1593275  482.05617  5.69%     -    0s
+Read LP format model from file C:\Optimization_zlc\slave_convex_handlers\solver_lp_format_holder\thread_1\script_1.lp
+     0     0  595.01049    0   11  792.16618  595.01049  24.9%     -    0s
+Read LP format model from file C:\Optimization_zlc\slave_convex_handlers\solver_lp_format_holder\thread_25\script_25.lp
+Reading time = 0.03 seconds
+obj: 1264 rows, 1142 columns, 10018 nonzeros
+Optimize a model with 1264 rows, 1142 columns and 10018 nonzeros
+Variable types: 566 continuous, 576 integer (576 binary)
+Coefficient statistics:
+  Matrix range     [4e-03, 2e+04]
+  Objective range  [6e-01, 8e+03]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [2e-01, 8e+02]
+Reading time = 0.04 seconds
+obj: 1264 rows, 1142 columns, 10018 nonzeros
+     0     0  595.01049    0   11  792.16618  595.01049  24.9%     -    0s
+Optimize a model with 1264 rows, 1142 columns and 10018 nonzeros
+     0     0  482.06344    0   18  511.15933  482.06344  5.69%     -    0s
+Variable types: 566 continuous, 576 integer (576 binary)
+Coefficient statistics:
+  Matrix range     [2e-03, 1e+04]
+  Objective range  [5e-01, 6e+03]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [2e-01, 8e+02]
+Presolve removed 1095 rows and 995 columns
+Presolve time: 0.04s
+     0     0  482.06344    0    9  511.15933  482.06344  5.69%     -    0s
+Presolve removed 985 rows and 909 columns
+     0     0  482.06344    0   14  511.15933  482.06344  5.69%     -    0s
+Presolved: 169 rows, 147 columns, 974 nonzeros
+     0     0  595.01049    0   12  792.16618  595.01049  24.9%     -    0s
+Presolve time: 0.04s
+Variable types: 73 continuous, 74 integer (74 binary)
+H    0     0                     502.5284457  482.06344  4.07%     -    0s
+Presolved: 279 rows, 233 columns, 1721 nonzeros
+     0     0  482.06344    0   15  502.52845  482.06344  4.07%     -    0s
+     0     0  595.01049    0   16  792.16618  595.01049  24.9%     -    0s
+     0     0  482.08116    0   17  502.52845  482.08116  4.07%     -    0s
+Variable types: 116 continuous, 117 integer (117 binary)
+     0     0  482.18366    0   20  502.52845  482.18366  4.05%     -    0s
+Warning: switch to quad precision
+     0     0  482.18366    0   14  502.52845  482.18366  4.05%     -    0s
+
+Gurobi 7.0.2 (win64) logging started 05/20/18 01:20:04
+
+
+Gurobi Optimizer version 7.0.2 build v7.0.2rc1 (win64)
+Copyright (c) 2017, Gurobi Optimization, Inc.
+
+     0     0  482.18366    0   18  502.52845  482.18366  4.05%     -    0s
+
+Root relaxation: objective 1.773467e+03, 160 iterations, 0.00 seconds
+     0     0  595.01049    0   12  792.16618  595.01049  24.9%     -    0s
+H    0     0                     595.9188444  595.01049  0.15%     -    0s
+
+
+H    0     0                     595.0104862  595.01049  0.00%     -    0s
+Read LP format model from file C:\Optimization_zlc\slave_convex_handlers\solver_lp_format_holder\thread_21\script_21.lp
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+
+Reading time = 0.03 seconds
+obj: 1264 rows, 1142 columns, 10018 nonzeros
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+     0     0 1773.46743    0    8          - 1773.46743      -     -    0s
+
+     0     0 infeasible    0               - infeasible      -     -    0s
+
+Explored 0 nodes (183 simplex iterations) in 0.26 seconds
+Thread count was 8 (of 8 available processors)
+
+Solution count 0
+Pool objective bound 1e+100
+
+Model is infeasible or unbounded
+Best objective -, best bound -, gap -
+
+Unable to retrieve attribute 'X'
+Cutting planes:
+Optimize a model with 1264 rows, 1142 columns and 10018 nonzeros
+
+     0     0 1773.46743    0    9          - 1773.46743      -     -    0s
+     0     0 1773.46743    0    8          - 1773.46743      -     -    0s
+  Gomory: 5
+Variable types: 566 continuous, 576 integer (576 binary)
+     0     0  482.29124    0   15  502.52845  482.29124  4.03%     -    0s
+Coefficient statistics:
+     0     0 1773.46743    0    7          - 1773.46743      -     -    0s
+     0     0 1773.46743    0    6          - 1773.46743      -     -    0s
+  Cover: 7
+  Matrix range     [3e-03, 1e+04]
+        - 1773.46743      -     -    0s
+  Implied bound: 3
+  Objective range  [3e-01, 4e+03]
+  MIR: 5
+  Bounds range     [1e+00, 1e+00]
+H    0     0                    1775.1684890 1773.46743  0.10%     -    0s
+  RHS range        [2e-01, 8e+02]
+  Flow cover: 4
+     0     0  482.52482    0   15  502.52845  482.52482  3.98%     -    0s
+  GUB cover: 2
+     0     0 1773.46743    0    7 1775.16849 1773.46743  0.10%     -    0s
+
+Explored 0 nodes (1521 simplex iterations) in 0.91 seconds
+     0     0  482.76736    0   15  502.52845  482.76736  3.93%     -    0s
+Thread count was 8 (of 8 available processors)
+
+Solution count 3: 595.01      0     0  482.93775    0   15  502.52845  482.93775  3.90%     -    0s
+595.919 792.166      0     0  483.06136    0   13  502.52845  483.06136  3.87%     -    0s
+     0     0 1773.46743    0    3 1775.16849 1773.46743  0.10%     -    0s
+
+Pool objective bound 595.01
+     0     0 1773.46743    0    6 1775.16849 1773.46743  0.10%     -    0s
+
+     0     0     cutoff    0      1775.16849 1775.16849  0.00%     -    0s
+
+Optimal solution found (tolerance 1.00e-04)
+Cutting planes:
+Presolve removed 795 rows and 735 columns
+Best objective 5.950104862159e+02, best bound 5.950104862159e+02, gap 0.0000%
+  Gomory: 1
+Presolve time: 0.09s
+  Cover: 1
+
+Presolved: 469 rows, 407 columns, 3290 nonzeros
+  Flow cover: 1
+Wrote result file 'C:\Optimization_zlc\slave_convex_handlers\solver_lp_format_holder\thread_29\out.sol'
+Variable types: 200 continuous, 207 integer (207 binary)
+     0     2  483.06136    0   13  502.52845  483.06136  3.87%     -    0s
+
+
+Explored 0 nodes (491 simplex iterations) in 0.38 seconds
+Thread count was 8 (of 8 available processors)
+
+Solution count 1: 1775.17 
+Pool objective bound 1775.17
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 1.775168489029e+03, best bound 1.775168489029e+03, gap 0.0000%
+
+Wrote result file 'C:\Optimization_zlc\slave_convex_handlers\solver_lp_format_holder\thread_1\out.sol'
+
+
+Root relaxation: objective 1.626647e+03, 551 iterations, 0.01 seconds
+*   25    18               8     494.0366641  492.68877  0.27%  10.2    0s
+
+
+Cutting planes:
+  Gomory: 3
+  Cover: 3
+  Implied bound: 1
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+  MIR: 1
+  Flow cover: 1
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+Explored 43 nodes (1539 simplex iterations) in 1.02 seconds
+Thread count was 8 (of 8 available processors)
+
+Solution count 3: 494.037 
+502.528 511.159 
+     0     0 1626.64713    0   13          - 1626.64713      -     -    0s
+Pool objective bound 494.037
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 4.940366641440e+02, best bound 4.940366641440e+02, gap 0.0000%
+     0     0 1626.64713    0   13          - 1626.64713      -     -    0s
+
+     0     0 1626.64713    0   12          - 1626.64713      -     -    0s
+Wrote result file 'C:\Optimization_zlc\slave_convex_handlers\solver_lp_format_holder\thread_9\out.sol'
+     0     0 1626.64713    0   14          - 1626.64713      -     -    0s
+
+     0     0 1626.64713    0   15          - 1626.64713      -     -    0s
+     0     0 1626.64713    0   13          - 1626.64713      -     -    0s
+     0     0 1626.64713    0   13          - 1626.64713      -     -    0s
+     0     2 1626.64713    0   13          - 1626.64713      -     -    0s
+*  415    94              38    1695.5895426 1626.64713  4.07%  18.7    1s
+*  796    16              34    1683.9421859 1634.42096  2.94%  15.0    1s
+*  802    15              34    1670.7378323 1634.42096  2.17%  15.0    1s
+
+Gurobi 7.0.2 (win64) logging started 05/20/18 01:20:06
+
+
+Gurobi Optimizer version 7.0.2 build v7.0.2rc1 (win64)
+*  860     5              36    1668.7378054 1637.30919  1.88%  14.8    1s
+Copyright (c) 2017, Gurobi Optimization, Inc.
+
+Read LP format model from file C:\Optimization_zlc\slave_convex_handlers\solver_lp_format_holder\thread_13\script_13.lp
+
+Reading time = 0.03 seconds
+Cutting planes:
+  Gomory: 4
+obj: 1264 rows, 1142 columns, 10018 nonzeros
+  Cover: 23
+Optimize a model with 1264 rows, 1142 columns and 10018 nonzeros
+  Implied bound: 1
+Variable types: 566 continuous, 576 integer (576 binary)
+Coefficient statistics:
+  MIR: 4
+  Matrix range     [4e-03, 2e+04]
+  Flow cover: 1
+  Objective range  [5e-01, 8e+03]
+  GUB cover: 7
+  Bounds range     [1e+00, 1e+00]
+
+Explored 922 nodes (14834 simplex iterations) in 1.47 seconds
+Thread count was 8 (of 8 available processors)
+  RHS range        [2e-01, 8e+02]
+
+Solution count 4: 1668.74 1670.74 1683.94 Presolve removed 1033 rows and 949 columns
+1695.59 Presolve time: 0.04s
+
+Presolved: 231 rows, 193 columns, 1388 nonzeros
+Pool objective bound 1668.74
+
+Variable types: 95 continuous, 98 integer (98 binary)
+Optimal solution found (tolerance 1.00e-04)
+Best objective 1.668737805376e+03, best bound 1.668737805376e+03, gap 0.0000%
+
+Root relaxation: objective 3.465358e+03, 372 iterations, 0.01 seconds
+
+Wrote result file 'C:\Optimization_zlc\slave_convex_handlers\solver_lp_format_holder\thread_21\out.sol'
+
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0 3465.35778    0   10          - 3465.35778      -     -    0s
+     0     0 3465.35778    0    9          - 3465.35778      -     -    0s
+     0     0 3465.35778    0    9          - 3465.35778      -     -    0s
+     0     0 3465.35778    0    6          - 3465.35778      -     -    0s
+     0     0 3465.35778    0    4          - 3465.35778      -     -    0s
+     0     0 3465.35778    0    7          - 3465.35778      -     -    0s
+     0     0 3465.35778    0   11          - 3465.35778      -     -    0s
+     0     0 3465.35778    0   13          - 3465.35778      -     -    0s
+     0     0 3465.35778    0   11          - 3465.35778      -     -    0s
+H    0     0                    3471.0938959 3465.35778  0.17%     -    0s
+H    0     0                    3465.3577805 3465.35778  0.00%     -    0s
+
+Cutting planes:
+  Gomory: 3
+  Cover: 1
+  MIR: 7
+  Flow cover: 3
+  GUB cover: 5
+
+Explored 0 nodes (822 simplex iterations) in 1.49 seconds
+Thread count was 8 (of 8 available processors)
+
+Solution count 2: 3465.36 3471.09 
+Pool objective bound 3465.36
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 3.465357780498e+03, best bound 3.465357780498e+03, gap 0.0000%
+
+Wrote result file 'C:\Optimization_zlc\slave_convex_handlers\solver_lp_format_holder\thread_13\out.sol'
+
+
+Gurobi 7.0.2 (win64) logging started 05/20/18 01:20:41
+
+
+Gurobi Optimizer version 7.0.2 build v7.0.2rc1 (win64)
+Copyright (c) 2017, Gurobi Optimization, Inc.
+
+Read LP format model from file C:\Optimization_zlc\slave_convex_handlers\solver_lp_format_holder\thread_18\script_18.lp
+Reading time = 0.18 seconds
+
+Gurobi 7.0.2 (win64) logging started 05/20/18 01:20:42
+
+
+Gurobi Optimizer version 7.0.2 build v7.0.2rc1 (win64)
+obj: 1264 rows, 1142 columns, 10018 nonzeros
+Copyright (c) 2017, Gurobi Optimization, Inc.
+
+
+Gurobi 7.0.2 (win64) logging started 05/20/18 01:20:42
+
+Optimize a model with 1264 rows, 1142 columns and 10018 nonzeros
+Read LP format model from file C:\Optimization_zlc\slave_convex_handlers\solver_lp_format_holder\thread_6\script_6.lp
+
+Gurobi Optimizer version 7.0.2 build v7.0.2rc1 (win64)
+Reading time = 0.12 seconds
+Variable types: 566 continuous, 576 integer (576 binary)
+Copyright (c) 2017, Gurobi Optimization, Inc.
+
+obj: 1264 rows, 1142 columns, 10018 nonzeros
+Coefficient statistics:
+Optimize a model with 1264 rows, 1142 columns and 10018 nonzeros
+Read LP format model from file C:\Optimization_zlc\slave_convex_handlers\solver_lp_format_holder\thread_26\script_26.lp
+Reading time = 0.16 seconds
+  Matrix range     [1e-03, 7e+03]
+Variable types: 566 continuous, 576 integer (576 binary)
+obj: 1264 rows, 1142 columns, 10018 nonzeros
+Coefficient statistics:
+  Objective range  [1e-01, 1e+03]
+Optimize a model with 1264 rows, 1142 columns and 10018 nonzeros
+  Matrix range     [4e-03, 2e+04]
+  Bounds range     [1e+00, 1e+00]
+Variable types: 566 continuous, 576 integer (576 binary)
+  Objective range  [5e-01, 7e+03]
+Coefficient statistics:
+  RHS range        [2e-01, 8e+02]
+  Bounds range     [1e+00, 1e+00]
+  Matrix range     [6e-04, 7e+03]
+  RHS range        [2e-01, 8e+02]
+  Objective range  [5e-02, 5e+02]
+Presolve removed 1009 rows and 925 columns
+  Bounds range     [1e+00, 1e+00]
+Presolve removed 649 rows and 589 columns
+Presolve time: 0.08s
+  RHS range        [2e-01, 8e+02]
+Presolved: 255 rows, 217 columns, 1614 nonzeros
+Presolve time: 0.26s
+Variable types: 107 continuous, 110 integer (110 binary)
+Presolved: 615 rows, 553 columns, 4507 nonzeros
+
+Root relaxation: objective 3.215926e+03, 526 iterations, 0.01 seconds
+Presolve removed 881 rows and 795 columns
+Variable types: 273 continuous, 280 integer (280 binary)
+Presolve time: 0.16s
+
+Root relaxation: objective 4.291248e+02, 403 iterations, 0.01 seconds
+
+Presolved: 383 rows, 347 columns, 2619 nonzeros
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+
+Variable types: 172 continuous, 175 integer (175 binary)
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+Root relaxation: objective 3.940010e+02, 308 iterations, 0.01 seconds
+
+
+     0     0  429.12483    0    8          -  429.12483      -     -    2s
+     0     0 3215.92629    0   13          - 3215.92629      -     -    1s
+
+     0     0  459.05455    0   16          -  459.05455      -     -    2s
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+     0     0 3215.92629    0    7          - 3215.92629      -     -    1s
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+     0     0  459.05455    0   14          -  459.05455      -     -    2s
+     0     0 3215.92629    0    7          - 3215.92629      -     -    2s
+
+Gurobi 7.0.2 (win64) logging started 05/20/18 01:20:44
+
+
+
+Gurobi Optimizer version 7.0.2 build v7.0.2rc1 (win64)
+     0     0 3215.92629    0   11          - 3215.92629      -     -    2s
+     0     0  459.68758    0   16          -  459.68758      -     -    2s
+     0     0  394.00095    0    4          -  394.00095      -     -    1s
+Copyright (c) 2017, Gurobi Optimization, Inc.
+
+     0     0 3215.92629    0    9          - 3215.92629      -     -    2s
+     0     0  471.40910    0   16          -  471.40910      -     -    2s
+     0     0  394.00095    0   13          -  394.00095      -     -    2s
+Read LP format model from file C:\Optimization_zlc\slave_convex_handlers\solver_lp_format_holder\thread_30\script_30.lp
+H    0     0                    3221.0068282 3215.92629  0.16%     -    2s
+     0     0  471.40910    0   18          -  471.40910      -     -    2s
+     0     0  394.00095    0   14          -  394.00095      -     -    2s
+Reading time = 0.10 seconds
+     0     0 3215.92629    0    5 3221.00683 3215.92629  0.16%     -    2s
+     0     0  394.00095    0    7          -  394.00095      -     -    2s
+     0     0  471.40910    0   24          -  471.40910      -     -    2s
+obj: 1264 rows, 1142 columns, 10018 nonzeros
+H    0     0                    3215.9262875 3215.92629  0.00%     -    2s
+Optimize a model with 1264 rows, 1142 columns and 10018 nonzeros
+
+     0     0  394.00095    0    6          -  394.00095      -     -    2s
+     0     0  471.40910    0   19          -  471.40910      -     -    2s
+
+Gurobi 7.0.2 (win64) logging started 05/20/18 01:20:45
+
+Variable types: 566 continuous, 576 integer (576 binary)
+Cutting planes:
+H    0     0                     514.8487116  394.00095  23.5%     -    2s
+
+Gurobi Optimizer version 7.0.2 build v7.0.2rc1 (win64)
+Coefficient statistics:
+  Gomory: 2
+     0     0  394.00095    0    7  514.84871  394.00095  23.5%     -    2s
+     0     0  471.40910    0   19          -  471.40910      -     -    3s
+
+Gurobi 7.0.2 (win64) logging started 05/20/18 01:20:45
+
+Copyright (c) 2017, Gurobi Optimization, Inc.
+
+  Matrix range     [4e-03, 3e+04]
+  Cover: 1
+
+Gurobi Optimizer version 7.0.2 build v7.0.2rc1 (win64)
+     0     0  471.71185    0   25          -  471.71185      -     -    3s
+     0     0  394.00095    0    7  514.84871  394.00095  23.5%     -    2s
+  Objective range  [7e-01, 1e+04]
+  Implied bound: 2
+Copyright (c) 2017, Gurobi Optimization, Inc.
+
+Read LP format model from file C:\Optimization_zlc\slave_convex_handlers\solver_lp_format_holder\thread_2\script_2.lp
+     0     0  471.71185    0   19          -  471.71185      -     -    3s
+  Bounds range     [1e+00, 1e+00]
+  Clique: 1
+Reading time = 0.10 seconds
+Read LP format model from file C:\Optimization_zlc\slave_convex_handlers\solver_lp_format_holder\thread_10\script_10.lp
+     0     0  471.71185    0   20          -  471.71185      -     -    3s
+  RHS range        [2e-01, 8e+02]
+  MIR: 1
+Reading time = 0.10 seconds
+  Flow cover: 2
+Presolve removed 777 rows and 716 columns
+obj: 1264 rows, 1142 columns, 10018 nonzeros
+     0     0  471.71185    0   21          -  471.71185      -     -    3s
+     0     0  394.00095    0    4  514.84871  394.00095  23.5%     -    2s
+obj: 1264 rows, 1142 columns, 10018 nonzeros
+  GUB cover: 3
+Presolve time: 0.01s
+     0     0  394.00095    0    6  514.84871  394.00095  23.5%     -    2s
+Optimize a model with 1264 rows, 1142 columns and 10018 nonzeros
+Optimize a model with 1264 rows, 1142 columns and 10018 nonzeros
+
+Explored 0 nodes (836 simplex iterations) in 3.19 seconds
+
+Explored 0 nodes (0 simplex iterations) in 0.59 seconds
+     0     0  471.71185    0   26          -  471.71185      -     -    3s
+     0     0  394.00095    0    7  514.84871  394.00095  23.5%     -    2s
+Variable types: 566 continuous, 576 integer (576 binary)
+Thread count was 8 (of 8 available processors)
+Thread count was 1 (of 8 available processors)
+Variable types: 566 continuous, 576 integer (576 binary)
+     0     0  471.71185    0   25          -  471.71185      -     -    3s
+Coefficient statistics:
+     0     0  394.00095    0    6  514.84871  394.00095  23.5%     -    3s
+
+Solution count 2: 
+Solution count 0Coefficient statistics:
+     0     0  471.71185    0   19          -  471.71185      -     -    3s
+  Matrix range     [3e-03, 7e+03]
+H    0     0                     511.0447869  394.00095  22.9%     -    3s
+3215.93 
+  Matrix range     [2e-03, 8e+03]
+  Objective range  [1e-01, 2e+03]
+     0     0  394.00095    0    2  511.04479  394.00095  22.9%     -    3s
+3221.01 Pool objective bound 0
+     0     0  471.71185    0   24          -  471.71185      -     -    3s
+  Bounds range     [1e+00, 1e+00]
+  Objective range  [2e-01, 3e+03]
+
+H    0     0                     507.4963857  394.00095  22.4%     -    3s
+  RHS range        [2e-01, 8e+02]
+Pool objective bound 3215.93
+     0     0  471.71185    0   24          -  471.71185      -     -    3s
+  Bounds range     [1e+00, 1e+00]
+     0     0  394.00095    0    3  507.49639  394.00095  22.4%     -    3s
+Model is infeasible or unbounded
+
+     0     0  394.00095    0    8  507.49639  394.00095  22.4%     -    3s
+  RHS range        [2e-01, 8e+02]
+Best objective -, best bound -, gap -
+Optimal solution found (tolerance 1.00e-04)
+     0     0  411.90616    0    6  507.49639  411.90616  18.8%     -    3s
+
+Presolve removed 617 rows and 557 columns
+Best objective 3.215926287510e+03, best bound 3.215926287483e+03, gap 0.0000%
+Unable to retrieve attribute 'X'
+     0     0  411.90616    0    6  507.49639  411.90616  18.8%     -    3s
+Presolve time: 0.17s
+Presolve removed 677 rows and 617 columns
+
+Presolved: 647 rows, 585 columns, 4807 nonzeros
+
+Presolve time: 0.15s
+     0     2  411.90616    0    6  507.49639  411.90616  18.8%     -    3s
+Variable types: 288 continuous, 297 integer (297 binary)
+Wrote result file 'C:\Optimization_zlc\slave_convex_handlers\solver_lp_format_holder\thread_6\out.sol'
+Presolved: 587 rows, 525 columns, 4324 nonzeros
+     0     2  471.71185    0   23          -  471.71185      -     -    4s
+Variable types: 258 continuous, 267 integer (267 binary)
+
+
+Root relaxation: objective 1.212734e+03, 548 iterations, 0.01 seconds
+
+Root relaxation: objective 7.545037e+02, 455 iterations, 0.01 seconds
+
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+H   76    12                     503.1443281  411.90616  18.1%  30.9    4s
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+*  106    21              24     501.9642280  411.90616  17.9%  26.4    4s
+    71    54  515.89665   17    2          -  472.78446      -  24.8    5s
+
+     0     0 1212.73385    0   13          - 1212.73385      -     -    1s
+     0     0  754.50373    0   14          -  754.50373      -     -    1s
+     0     0 1212.73385    0   16          - 1212.73385      -     -    1s
+*  122    83              25    1053.0862549  472.78446  55.1%  25.2    5s
+     0     0  754.50373    0   14          -  754.50373      -     -    1s
+     0     0 1212.73385    0   16          - 1212.73385      -     -    1s
+     0     0  754.50373    0   14          -  754.50373      -     -    1s
+
+Gurobi 7.0.2 (win64) logging started 05/20/18 01:20:47
+
+
+     0     0 1212.73385    0    9          - 1212.73385      -     -    1s
+
+Gurobi Optimizer version 7.0.2 build v7.0.2rc1 (win64)
+*  131    93              30     620.0797458  472.78446  23.8%  28.4    5s
+     0     0  754.50373    0   15          -  754.50373      -     -    1s
+Cutting planes:
+Copyright (c) 2017, Gurobi Optimization, Inc.
+
+     0     0 1212.73385    0    8          - 1212.73385      -     -    2s
+  Gomory: 2
+     0     0  754.50373    0   13          -  754.50373      -     -    2s
+*  198    99              19     616.7901679  472.84192  23.3%  26.3    5s
+  Cover: 2
+     0     0 1212.73385    0   15          - 1212.73385      -     -    2s
+Read LP format model from file C:\Optimization_zlc\slave_convex_handlers\solver_lp_format_holder\thread_22\script_22.lp
+     0     0  754.50373    0    9          -  754.50373      -     -    2s
+  Implied bound: 3
+     0     0 1212.73385    0   14          - 1212.73385      -     -    2s
+H  199   101                     611.0945273  472.84192  22.6%  26.1    5s
+Reading time = 0.10 seconds
+     0     0  754.50373    0    8          -  754.50373      -     -    2s
+  Flow cover: 1
+
+Explored 246 nodes (7308 simplex iterations) in 5.22 seconds
+obj: 1264 rows, 1142 columns, 10018 nonzeros
+     0     0 1212.73385    0   15          - 1212.73385      -     -    2s
+*  226   105              12     602.6247406  472.84192  21.5%  26.2    5s
+     0     0  754.50373    0   10          -  754.50373      -     -    2s
+Optimize a model with 1264 rows, 1142 columns and 10018 nonzeros
+     0     0 1212.73385    0   15          - 1212.73385      -     -    2s
+
+Solution count 5: Variable types: 566 continuous, 576 integer (576 binary)
+     0     0  754.50373    0   10          -  754.50373      -     -    2s
+501.964 H    0     0                    1276.7242902 1212.73385  5.01%     -    2s
+*  236    92              13     570.8531531  475.01835  16.8%  26.1    5s
+Coefficient statistics:
+H    0     0                     821.1583803  754.50373  8.12%     -    2s
+503.144 *  258    94              34     563.6686028  475.01835  15.7%  25.8    6s
+  Matrix range     [3e-03, 7e+03]
+     0     0  754.50373    0    5  821.15838  754.50373  8.12%     -    2s
+507.496   Objective range  [1e-01, 2e+03]
+*  259    94              34     563.0451252  475.01835  15.6%  25.7    6s
+... 514.849  Bounds range     [1e+00, 1e+00]
+
+H  277    71                     546.8284520  475.01835  13.1%  24.8    6s
+Pool objective bound 501.964
+  RHS range        [2e-01, 8e+02]
+     0     0 1212.73385    0    8 1276.72429 1212.73385  5.01%     -    2s
+H  292    62                     525.8103878  475.01835  9.66%  24.4    6s
+
+     0     0  754.50373    0   13  821.15838  754.50373  8.12%     -    3s
+     0     0 1212.73385    0   17 1276.72429 1212.73385  5.01%     -    3s
+Optimal solution found (tolerance 1.00e-04)
+*  299    61              10     522.8037510  475.01835  9.14%  24.1    6s
+Presolve removed 553 rows and 507 columns
+     0     0  754.50373    0   13  821.15838  754.50373  8.12%     -    3s
+Best objective 5.019642279846e+02, best bound 5.019642279846e+02, gap 0.0000%
+     0     0 1212.73385    0   16 1276.72429 1212.73385  5.01%     -    3s
+Presolve time: 0.17s
+     0     0  754.50373    0   14  821.15838  754.50373  8.12%     -    3s
+*  354    25              19     498.7790499  475.87664  4.59%  23.9    6s
+     0     0 1212.73385    0   14 1276.72429 1212.73385  5.01%     -    3s
+Presolved: 711 rows, 635 columns, 5226 nonzeros
+
+     0     0  754.50373    0   12  821.15838  754.50373  8.12%     -    3s
+     0     0 1212.73385    0    9 1276.72429 1212.73385  5.01%     -    3s
+*  417     4              28     496.3697675  479.98503  3.30%  23.2    6s
+Variable types: 312 continuous, 323 integer (323 binary)
+Wrote result file 'C:\Optimization_zlc\slave_convex_handlers\solver_lp_format_holder\thread_26\out.sol'
+     0     0  754.50373    0   10  821.15838  754.50373  8.12%     -    3s
+H    0     0                    1214.8087026 1212.73385  0.17%     -    3s
+
+     0     0  754.50373    0   10  821.15838  754.50373  8.12%     -    3s
+
+Root relaxation: objective 6.586940e+02, 406 iterations, 0.01 seconds
+H    0     0                    1212.7338538 1212.73385  0.00%     -    3s
+H    0     0                     755.5363226  754.50373  0.14%     -    3s
+
+
+     0     0 1212.73385    0    4 1212.73385 1212.73385  0.00%     -    3s
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+H    0     0                     754.5037344  754.50373  0.00%     -    3s
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+
+Cutting planes:
+
+Cutting planes:
+Cutting planes:
+     0     0  658.69399    0   11          -  658.69399      -     -    1s
+  Gomory: 6
+  Gomory: 2
+  Gomory: 4
+  Cover: 1
+     0     0  658.69399    0    8          -  658.69399      -     -    1s
+  Cover: 6
+  Cover: 7
+  Implied bound: 4
+  Clique: 1
+     0     0  658.71845    0   16          -  658.71845      -     -    1s
+  Clique: 1
+  MIR: 2
+  Implied bound: 1
+     0     0  659.14430    0   19          -  659.14430      -     -    1s
+  MIR: 3
+  Flow cover: 3
+H    0     0                     835.5508036  659.14430  21.1%     -    1s
+  Flow cover: 3
+  GUB cover: 1
+  MIR: 2
+     0     0  659.22579    0   18  835.55080  659.22579  21.1%     -    1s
+  GUB cover: 1
+
+Explored 0 nodes (2160 simplex iterations) in 4.31 seconds
+
+Gurobi 7.0.2 (win64) logging started 05/20/18 01:20:50
+
+     0     0  659.30543    0   29  835.55080  659.30543  21.1%     -    2s
+
+Explored 0 nodes (1933 simplex iterations) in 4.39 seconds
+
+Gurobi Optimizer version 7.0.2 build v7.0.2rc1 (win64)
+  Flow cover: 3
+Thread count was 8 (of 8 available processors)
+Thread count was 8 (of 8 available processors)
+Copyright (c) 2017, Gurobi Optimization, Inc.
+
+     0     0  659.31978    0   30  835.55080  659.31978  21.1%     -    2s
+
+Solution count 3: 
+Solution count 3:      0     0  663.95103    0   19  835.55080  663.95103  20.5%     -    2s
+  GUB cover: 2
+Read LP format model from file C:\Optimization_zlc\slave_convex_handlers\solver_lp_format_holder\thread_14\script_14.lp
+754.504 1214.81      0     0  664.14715    0   19  835.55080  664.14715  20.5%     -    2s
+Reading time = 0.14 seconds
+
+Explored 523 nodes (12336 simplex iterations) in 8.13 seconds
+755.536 1276.72      0     0  664.47468    0   28  835.55080  664.47468  20.5%     -    2s
+obj: 1264 rows, 1142 columns, 10018 nonzeros
+821.158 
+Thread count was 8 (of 8 available processors)
+     0     0  664.49889    0   29  835.55080  664.49889  20.5%     -    2s
+Optimize a model with 1264 rows, 1142 columns and 10018 nonzeros
+
+Pool objective bound 1212.73
+Variable types: 566 continuous, 576 integer (576 binary)
+     0     0  664.58235    0   27  835.55080  664.58235  20.5%     -    2s
+
+Solution count 10: Pool objective bound 754.504
+
+Coefficient statistics:
+     0     0  664.58710    0   27  835.55080  664.58710  20.5%     -    2s
+
+496.37 Optimal solution found (tolerance 1.00e-04)
+  Matrix range     [2e-03, 1e+04]
+Optimal solution found (tolerance 1.00e-04)
+     0     0  664.60544    0   31  835.55080  664.60544  20.5%     -    2s
+Best objective 1.212733853849e+03, best bound 1.212733853849e+03, gap 0.0000%
+498.779   Objective range  [5e-01, 6e+03]
+Best objective 7.545037344467e+02, best bound 7.545037344467e+02, gap 0.0000%
+     0     0  664.60544    0   31  835.55080  664.60544  20.5%     -    2s
+  Bounds range     [1e+00, 1e+00]
+522.804 
+  RHS range        [2e-01, 8e+02]
+
+Wrote result file 'C:\Optimization_zlc\slave_convex_handlers\solver_lp_format_holder\thread_2\out.sol'
+... 611.095Presolve removed 777 rows and 716 columns
+Wrote result file 'C:\Optimization_zlc\slave_convex_handlers\solver_lp_format_holder\thread_10\out.sol'
+
+     0     2  664.60544    0   31  835.55080  664.60544  20.5%     -    2s
+
+Presolve time: 0.01s
+
+
+Explored 0 nodes (0 simplex iterations) in 0.62 seconds
+Pool objective bound 496.37
+Thread count was 1 (of 8 available processors)
+
+Solution count 0
+
+Optimal solution found (tolerance 1.00e-04)
+Pool objective bound 0
+
+Best objective 4.963697674840e+02, best bound 4.963697674840e+02, gap 0.0000%
+Model is infeasible or unbounded
+Best objective -, best bound -, gap -
+H   74    26                     822.4722592  665.78812  19.1%  55.9    3s
+
+
+Wrote result file 'C:\Optimization_zlc\slave_convex_handlers\solver_lp_format_holder\thread_18\out.sol'
+Unable to retrieve attribute 'X'
+*   93    22              27     754.2738772  667.58434  11.5%  53.8    3s
+
+
+*  109    14              17     697.0582145  668.16730  4.14%  48.6    4s
+
+Cutting planes:
+  Gomory: 1
+  Cover: 18
+  MIR: 2
+  Flow cover: 7
+  GUB cover: 6
+
+Explored 139 nodes (7257 simplex iterations) in 5.21 seconds
+Thread count was 8 (of 8 available processors)
+
+Solution count 4: 697.058 754.274 822.472 835.551 
+Pool objective bound 697.058
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 6.970582144870e+02, best bound 6.970582144870e+02, gap 0.0000%
+
+Wrote result file 'C:\Optimization_zlc\slave_convex_handlers\solver_lp_format_holder\thread_22\out.sol'
+
+
+Gurobi 7.0.2 (win64) logging started 05/20/18 01:21:42
+
+
+Gurobi Optimizer version 7.0.2 build v7.0.2rc1 (win64)
+Copyright (c) 2017, Gurobi Optimization, Inc.
+
+Read LP format model from file C:\Optimization_zlc\slave_convex_handlers\solver_lp_format_holder\thread_31\script_31.lp
+Reading time = 0.29 seconds
+obj: 1264 rows, 1142 columns, 10018 nonzeros
+Optimize a model with 1264 rows, 1142 columns and 10018 nonzeros
+Variable types: 566 continuous, 576 integer (576 binary)
+Coefficient statistics:
+  Matrix range     [4e-03, 2e+04]
+  Objective range  [5e-01, 7e+03]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [2e-01, 8e+02]
+Presolve removed 1001 rows and 917 columns
+Presolve time: 0.12s
+Presolved: 263 rows, 225 columns, 1676 nonzeros
+Variable types: 111 continuous, 114 integer (114 binary)
+
+Root relaxation: objective 3.043994e+03, 361 iterations, 0.01 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0 3043.99377    0   17          - 3043.99377      -     -    4s
+     0     0 3043.99377    0   10          - 3043.99377      -     -    4s
+     0     0 3043.99377    0   10          - 3043.99377      -     -    4s
+     0     0 3043.99377    0   14          - 3043.99377      -     -    5s
+H    0     0                    3346.9803637 3043.99377  9.05%     -    5s
+H    0     0                    3043.9937716 3043.99377  0.00%     -    5s
+     0     0 3043.99377    0   10 3043.99377 3043.99377  0.00%     -    5s
+
+Cutting planes:
+  Gomory: 2
+  Cover: 1
+  MIR: 5
+  Flow cover: 1
+  GUB cover: 4
+
+Explored 0 nodes (666 simplex iterations) in 7.62 seconds
+Thread count was 8 (of 8 available processors)
+
+Solution count 2: 3043.99 
+Gurobi 7.0.2 (win64) logging started 05/20/18 01:21:52
+
+3346.98 
+Gurobi Optimizer version 7.0.2 build v7.0.2rc1 (win64)
+
+Copyright (c) 2017, Gurobi Optimization, Inc.
+
+Pool objective bound 3043.99
+
+Read LP format model from file C:\Optimization_zlc\slave_convex_handlers\solver_lp_format_holder\thread_15\script_15.lp
+Optimal solution found (tolerance 1.00e-04)
+Reading time = 0.28 seconds
+Best objective 3.043993771646e+03, best bound 3.043993771646e+03, gap 0.0000%
+obj: 1264 rows, 1142 columns, 10018 nonzeros
+
+Optimize a model with 1264 rows, 1142 columns and 10018 nonzeros
+Wrote result file 'C:\Optimization_zlc\slave_convex_handlers\solver_lp_format_holder\thread_31\out.sol'
+Variable types: 566 continuous, 576 integer (576 binary)
+
+Coefficient statistics:
+  Matrix range     [9e-04, 7e+03]
+  Objective range  [7e-02, 7e+02]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [2e-01, 8e+02]
+Presolve removed 765 rows and 691 columns
+
+Gurobi 7.0.2 (win64) logging started 05/20/18 01:21:56
+
+Presolve time: 0.26s
+
+Gurobi Optimizer version 7.0.2 build v7.0.2rc1 (win64)
+Copyright (c) 2017, Gurobi Optimization, Inc.
+
+Presolved: 499 rows, 451 columns, 3457 nonzeros
+Read LP format model from file C:\Optimization_zlc\slave_convex_handlers\solver_lp_format_holder\thread_11\script_11.lp
+Variable types: 223 continuous, 228 integer (228 binary)
+Reading time = 0.22 seconds
+
+Root relaxation: objective 4.155391e+02, 244 iterations, 0.01 seconds
+obj: 1264 rows, 1142 columns, 10018 nonzeros
+Optimize a model with 1264 rows, 1142 columns and 10018 nonzeros
+
+Variable types: 566 continuous, 576 integer (576 binary)
+Coefficient statistics:
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+  Matrix range     [3e-03, 2e+04]
+
+Gurobi 7.0.2 (win64) logging started 05/20/18 01:21:57
+
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+  Objective range  [6e-01, 8e+03]
+
+Gurobi Optimizer version 7.0.2 build v7.0.2rc1 (win64)
+  Bounds range     [1e+00, 1e+00]
+
+
+Gurobi 7.0.2 (win64) logging started 05/20/18 01:21:58
+
+  RHS range        [2e-01, 8e+02]
+Copyright (c) 2017, Gurobi Optimization, Inc.
+
+     0     0  415.53910    0    8          -  415.53910      -     -    4s
+
+Gurobi Optimizer version 7.0.2 build v7.0.2rc1 (win64)
+Read LP format model from file C:\Optimization_zlc\slave_convex_handlers\solver_lp_format_holder\thread_27\script_27.lp
+Presolve removed 1037 rows and 953 columns
+Copyright (c) 2017, Gurobi Optimization, Inc.
+
+     0     0  454.25452    0   16          -  454.25452      -     -    4s
+Reading time = 0.26 seconds
+Presolve time: 0.11s
+Read LP format model from file C:\Optimization_zlc\slave_convex_handlers\solver_lp_format_holder\thread_7\script_7.lp
+Presolved: 227 rows, 189 columns, 1345 nonzeros
+     0     0  460.29768    0   17          -  460.29768      -     -    5s
+obj: 1264 rows, 1142 columns, 10018 nonzeros
+Reading time = 0.28 seconds
+Variable types: 93 continuous, 96 integer (96 binary)
+Optimize a model with 1264 rows, 1142 columns and 10018 nonzeros
+     0     0  460.32497    0   19          -  460.32497      -     -    5s
+
+Root relaxation: objective 3.286113e+03, 368 iterations, 0.01 seconds
+obj: 1264 rows, 1142 columns, 10018 nonzeros
+Variable types: 566 continuous, 576 integer (576 binary)
+     0     0  460.38987    0   20          -  460.38987      -     -    5s
+Optimize a model with 1264 rows, 1142 columns and 10018 nonzeros
+Coefficient statistics:
+
+     0     0  460.38987    0   20          -  460.38987      -     -    5s
+Variable types: 566 continuous, 576 integer (576 binary)
+  Matrix range     [2e-03, 7e+03]
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+Coefficient statistics:
+H    0     0                     557.1674796  460.38987  17.4%     -    6s
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+  Objective range  [1e-01, 1e+03]
+  Matrix range     [3e-03, 7e+03]
+
+  Bounds range     [1e+00, 1e+00]
+  Objective range  [2e-01, 2e+03]
+     0     0 3286.11289    0   17          - 3286.11289      -     -    3s
+  RHS range        [2e-01, 8e+02]
+     0     2  460.38987    0   20  557.16748  460.38987  17.4%     -    6s
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [2e-01, 8e+02]
+Presolve removed 510 rows and 470 columns
+Presolve time: 0.28s
+Presolve removed 637 rows and 577 columns
+Presolved: 754 rows, 672 columns, 5554 nonzeros
+Presolve time: 0.30s
+Variable types: 330 continuous, 342 integer (342 binary)
+Presolved: 627 rows, 565 columns, 4707 nonzeros
+Variable types: 278 continuous, 287 integer (287 binary)
+
+Root relaxation: objective 4.843754e+02, 651 iterations, 0.07 seconds
+
+Root relaxation: objective 9.033343e+02, 442 iterations, 0.01 seconds
+
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+     0     0 3286.11289    0   12          - 3286.11289      -     -    3s
+
+
+     0     0 3286.11289    0   13          - 3286.11289      -     -    9s
+     0     0  903.33431    0   13          -  903.33431      -     -    7s
+     0     0  484.37542    0   12          -  484.37542      -     -    7s
+     0     0 3286.11289    0    8          - 3286.11289      -     -    9s
+H    0     0                    1352.0102878  903.33431  33.2%     -    7s
+     0     0  485.05092    0   16          -  485.05092      -     -    7s
+     0     0 3286.11289    0    9          - 3286.11289      -     -   10s
+     0     0  903.33431    0   10 1352.01029  903.33431  33.2%     -    7s
+     0     0  485.05092    0   13          -  485.05092      -     -    8s
+     0     0 3286.11289    0    4          - 3286.11289      -     -   10s
+H    0     0                    1305.4134767  903.33431  30.8%     -    7s
+     0     0  506.64195    0   17          -  506.64195      -     -    8s
+     0     0 3286.11289    0    4          - 3286.11289      -     -   10s
+     0     0  903.33431    0   10 1305.41348  903.33431  30.8%     -    7s
+     0     0  507.12987    0   13          -  507.12987      -     -    8s
+     0     0 3286.11289    0    4          - 3286.11289      -     -   10s
+H    0     0                     904.9372142  903.33431  0.18%     -    8s
+     0     0  510.50422    0   16          -  510.50422      -     -    8s
+     0     0 3286.11289    0    4          - 3286.11289      -     -   10s
+     0     0  903.33431    0   10  904.93721  903.33431  0.18%     -    8s
+     0     0  510.51727    0   19          -  510.51727      -     -    8s
+     0     0 3286.11289    0    4          - 3286.11289      -     -   10s
+H    0     0                     724.4416467  510.51727  29.5%     -    9s
+H    0     0                    3286.1128869 3286.11289  0.00%     -   11s
+
+     0     0  510.89165    0   19  724.44165  510.89165  29.5%     -    9s
+Cutting planes:
+     0     0  510.90566    0   18  724.44165  510.90566  29.5%     -    9s
+     0     0  903.33431    0    8  904.93721  903.33431  0.18%     -    9s
+  Cover: 5
+     0     0  512.72738    0   18  724.44165  512.72738  29.2%     -    9s
+     0     0  903.33431    0   13  904.93721  903.33431  0.18%     -    9s
+  Implied bound: 1
+     0     0  512.94662    0   20  724.44165  512.94662  29.2%     -    9s
+  MIR: 4
+H    0     0                     903.3343092  903.33431  0.00%     -    9s
+     0     0  513.55696    0   21  724.44165  513.55696  29.1%     -    9s
+  Flow cover: 2
+
+     0     0  513.56817    0   24  724.44165  513.56817  29.1%     -   10s
+  GUB cover: 3
+Cutting planes:
+     0     0  513.70637    0   20  724.44165  513.70637  29.1%     -   10s
+
+Explored 0 nodes (822 simplex iterations) in 12.51 seconds
+  Gomory: 2
+     0     0  513.71815    0   23  724.44165  513.71815  29.1%     -   10s
+  Implied bound: 3
+
+Solution count 1:      0     0  513.80772    0   24  724.44165  513.80772  29.1%     -   10s
+
+Explored 0 nodes (1015 simplex iterations) in 10.41 seconds
+3286.11 Thread count was 8 (of 8 available processors)
+
+     0     0  513.80772    0   24  724.44165  513.80772  29.1%     -   11s
+Pool objective bound 3286.11
+
+Solution count 4: 
+903.334      0     2  513.80772    0   24  724.44165  513.80772  29.1%     -   11s
+904.937 Optimal solution found (tolerance 1.00e-04)
+1305.41 Best objective 3.286112886922e+03, best bound 3.286112886922e+03, gap 0.0000%
+1352.01 *   12     3               5     585.2374501  580.11042  0.88%   104   12s
+
+
+Wrote result file 'C:\Optimization_zlc\slave_convex_handlers\solver_lp_format_holder\thread_11\out.sol'
+Pool objective bound 903.334
+*   63     0              34     580.1104171  580.11042  0.00%  52.3   12s
+
+
+    97    55     cutoff   11       509.94213  461.13247  9.57%  19.4   29s
+
+Optimal solution found (tolerance 1.00e-04)
+Cutting planes:
+  Gomory: 3
+  Cover: 8
+  Implied bound: 1
+  MIR: 7
+  Flow cover: 5
+  GUB cover: 3
+
+Explored 65 nodes (4787 simplex iterations) in 24.31 seconds
+Thread count was 8 (of 8 available processors)
+
+Solution count 3: 580.11 585.237 724.442 
+Pool objective bound 580.11
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 5.801104171430e+02, best bound 5.801104171430e+02, gap 0.0000%
+Best objective 9.033343092491e+02, best bound 9.033343091832e+02, gap 0.0000%
+
+
+Gurobi 7.0.2 (win64) logging started 05/20/18 01:22:23
+
+Wrote result file 'C:\Optimization_zlc\slave_convex_handlers\solver_lp_format_holder\thread_27\out.sol'
+
+H  251    62                     508.3996457  461.13247  9.30%  21.8   29s
+
+Wrote result file 'C:\Optimization_zlc\slave_convex_handlers\solver_lp_format_holder\thread_7\out.sol'
+*  272    65              25     497.9621913  463.59364  6.90%  22.0   29s
+
+Gurobi Optimizer version 7.0.2 build v7.0.2rc1 (win64)
+
+   298    59  473.34249   21    6  497.96219  463.59364  6.90%  21.8   30s
+Copyright (c) 2017, Gurobi Optimization, Inc.
+
+
+Gurobi 7.0.2 (win64) logging started 05/20/18 01:22:23
+
+
+Gurobi Optimizer version 7.0.2 build v7.0.2rc1 (win64)
+Copyright (c) 2017, Gurobi Optimization, Inc.
+
+*  345    65              17     497.8057607  464.39030  6.71%  23.3   30s
+Read LP format model from file C:\Optimization_zlc\slave_convex_handlers\solver_lp_format_holder\thread_3\script_3.lp
+Read LP format model from file C:\Optimization_zlc\slave_convex_handlers\solver_lp_format_holder\thread_19\script_19.lp
+Reading time = 0.16 seconds
+Reading time = 0.19 seconds
+obj: 1264 rows, 1142 columns, 10018 nonzeros
+Optimize a model with 1264 rows, 1142 columns and 10018 nonzeros
+obj: 1264 rows, 1142 columns, 10018 nonzeros
+
+Variable types: 566 continuous, 576 integer (576 binary)
+Coefficient statistics:
+Cutting planes:
+Optimize a model with 1264 rows, 1142 columns and 10018 nonzeros
+  Matrix range     [4e-03, 7e+03]
+  Gomory: 2
+  Objective range  [1e-01, 2e+03]
+  Cover: 21
+Variable types: 566 continuous, 576 integer (576 binary)
+  Bounds range     [1e+00, 1e+00]
+  Implied bound: 5
+Coefficient statistics:
+  RHS range        [2e-01, 8e+02]
+  Clique: 1
+
+Gurobi 7.0.2 (win64) logging started 05/20/18 01:22:24
+
+  MIR: 3
+  Matrix range     [1e-03, 7e+03]
+  Flow cover: 2
+
+Gurobi Optimizer version 7.0.2 build v7.0.2rc1 (win64)
+  GUB cover: 7
+  Objective range  [4e-02, 5e+02]
+Presolve removed 547 rows and 501 columns
+
+Explored 675 nodes (15472 simplex iterations) in 31.40 seconds
+Copyright (c) 2017, Gurobi Optimization, Inc.
+
+Presolve time: 0.25s
+Thread count was 8 (of 8 available processors)
+  Bounds range     [1e+00, 1e+00]
+Presolved: 717 rows, 641 columns, 5324 nonzeros
+
+Solution count 5: Read LP format model from file C:\Optimization_zlc\slave_convex_handlers\solver_lp_format_holder\thread_23\script_23.lp
+  RHS range        [2e-01, 8e+02]
+497.806 Variable types: 315 continuous, 326 integer (326 binary)
+Reading time = 0.15 seconds
+497.962 
+Root relaxation: objective 8.005219e+02, 574 iterations, 0.02 seconds
+508.4 obj: 1264 rows, 1142 columns, 10018 nonzeros
+... 557.167Optimize a model with 1264 rows, 1142 columns and 10018 nonzeros
+
+Presolve removed 646 rows and 587 columns
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+Variable types: 566 continuous, 576 integer (576 binary)
+Presolve time: 0.29s
+Pool objective bound 497.806
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+Coefficient statistics:
+Presolved: 618 rows, 555 columns, 4417 nonzeros
+
+Optimal solution found (tolerance 1.00e-04)
+  Matrix range     [3e-03, 8e+03]
+Variable types: 274 continuous, 281 integer (281 binary)
+     0     0  800.52192    0   11          -  800.52192      -     -    1s
+  Objective range  [2e-01, 3e+03]
+Best objective 4.978057606743e+02, best bound 4.978057606743e+02, gap 0.0000%
+
+Root relaxation: objective 2.180114e+02, 652 iterations, 0.02 seconds
+  Bounds range     [1e+00, 1e+00]
+     0     0  800.52192    0   14          -  800.52192      -     -    2s
+  RHS range        [2e-01, 8e+02]
+
+
+     0     0  800.52192    0   12          -  800.52192      -     -    2s
+Wrote result file 'C:\Optimization_zlc\slave_convex_handlers\solver_lp_format_holder\thread_15\out.sol'
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+     0     0  800.52192    0   13          -  800.52192      -     -    2s
+
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+Presolve removed 673 rows and 613 columns
+
+     0     0  800.52192    0   10          -  800.52192      -     -    2s
+Presolve time: 0.16s
+     0     0  218.01143    0   10          -  218.01143      -     -    2s
+Presolved: 591 rows, 529 columns, 4358 nonzeros
+     0     0  800.52192    0    8          -  800.52192      -     -    2s
+Variable types: 260 continuous, 269 integer (269 binary)
+     0     0  340.54644    0   20          -  340.54644      -     -    2s
+     0     0  800.52192    0    9          -  800.52192      -     -    2s
+
+Root relaxation: objective 1.158398e+03, 515 iterations, 0.02 seconds
+     0     0  396.10190    0   22          -  396.10190      -     -    2s
+     0     0  800.52192    0    8          -  800.52192      -     -    2s
+     0     0  396.25709    0   25          -  396.25709      -     -    2s
+H    0     0                     811.5439865  800.52192  1.36%     -    2s
+
+     0     0  396.30387    0   25          -  396.30387      -     -    2s
+     0     0  800.52192    0    9  811.54399  800.52192  1.36%     -    2s
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+     0     0  396.34180    0   24          -  396.34180      -     -    2s
+     0     0  800.52192    0    9  811.54399  800.52192  1.36%     -    2s
+H    0     0                     810.8150225  800.52192  1.27%     -    3s
+
+     0     0 1158.39830    0    8          - 1158.39830      -     -    1s
+     0     0  396.54531    0   21          -  396.54531      -     -    2s
+H    0     0                    1777.8341849 1158.39830  34.8%     -    1s
+     0     0  396.54686    0   20          -  396.54686      -     -    3s
+     0     0 1158.39830    0   16 1777.83418 1158.39830  34.8%     -    1s
+     0     0  396.54686    0   20          -  396.54686      -     -    3s
+     0     0  800.52192    0   10  810.81502  800.52192  1.27%     -    3s
+     0     0 1158.39830    0   16 1777.83418 1158.39830  34.8%     -    1s
+     0     0  807.49097    0   14  810.81502  807.49097  0.41%     -    3s
+     0     0 1158.39830    0   10 1777.83418 1158.39830  34.8%     -    2s
+     0     0     cutoff    0       810.81502  810.81502  0.00%     -    3s
+     0     0 1158.39830    0    9 1777.83418 1158.39830  34.8%     -    2s
+
+     0     0 1158.39830    0   11 1777.83418 1158.39830  34.8%     -    2s
+Cutting planes:
+     0     2  396.54686    0   20          -  396.54686      -     -    3s
+     0     0 1158.39830    0   11 1777.83418 1158.39830  34.8%     -    2s
+  Gomory: 2
+  Implied bound: 3
+     0     0 1158.39830    0   16 1777.83418 1158.39830  34.8%     -    2s
+     0     0 1158.39830    0   16 1777.83418 1158.39830  34.8%     -    2s
+  MIR: 2
+H    0     0                    1655.1374977 1158.39830  30.0%     -    2s
+  Flow cover: 2
+     0     2 1158.39830    0   16 1655.13750 1158.39830  30.0%     -    2s
+  GUB cover: 1
+
+Explored 0 nodes (1928 simplex iterations) in 4.38 seconds
+Thread count was 8 (of 8 available processors)
+
+Solution count 2: 810.815 811.544 *   47    20              10    1160.7525638 1158.39830  0.20%  31.1    3s
+
+Pool objective bound 810.815
+H   76     0                    1158.3982953 1158.39830  0.00%  32.1    3s
+*  363   183              27     512.1267379  473.46908  7.55%  29.2    4s
+
+
+   371   157     cutoff   14       512.12674  473.46908  7.55%  29.3    5s
+Optimal solution found (tolerance 1.00e-04)
+Cutting planes:
+*  388   142              37     495.1332424  473.46908  4.38%  29.2    5s
+Best objective 8.108150225475e+02, best bound 8.108150225475e+02, gap 0.0000%
+  Gomory: 2
+*  389   141              37     494.8578798  473.46908  4.32%  29.1    5s
+  Cover: 8
+
+  Implied bound: 3
+Wrote result file 'C:\Optimization_zlc\slave_convex_handlers\solver_lp_format_holder\thread_3\out.sol'
+  MIR: 1
+
+  Flow cover: 1
+  GUB cover: 9
+
+Explored 80 nodes (3361 simplex iterations) in 4.93 seconds
+Thread count was 8 (of 8 available processors)
+
+Solution count 4: 
+1158.4 Cutting planes:
+1160.75   Gomory: 4
+1655.14   Cover: 11
+1777.83   Implied bound: 2
+
+  MIR: 3
+Pool objective bound 1158.4
+  Flow cover: 6
+
+  GUB cover: 2
+Optimal solution found (tolerance 1.00e-04)
+  Inf proof: 1
+Best objective 1.158398295297e+03, best bound 1.158398295297e+03, gap 0.0000%
+
+Explored 1198 nodes (31435 simplex iterations) in 7.92 seconds
+Thread count was 8 (of 8 available processors)
+
+
+Solution count 3: Wrote result file 'C:\Optimization_zlc\slave_convex_handlers\solver_lp_format_holder\thread_23\out.sol'
+494.858 
+495.133 512.127 
+Pool objective bound 494.858
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 4.948578797793e+02, best bound 4.948578797793e+02, gap 0.0000%
+
+Wrote result file 'C:\Optimization_zlc\slave_convex_handlers\solver_lp_format_holder\thread_19\out.sol'
+
