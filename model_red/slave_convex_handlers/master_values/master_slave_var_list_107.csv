@@ -1,0 +1,11 @@
+,Name,Value,Unit
+0,chiller1_nwk_choice_4_etret,276.05405180840665,K
+1,chiller1_nwk_choice_4_ctin,289.457008797654,K
+2,chiller1_nwk_choice_4_tenwkflow,60.63026230058518,m3/h
+3,chiller1_nwk_choice_4_tcnwkflow,2.0563896422944725,m3/h
+4,chiller1_nwk_choice_4_piecewise_steps,4.0,m3/h
+5,gv2_substation_nwk_choice_4_demand,1800.0,kWh
+6,gv2_substation_nwk_choice_4_totalflownwk,60.63026230058518,m3/h
+7,chiller_ret_nwk_choice_4_etret,276.05405180840665,K
+8,chiller_evap_flow_consol_nwk_choice_4_tf,60.63026230058518,m3/h
+9,cp_network_nwk_choice_4_tf,60.63026230058518,m3/h
