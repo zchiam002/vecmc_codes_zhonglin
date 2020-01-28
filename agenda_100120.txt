@@ -3,7 +3,17 @@ Decomposition approach for holistic optimization
 Sliding-window coupled multi-objective optimization
 RL-MILP approach for holistic real-time optimization
 
+new agenda:
+1. Mono ga 
+2. multi ga 
+3. MILP
+4. RL 
+5. Sliding window
+
 This repo has been made public 
 https://github.com/zchiam002/vecmc_codes_zhonglin
+
+
+
 
 
