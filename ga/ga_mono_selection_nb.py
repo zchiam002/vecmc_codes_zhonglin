@@ -81,7 +81,7 @@ def ga_mono_tournament_selection_nb (agents_obj_val_fitness, num_var_per_agent, 
     copied_agents_obj_val_fitness = np.copy(agents_obj_val_fitness) 
     ##Initializing an empty parent pool
     parent_pool = np.zeros((selected_parent_size, dim_agents_obj_val_fitness[1]))    
-    tournament_size = selection_choice_data['tournament_size'] 
+    tournament_size = int(selection_choice_data['tournament_size'])
     for i in range (0, selected_parent_size):
         
         ##Determining the size of the copied_pool

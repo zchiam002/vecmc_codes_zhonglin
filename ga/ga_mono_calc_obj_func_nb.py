@@ -80,7 +80,7 @@ def parallel_process_prep_gmcof_nb (mutated_pool, dec_info_variable_list):
     
     import numpy as np 
     import os
-    current_path = os.path.dirname(os.path.abspath(__file__))[:-42] + '\\'
+    current_path = os.path.dirname(os.path.abspath(__file__)) + '\\'            ##Incase of the need to use relative directory
         
     ##mutated_pool --- the interval equivalent and the additional columns for objective function and fitness values
     ##dec_info_variable_list --- the list of variables and their corresponding attributes 
@@ -88,11 +88,11 @@ def parallel_process_prep_gmcof_nb (mutated_pool, dec_info_variable_list):
     dim_mutated_pool = mutated_pool.shape
     
     ##Storing the information in common location so that all the parallel processes can access it 
-    filename_loc = current_path + 'master_level\\modular_simple_ga_non_binary\\parallel_process_temp_storage\\initialize_agents\\dec_info_variable_list_gmcof.csv'
+    filename_loc = current_path + 'parallel_process_temp_storage\\initialize_agents\\dec_info_variable_list_gmcof.csv'
     dec_info_variable_list.to_csv(filename_loc)
     
     ##Saving the mutated pool in a common location so that all the parallel processes can access it 
-    filename_loc1 = current_path + 'master_level\\modular_simple_ga_non_binary\\parallel_process_temp_storage\\initialize_agents\\mutated_pool.csv'
+    filename_loc1 = current_path + 'parallel_process_temp_storage\\initialize_agents\\mutated_pool.csv'
     np.savetxt(filename_loc1, mutated_pool, delimiter = ',')    
     
     ##Establishing an array for the input to the parallel processes
@@ -109,19 +109,19 @@ def parallel_process_eval_obj_func_mutated_pool_np (iteration):
     import pandas as pd 
     from ga_mono_evaluate_objective_nb import ga_mono_evaluate_objective_nb    
     import os
-    current_path = os.path.dirname(os.path.abspath(__file__))[:-42] + '\\' 
+    current_path = os.path.dirname(os.path.abspath(__file__)) + '\\'            ##Incase of the need to use relative directory
     
     ##iteration --- the code for accessing the right value 
     
     ##Loading the information about the dec_info_variable_list
     ##Extracting variable information 
-    filename_loc = current_path + 'master_level\\modular_simple_ga_non_binary\\parallel_process_temp_storage\\initialize_agents\\dec_info_variable_list_gmcof.csv'
+    filename_loc = current_path + 'parallel_process_temp_storage\\initialize_agents\\dec_info_variable_list_gmcof.csv'
     dec_info_variable_list = pd.read_csv(filename_loc)
     dim_dec_info_variable_list = dec_info_variable_list.shape
     num_var = dim_dec_info_variable_list[0]
     
     ##Extracting the information about the mutated pool
-    filename_loc1 = current_path + 'master_level\\modular_simple_ga_non_binary\\parallel_process_temp_storage\\initialize_agents\\mutated_pool.csv'    
+    filename_loc1 = current_path + 'parallel_process_temp_storage\\initialize_agents\\mutated_pool.csv'    
     mutated_pool = np.genfromtxt(filename_loc1, delimiter=',')
     
     ##Extracting the exact binary combination to evaluate

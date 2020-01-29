@@ -1,17 +1,7 @@
 ##This is the main script of the mono objective genetic algorithm, which is handled at the digit level 
 
 def ga_mono_main_nb (population, generations, selection_choice, selection_choice_data, crossover_perc, mutation_perc, variable_list, initial_variable_values, parallel_process, obj_func_plot, cores_used):
-  
-    import os
-    current_path = os.path.dirname(os.path.abspath(__file__)) + '\\'
-    import sys
-    sys.path.append(current_path)    
-    import numpy as np
-    from ga_mono_nb_conv_info import ga_mono_nb_conv_info
-    from ga_mono_initialize_agents_nb import ga_mono_initialize_agents_nb
 
-
-    
     ##population --- the population size
     ##generations --- the number of reproduction generations 
     ##selection_choice --- the selection method which is to be employed
@@ -22,6 +12,14 @@ def ga_mono_main_nb (population, generations, selection_choice, selection_choice
     ##initial_variable_values --- starting points, used to seed the initial population 
     ##parallel_process --- to parallel process or not to boolean yes or no
     ##obj_func_plot --- dynamic graph of the objective function value
+    
+    import os
+    current_path = os.path.dirname(os.path.abspath(__file__)) + '\\'            ##Incase of the need to use relative directory
+    import sys
+    sys.path.append(current_path)    
+    import numpy as np
+    from ga_mono_nb_conv_info import ga_mono_nb_conv_info
+    from ga_mono_initialize_agents_nb import ga_mono_initialize_agents_nb
     
     print('Starting Up... ...')
 

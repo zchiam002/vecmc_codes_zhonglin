@@ -76,14 +76,14 @@ def conv_df_to_arrays_parallel_nb (dec_info_variable_list, population, num_init_
     import random
     import numpy as np
     import os
-    current_path = os.path.dirname(os.path.abspath(__file__))[:-42] + '\\'
+    current_path = os.path.dirname(os.path.abspath(__file__)) + '\\'            ##Incase of the need to use relative directory
     
     ##dec_info_variable_list --- the list of variables and their corresponding attributes 
     ##population --- the stipulated population size 
     ##num_initial_values --- the number of sets of initial values
     
     ##Saving the dataframe to a temporary location for access by all the parallel processes
-    filename_loc = current_path + 'master_level\\modular_simple_ga_non_binary\\parallel_process_temp_storage\\initialize_agents\\dec_info_variable_list.csv'
+    filename_loc = current_path + 'parallel_process_temp_storage\\initialize_agents\\dec_info_variable_list.csv'
     dec_info_variable_list.to_csv(filename_loc)
     
     ##Determining the number of calculations to be performed
@@ -101,7 +101,7 @@ def conv_df_to_arrays_parallel_nb (dec_info_variable_list, population, num_init_
             common_access[i,j] = curr_value
             
     ##Storging it in a temporary location for access by all parallel processes
-    filename_loc1 = current_path + 'master_level\\modular_simple_ga_non_binary\\parallel_process_temp_storage\\initialize_agents\\chosen_values.csv'        
+    filename_loc1 = current_path + 'parallel_process_temp_storage\\initialize_agents\\chosen_values.csv'        
     np.savetxt(filename_loc1, common_access, delimiter=',')    
     
     ##A reference list for all parallel process workers to reference from 
@@ -117,18 +117,18 @@ def calc_indiv_value_parallel_nb (iteration_number):
     import pandas as pd
     from ga_mono_evaluate_objective_nb import ga_mono_evaluate_objective_nb
     import os
-    current_path = os.path.dirname(os.path.abspath(__file__))[:-42] + '\\' 
+    current_path = os.path.dirname(os.path.abspath(__file__)) + '\\'            ##Incase of the need to use relative directory
     
     ##The initial train of thought for the iterantion_number is that it can make each file unique    
        
     ##Extracting variable information 
-    filename_loc = current_path + 'master_level\\modular_simple_ga_non_binary\\parallel_process_temp_storage\\initialize_agents\\dec_info_variable_list.csv'
+    filename_loc = current_path + 'parallel_process_temp_storage\\initialize_agents\\dec_info_variable_list.csv'
     dec_info_variable_list = pd.read_csv(filename_loc)
     dim_dec_info_variable_list = dec_info_variable_list.shape
     num_var_per_agent = dim_dec_info_variable_list[0]
     
     ##Extracting the allocated random values
-    filename_loc1 = current_path + 'master_level\\modular_simple_ga_non_binary\\parallel_process_temp_storage\\initialize_agents\\chosen_values.csv'     
+    filename_loc1 = current_path + 'parallel_process_temp_storage\\initialize_agents\\chosen_values.csv'     
     random_generated_variable_values = np.genfromtxt(filename_loc1, delimiter=',')
     specific_allocated_values = random_generated_variable_values[iteration_number, :]
     
