@@ -1,0 +1,2 @@
+model_checkpoint_path: "F:/Theme_Energy_Mng/district_cooling/ICAE2019_paper/codes//master_level\\reinforcement_learning_algorithm\\actor_critic_advantage_milp\\saved_model\\a2c_trained.ckpt"
+all_model_checkpoint_paths: "F:/Theme_Energy_Mng/district_cooling/ICAE2019_paper/codes//master_level\\reinforcement_learning_algorithm\\actor_critic_advantage_milp\\saved_model\\a2c_trained.ckpt"

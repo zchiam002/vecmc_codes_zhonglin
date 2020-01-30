@@ -1,0 +1,2 @@
+model_checkpoint_path: "C:/Users/zhonglin.chiam/Documents/all_git_repo/Theme_Energy_Mng/district_cooling/ICAE2019_paper/codes//master_level\\reinforcement_learning_algorithm\\policy_gradient_tf_milp\\saved_model\\pg_trained.ckpt"
+all_model_checkpoint_paths: "C:/Users/zhonglin.chiam/Documents/all_git_repo/Theme_Energy_Mng/district_cooling/ICAE2019_paper/codes//master_level\\reinforcement_learning_algorithm\\policy_gradient_tf_milp\\saved_model\\pg_trained.ckpt"
