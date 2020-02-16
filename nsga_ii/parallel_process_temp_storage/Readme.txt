@@ -1,0 +1,1 @@
+##Temporary storage folder for the parallel processes of the Genetic Algorithm
