@@ -5,32 +5,35 @@
     ##layers
     ##process
     ##utility
-    ##utility_mt
     
-def checktype_gv2_nwk_4nc (unit_type):                  ##Input the unit type here
+def checktype_gv2_nwk (unit_type):                  ##Input the unit type here
+
+    ##unit_type     --- a variable to store the type of unit 
+    
     unit_type = 'utility'
+    
     return unit_type
 
-def gv2_nwk_4nc (gv2_nwk_4nc_mdv, utilitylist, streams, cons_eqns, cons_eqns_terms):
-    from gv2_nwk_4nc_compute import gv2_nwk_4nc_compute
+##This model represents the gv2 network model
+def gv2_nwk (mdv, utilitylist, streams, cons_eqns, cons_eqns_terms):
+
+    ##mdv               --- the associated decision variables from the GA, or parameters 
+    ##utilitylist       --- a dataframe to extract general information from the model 
+    ##streams           --- a dataframe to extract stream information from the model 
+    ##cons_eqns         --- a dataframe to extract constraint equations from the model 
+    ##cons_eqns_terms   --- a dataframe to extract terms in the constraint equation from the model 
+    
+    from gv2_nwk_compute import gv2_nwk_compute
     import pandas as pd
     import numpy as np
 
-    ##This model represents the gv2 network model
-    
-    ##gv2_nwk_4nc_mdv --- the master decision variables which are used as parameters at this stage 
-    ##utilitylist --- a dataframe to hold essential values for writing the MILP script 
-    ##streams --- a dataframe to write connections to other units 
-    ##cons_eqns --- additional constraints are explicitly stated here 
-    ##cons_eqns_terms --- the terms to the constraints 
-    
     ##Defining inputs 
     
     ##Processing list of master decision variables
-    gv2_nwk_steps = gv2_nwk_4nc_mdv['Value'][0]
-    gv2_nwk_tf = gv2_nwk_4nc_mdv['Value'][1]
-    gv2_nwk_max_flow = gv2_nwk_4nc_mdv['Value'][1] * 0.9                     ##This upper bound is needed for the computation of stepwise pressure
-                                                                        ##The majority of the flow is usually consumed by GV2
+    gv2_nwk_steps = mdv['Value'][0]
+    gv2_nwk_tf = mdv['Value'][1]
+    gv2_nwk_max_flow = mdv['Value'][1] * 0.9                                            ##This upper bound is needed for the computation of stepwise pressure
+                                                                                        ##The majority of the flow is usually consumed by GV2
     ##Defined constants 
     gv2_nwk_coeff = 0.0000735647190189052
                                                    
@@ -43,7 +46,7 @@ def gv2_nwk_4nc (gv2_nwk_4nc_mdv, utilitylist, streams, cons_eqns, cons_eqns_ter
     gv2_nwk_dc[2,0] = gv2_nwk_max_flow
     gv2_nwk_dc[3,0] = gv2_nwk_steps
 
-    gv2_nwk_calc = gv2_nwk_4nc_compute(gv2_nwk_dc)
+    gv2_nwk_calc = gv2_nwk_compute(gv2_nwk_dc)
     
 #################################################################################################################################################################################################        
     ##Unit definition 
@@ -52,7 +55,7 @@ def gv2_nwk_4nc (gv2_nwk_4nc_mdv, utilitylist, streams, cons_eqns, cons_eqns_ter
     
     for i in range (0, int(gv2_nwk_steps)):
         ud = {}
-        ud['Name'] = 'gv2_nwk_4nc_' + str(i + 1)
+        ud['Name'] = 'gv2_nwk_' + str(i + 1)
         ud['Variable1'] = 'm_perc'                                                                        
         ud['Variable2'] = '-'                                                                  
         ud['Fmin_v1'] = gv2_nwk_calc['lb'][i]
@@ -112,9 +115,9 @@ def gv2_nwk_4nc (gv2_nwk_4nc_mdv, utilitylist, streams, cons_eqns, cons_eqns_ter
         
         ##Stream --- flowrate into the gv2 network from ice network
         stream = {}                         
-        stream['Parent'] = 'gv2_nwk_4nc_' + str(i + 1)
+        stream['Parent'] = 'gv2_nwk_' + str(i + 1)
         stream['Type'] = 'flow'
-        stream['Name'] = 'gv2_nwk_4nc_' + str(i + 1) + '_flow_in'
+        stream['Name'] = 'gv2_nwk_' + str(i + 1) + '_flow_in'
         stream['Layer'] = 'ice_outlet_flow'
         stream['Stream_coeff_v1_2'] = 0
         stream['Stream_coeff_v1_1'] = gv2_nwk_tf
@@ -132,9 +135,9 @@ def gv2_nwk_4nc (gv2_nwk_4nc_mdv, utilitylist, streams, cons_eqns, cons_eqns_ter
 
         ##Stream --- flowrate from gv2 network into gv2 substation
         stream = {}                                                                
-        stream['Parent'] = 'gv2_nwk_4nc_' + str(i + 1)
+        stream['Parent'] = 'gv2_nwk_' + str(i + 1)
         stream['Type'] = 'flow'
-        stream['Name'] = 'gv2_nwk_4nc_' + str(i + 1) + '_flow_out'
+        stream['Name'] = 'gv2_nwk_' + str(i + 1) + '_flow_out'
         stream['Layer'] = 'gv2nwk2ss_flow'
         stream['Stream_coeff_v1_2'] = 0
         stream['Stream_coeff_v1_1'] = gv2_nwk_tf 
@@ -152,9 +155,9 @@ def gv2_nwk_4nc (gv2_nwk_4nc_mdv, utilitylist, streams, cons_eqns, cons_eqns_ter
         
         ##Stream --- pressure from gv2 network into gv2 pressure layer
         stream = {}                                                                
-        stream['Parent'] = 'gv2_nwk_4nc_' + str(i + 1)
+        stream['Parent'] = 'gv2_nwk_' + str(i + 1)
         stream['Type'] = 'pressure'
-        stream['Name'] = 'gv2_nwk_4nc_' + str(i + 1) + '_delp_out'
+        stream['Name'] = 'gv2_nwk_' + str(i + 1) + '_delp_out'
         stream['Layer'] = 'gv2_consol_delp'
         stream['Stream_coeff_v1_2'] = 0
         stream['Stream_coeff_v1_1'] = gv2_nwk_tf  * gv2_nwk_calc['grad'][i]
@@ -178,7 +181,7 @@ def gv2_nwk_4nc (gv2_nwk_4nc_mdv, utilitylist, streams, cons_eqns, cons_eqns_ter
     
     ##Ensure that the totaluse is equals to 0 or 1 
     eqn = {}
-    eqn['Name'] = 'totaluse_gv2_nwk_4nc'
+    eqn['Name'] = 'totaluse_gv2_nwk'
     eqn['Type'] = 'unit_binary'
     eqn['Sign'] = 'less_than_equal_to'
     eqn['RHS_value'] = 1
@@ -191,8 +194,8 @@ def gv2_nwk_4nc (gv2_nwk_4nc_mdv, utilitylist, streams, cons_eqns, cons_eqns_ter
 
     for i in range (0, int(gv2_nwk_steps)):   
         term = {}
-        term['Parent_unit'] = 'gv2_nwk_4nc_' + str(i + 1)
-        term['Parent_eqn'] = 'totaluse_gv2_nwk_4nc'
+        term['Parent_unit'] = 'gv2_nwk_' + str(i + 1)
+        term['Parent_eqn'] = 'totaluse_gv2_nwk'
         term['Parent_stream'] = '-'                                    ##Only applicable for stream_limit types 
         term['Coefficient'] = 1
         term['Coeff_v1_2'] = 0                                         ##Only applicable for stream_limit_modified types 

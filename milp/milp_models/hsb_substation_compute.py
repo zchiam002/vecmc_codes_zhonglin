@@ -2,19 +2,17 @@
 
 ##Note: Some of the implementations may be more accurate than others due to the dynamic step size 
 
-def hsb_substation_4nc_compute (hsb_ss_dc):
-    
-    import numpy as np 
-    
-    ##list of input values 
-    ##hsb_ss_dc = np.zeros((5,1))          
-    
+def hsb_substation_compute (hsb_ss_dc):
+
+    ##hsb_ss_dc     --- list of input values              
     ##hsb_ss_dc[0,0] = hsb_ss_demand
     ##hsb_ss_dc[1,0] = hsb_ss_totalflownwk
     ##hsb_ss_dc[2,0] = hsb_ss_cp
     ##hsb_ss_dc[3,0] = hsb_ss_tinmax
     ##hsb_ss_dc[4,0] = hsb_ss_deltmax
     
+    import numpy as np 
+        
     ##Calculating the constant value for the exting stream
     if hsb_ss_dc[1,0] == 0:
         exit_cst_value = 0

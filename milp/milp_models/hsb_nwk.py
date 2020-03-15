@@ -5,32 +5,36 @@
     ##layers
     ##process
     ##utility
-    ##utility_mt
     
-def checktype_hsb_nwk_4nc (unit_type):                  ##Input the unit type here
+def checktype_hsb_nwk (unit_type):                  ##Input the unit type here
+
+    ##unit_type     --- a variable to store the type of unit  
+    
     unit_type = 'utility'
+    
     return unit_type
 
-def hsb_nwk_4nc (hsb_nwk_4nc_mdv, utilitylist, streams, cons_eqns, cons_eqns_terms):
-    from hsb_nwk_4nc_compute import hsb_nwk_4nc_compute
+##This model represents the hsb network model
+def hsb_nwk (mdv, utilitylist, streams, cons_eqns, cons_eqns_terms):
+
+    ##mdv               --- the associated decision variables from the GA, or parameters 
+    ##utilitylist       --- a dataframe to extract general information from the model 
+    ##streams           --- a dataframe to extract stream information from the model 
+    ##cons_eqns         --- a dataframe to extract constraint equations from the model 
+    ##cons_eqns_terms   --- a dataframe to extract terms in the constraint equation from the model 
+
+    from hsb_nwk_compute import hsb_nwk_compute
     import pandas as pd
     import numpy as np
 
-    ##This model represents the hsb network model
-    
-    ##hsb_nwk_4nc_mdv --- the master decision variables which are used as parameters at this stage 
-    ##utilitylist --- a dataframe to hold essential values for writing the MILP script 
-    ##streams --- a dataframe to write connections to other units 
-    ##cons_eqns --- additional constraints are explicitly stated here 
-    ##cons_eqns_terms --- the terms to the constraints 
     
     ##Defining inputs 
     
     ##Processing list of master decision variables
-    hsb_nwk_steps = hsb_nwk_4nc_mdv['Value'][0]
-    hsb_nwk_tf = hsb_nwk_4nc_mdv['Value'][1]
-    hsb_nwk_max_flow = hsb_nwk_4nc_mdv['Value'][1]  * 0.4               ##This upper bound is needed for the computation of stepwise pressure
-                                                                        ##The estimated proportion of cooling consumed by hsb 
+    hsb_nwk_steps = mdv['Value'][0]
+    hsb_nwk_tf = mdv['Value'][1]
+    hsb_nwk_max_flow = mdv['Value'][1]  * 0.4                                           ##This upper bound is needed for the computation of stepwise pressure
+                                                                                        ##The estimated proportion of cooling consumed by hsb 
     ##Defined constants 
     hsb_nwk_coeff = 0.0075648885553576
                                                    
@@ -43,7 +47,7 @@ def hsb_nwk_4nc (hsb_nwk_4nc_mdv, utilitylist, streams, cons_eqns, cons_eqns_ter
     hsb_nwk_dc[2,0] = hsb_nwk_max_flow
     hsb_nwk_dc[3,0] = hsb_nwk_steps
 
-    hsb_nwk_calc = hsb_nwk_4nc_compute(hsb_nwk_dc)
+    hsb_nwk_calc = hsb_nwk_compute(hsb_nwk_dc)
     
 #################################################################################################################################################################################################        
     ##Unit definition 
@@ -52,7 +56,7 @@ def hsb_nwk_4nc (hsb_nwk_4nc_mdv, utilitylist, streams, cons_eqns, cons_eqns_ter
     
     for i in range (0, int(hsb_nwk_steps)):
         ud = {}
-        ud['Name'] = 'hsb_nwk_4nc_' + str(i + 1)
+        ud['Name'] = 'hsb_nwk_' + str(i + 1)
         ud['Variable1'] = 'm_perc'                                                                        
         ud['Variable2'] = '-'                                                                  
         ud['Fmin_v1'] = hsb_nwk_calc['lb'][i]
@@ -112,9 +116,9 @@ def hsb_nwk_4nc (hsb_nwk_4nc_mdv, utilitylist, streams, cons_eqns, cons_eqns_ter
         
         ##Stream --- flowrate into the hsb network from ice network
         stream = {}                         
-        stream['Parent'] = 'hsb_nwk_4nc_' + str(i + 1)
+        stream['Parent'] = 'hsb_nwk_' + str(i + 1)
         stream['Type'] = 'flow'
-        stream['Name'] = 'hsb_nwk_4nc_' + str(i + 1) + '_flow_in'
+        stream['Name'] = 'hsb_nwk_' + str(i + 1) + '_flow_in'
         stream['Layer'] = 'ice_outlet_flow'
         stream['Stream_coeff_v1_2'] = 0
         stream['Stream_coeff_v1_1'] = hsb_nwk_tf
@@ -132,9 +136,9 @@ def hsb_nwk_4nc (hsb_nwk_4nc_mdv, utilitylist, streams, cons_eqns, cons_eqns_ter
 
         ##Stream --- flowrate from hsb network into hsb substation
         stream = {}                                                                
-        stream['Parent'] = 'hsb_nwk_4nc_' + str(i + 1)
+        stream['Parent'] = 'hsb_nwk_' + str(i + 1)
         stream['Type'] = 'flow'
-        stream['Name'] = 'hsb_nwk_4nc_' + str(i + 1) + '_flow_out'
+        stream['Name'] = 'hsb_nwk_' + str(i + 1) + '_flow_out'
         stream['Layer'] = 'hsbnwk2ss_flow'
         stream['Stream_coeff_v1_2'] = 0
         stream['Stream_coeff_v1_1'] = hsb_nwk_tf 
@@ -152,9 +156,9 @@ def hsb_nwk_4nc (hsb_nwk_4nc_mdv, utilitylist, streams, cons_eqns, cons_eqns_ter
         
         ##Stream --- pressure from hsb network into hsb pressure layer
         stream = {}                                                                
-        stream['Parent'] = 'hsb_nwk_4nc_' + str(i + 1)
+        stream['Parent'] = 'hsb_nwk_' + str(i + 1)
         stream['Type'] = 'pressure'
-        stream['Name'] = 'hsb_nwk_4nc_' + str(i + 1) + '_delp_out'
+        stream['Name'] = 'hsb_nwk_' + str(i + 1) + '_delp_out'
         stream['Layer'] = 'hsb_consol_delp'
         stream['Stream_coeff_v1_2'] = 0
         stream['Stream_coeff_v1_1'] = hsb_nwk_tf  * hsb_nwk_calc['grad'][i]
@@ -178,7 +182,7 @@ def hsb_nwk_4nc (hsb_nwk_4nc_mdv, utilitylist, streams, cons_eqns, cons_eqns_ter
     
     ##Ensure that the totaluse is equals to 0 or 1 
     eqn = {}
-    eqn['Name'] = 'totaluse_hsb_nwk_4nc'
+    eqn['Name'] = 'totaluse_hsb_nwk'
     eqn['Type'] = 'unit_binary'
     eqn['Sign'] = 'less_than_equal_to'
     eqn['RHS_value'] = 1
@@ -191,11 +195,11 @@ def hsb_nwk_4nc (hsb_nwk_4nc_mdv, utilitylist, streams, cons_eqns, cons_eqns_ter
 
     for i in range (0, int(hsb_nwk_steps)):   
         term = {}
-        term['Parent_unit'] = 'hsb_nwk_4nc_' + str(i + 1)
-        term['Parent_eqn'] = 'totaluse_hsb_nwk_4nc'
-        term['Parent_stream'] = '-'                                    ##Only applicable for stream_limit types 
+        term['Parent_unit'] = 'hsb_nwk_' + str(i + 1)
+        term['Parent_eqn'] = 'totaluse_hsb_nwk'
+        term['Parent_stream'] = '-'                                                     ##Only applicable for stream_limit types 
         term['Coefficient'] = 1
-        term['Coeff_v1_2'] = 0                                         ##Only applicable for stream_limit_modified types 
+        term['Coeff_v1_2'] = 0                                                          ##Only applicable for stream_limit_modified types 
         term['Coeff_v1_1'] = 0
         term['Coeff_v2_2'] = 0
         term['Coeff_v2_1'] = 0

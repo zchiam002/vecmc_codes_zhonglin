@@ -2,21 +2,17 @@
 
 ##Note: Some of the implementations may be more accurate than others due to the dynamic step size 
 
-def chiller1_evap_nwk_4nc_compute (ch1_enwk_dc):
-    
-    import numpy as np 
-    import pandas as pd
-    
-    ##list of input values 
-    ##ch1_enwk_dc = np.zeros((5,1))
-    
+def chiller1_evap_nwk_compute (ch1_enwk_dc):
+
+    ##ch1_enwk_dc       --- list of input values
     ##ch1_enwk_dc[0,0] = ch1_enwk_tf
     ##ch1_enwk_dc[1,0] = ch1_enwk_coeff
     ##ch1_enwk_dc[2,0] = ch1_enwk_com_coeff
     ##ch1_enwk_dc[3,0] = ch1_enwk_max_flow
     ##ch1_enwk_dc[4,0] = ch1_enwk_steps
 
-
+    import pandas as pd
+    
     ##Initializing an array to store the return values 
     ch1_enwk_calc = pd.DataFrame(columns = ['grad', 'int' ,'lb' ,'ub'])
     

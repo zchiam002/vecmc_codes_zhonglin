@@ -2,18 +2,15 @@
 
 ##Note: Some of the implementations may be more accurate than others due to the dynamic step size 
 
-def ice_nwk_4nc_compute (ice_nwk_dc):
-    
-    import numpy as np 
-    import pandas as pd
-    
-    ##list of input values 
-    ##ice_nwk_dc = np.zeros((4,1))
-    
+def ice_nwk_compute (ice_nwk_dc):
+
+    ##ice_nwk_dc    --- list of input values    
     ##ice_nwk_dc[0,0] = ice_nwk_tf
     ##ice_nwk_dc[1,0] = ice_nwk_coeff
     ##ice_nwk_dc[2,0] = ice_nwk_max_flow
     ##ice_nwk_dc[3,0] = ice_nwk_steps
+    
+    import pandas as pd
 
     ##Initializing an array to store the return values 
     ice_nwk_calc = pd.DataFrame(columns = ['grad', 'int' ,'lb' ,'ub'])

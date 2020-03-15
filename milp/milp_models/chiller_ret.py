@@ -5,33 +5,38 @@
     ##layers
     ##process
     ##utility
-    ##utility_mt
 
-def checktype_chiller_ret_4nc (unit_type):                  ##Input the unit type here
-    unit_type = 'process'
-    return unit_type
+def checktype_chiller_ret (unit_type):
     
-def chiller_ret_4nc (ch_r_4nc_mdv, processlist, streams, cons_eqns, cons_eqns_terms):
-    import pandas as pd 
-    import numpy as np 
+    ##unit_type     --- a variable to store the type of unit  
+    
+    unit_type = 'process'
+    
+    return unit_type
 
-    ##Model description:
+##Model description:
     ##This model represents the required return temperature demand from the chiller model 
     
-    ##Legend of input variables 
+def chiller_ret (mdv, processlist, streams, cons_eqns, cons_eqns_terms):
+
+    ##mdv               --- the associated decision variables from the GA, or parameters 
+    ##processlist       --- a dataframe to extract general information from the model 
+    ##streams           --- a dataframe to extract stream information from the model 
+    ##cons_eqns         --- a dataframe to extract constraint equations from the model 
+    ##cons_eqns_terms   --- a dataframe to extract terms in the constraint equation from the model 
     
-    ##ch1_r_etret       - evaporator return temperature (K)
+    import pandas as pd 
     
     ##Defining inputs 
     
     ##Processing list of master decision variables as parameters 
-    ch_r_etret = ch_r_4nc_mdv['Value'][0]
+    ch_r_etret = mdv['Value'][0]                           ##evaporator return temperature (K)
 
     ##Unit definition 
     
     ##Unit 1
     ud = {}
-    ud['Name'] = 'ch_evap_ret_4nc'
+    ud['Name'] = 'ch_evap_ret'
     ud['Variable1'] = 't_in'                                                                                                     
     ud['Variable2'] = '-' 
     ud['Fmin_v1'] = 0 
@@ -86,9 +91,9 @@ def chiller_ret_4nc (ch_r_4nc_mdv, processlist, streams, cons_eqns, cons_eqns_te
     ##Layer and stream definition 
     
     stream = {}                                                                
-    stream['Parent'] = 'ch_evap_ret_4nc'
+    stream['Parent'] = 'ch_evap_ret'
     stream['Type'] = 'balancing_only'
-    stream['Name'] = 'ch_evap_4nc_tin'
+    stream['Name'] = 'ch_evap_tin'
     stream['Layer'] = 'sp22chilret_temp'
     stream['Stream_coeff_v1_2'] = 0
     stream['Stream_coeff_v1_1'] = ch_r_etret

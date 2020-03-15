@@ -2,19 +2,15 @@
 
 ##Note: Some of the implementations may be more accurate than others due to the dynamic step size 
 
-def hsb_nwk_4nc_compute (hsb_nwk_dc):
-    
-    import numpy as np 
-    import pandas as pd
-    
-    ##list of input values 
-    ##hsb_nwk_dc = np.zeros((4,1))
-    
+def hsb_nwk_compute (hsb_nwk_dc):
+
+    ##hsb_nwk_dc    --- list of input values 
     ##hsb_nwk_dc[0,0] = hsb_nwk_tf
     ##hsb_nwk_dc[1,0] = hsb_nwk_coeff
     ##hsb_nwk_dc[2,0] = hsb_nwk_max_flow
     ##hsb_nwk_dc[3,0] = hsb_nwk_steps
-
+    
+    import pandas as pd
 
     ##Initializing an array to store the return values 
     hsb_nwk_calc = pd.DataFrame(columns = ['grad', 'int' ,'lb' ,'ub'])

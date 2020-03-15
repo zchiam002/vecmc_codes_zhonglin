@@ -16,10 +16,78 @@ def milp_backend(files, obj_func, parallel_thread_num, models_location, bilinear
     sys.path.append(current_path + 'auxillary//')
     sys.path.append(models_location)
     from get_values_models import get_values_models
+    from sorting_linear_and_bilinear_terms import sorting_linear_and_bilinear_terms    
+    
+    ##Initial inputs 
+    save_file = 'yes'           ##Determine if the intermediate dataframes are to be saved or not
     
     ##Getting the values from the models 
     layerslist, utilitylist, processlist, streams, cons_eqns, cons_eqns_terms = get_values_models(files, parallel_thread_num, models_location)     
+
+    ##Linearizing the bilinear terms 
+    ret_dataframes, affected_list = sorting_linear_and_bilinear_terms (layerslist, utilitylist, processlist, streams, cons_eqns, cons_eqns_terms, obj_func, bilinear_pieces)    
     
+    ##Saving the dataframes for checking 
+    save_function (ret_dataframes, layerslist, utilitylist, processlist, streams, cons_eqns, cons_eqns_terms, save_file)
+
+    ##Generating linear program script in LP format 
+    genscript_lp_format_v0(ret_dataframes, utilitylist, processlist, layerslist, parallel_thread_num, obj_func, bilinear_pieces)
+    
+    print(layerslist)
+    import sys 
+    sys.exit()
     
     return 
 
+###############################################################################################################################################################################
+
+##Additional functions
+
+##This function saved the dataframes into csvfiles for checking purposes 
+def save_function (ret_dataframes, layerslist, utilitylist, processlist, streams, cons_eqns, cons_eqns_terms, save_file):
+    
+    ##ret_dataframes                                          --- it is a dictionary of dataframes
+    ##ret_dataframes['utilitylist_bilinear']                  --- list of bilinear utilities 
+    ##ret_dataframes['processlist_bilinear']                  --- list of bilinear processes
+    ##ret_dataframes['streams_bilinear']                      --- list of bilinear streams 
+    ##ret_dataframes['cons_eqns_terms_bilinear']              --- list of bilinear cons_eqns_terms
+    ##ret_dataframes['utilitylist_linear']                    --- linear utility list 
+    ##ret_dataframes['processlist_linear']                    --- linear process list 
+    ##ret_dataframes['streams_linear']                        --- linear streams list 
+    ##ret_dataframes['cons_eqns_terms_linear']                --- linear cons_eqns_terms 
+    ##ret_dataframes['cons_eqns_all']                         --- all cons_eqns
+    
+    ##layerslist                --- the list of all the layers in the optimization problem 
+    ##utilitylist               --- the list of all the utilities 
+    ##processlist               --- the list of all the processes
+    ##streams                   --- the list of all the streams
+    ##cons_eqns                 --- the list of all the additional constraints 
+    ##cons_eqns_terms           --- the list of all the terms in the additional constraints     
+    
+    import os 
+    current_path = os.path.dirname(__file__) + '//' 
+    
+    ##Determining the save path 
+    save_path = current_path + 'save_dataframes//'
+    
+    if save_file == 'yes':
+        ret_dataframes['utilitylist_bilinear'].to_csv(save_path + '01.utilitylist_bilinear.csv')
+        ret_dataframes['processlist_bilinear'].to_csv(save_path + '02.processlist_bilinear.csv')
+        ret_dataframes['streams_bilinear'].to_csv(save_path + '03.streams_bilinear.csv')
+        ret_dataframes['cons_eqns_terms_bilinear'].to_csv(save_path + '04.cons_eqns_terms_bilinear.csv')
+        ret_dataframes['utilitylist_linear'].to_csv(save_path + '05.utilitylist_linear.csv')
+        ret_dataframes['processlist_linear'].to_csv(save_path + '06.processlist_linear.csv')
+        ret_dataframes['streams_linear'].to_csv(save_path + '07.streams_linear.csv')
+        ret_dataframes['cons_eqns_terms_linear'].to_csv(save_path + '08.cons_eqns_terms_linear.csv')
+        ret_dataframes['cons_eqns_all'].to_csv(save_path + '09.cons_eqns_all.csv')
+        
+        layerslist.to_csv(save_path + '10.layerslist_orginal.csv')
+        utilitylist.to_csv(save_path + '11.utilitylist_orginal.csv')
+        processlist.to_csv(save_path + '12.processlist_orginal.csv')
+        streams.to_csv(save_path + '13.streams_orginal.csv')
+        cons_eqns.to_csv(save_path + '14.cons_eqns_orginal.csv')
+        cons_eqns_terms.to_csv(save_path + '15.cons_eqns_terms_orginal.csv')  
+    
+    return 
+
+    

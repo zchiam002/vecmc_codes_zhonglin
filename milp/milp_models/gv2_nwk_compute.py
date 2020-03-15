@@ -2,19 +2,15 @@
 
 ##Note: Some of the implementations may be more accurate than others due to the dynamic step size 
 
-def gv2_nwk_4nc_compute (gv2_nwk_dc):
-    
-    import numpy as np 
-    import pandas as pd
-    
-    ##list of input values 
-    ##gv2_nwk_dc = np.zeros((4,1))
-    
+def gv2_nwk_compute (gv2_nwk_dc):
+
+    ##gv2_nwk_dc    --- list of input values    
     ##gv2_nwk_dc[0,0] = gv2_nwk_tf
     ##gv2_nwk_dc[1,0] = gv2_nwk_coeff
     ##gv2_nwk_dc[2,0] = gv2_nwk_max_flow
     ##gv2_nwk_dc[3,0] = gv2_nwk_steps
-
+    
+    import pandas as pd
 
     ##Initializing an array to store the return values 
     gv2_nwk_calc = pd.DataFrame(columns = ['grad', 'int' ,'lb' ,'ub'])

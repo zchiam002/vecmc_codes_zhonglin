@@ -1,18 +1,15 @@
 #This is the compute file 
+def gv2_substation_compute (gv2_ss_dc):
 
-def gv2_substation_4nc_compute (gv2_ss_dc):
-    
-    import numpy as np 
-    
-    ##list of input values 
-    ##gv2_ss_dc = np.zeros((5,1))          
-    
+    ##gv2_ss_dc     --- list of input values        
     ##gv2_ss_dc[0,0] = gv2_ss_demand
     ##gv2_ss_dc[1,0] = gv2_ss_totalflownwk
     ##gv2_ss_dc[2,0] = gv2_ss_cp
     ##gv2_ss_dc[3,0] = gv2_ss_tinmax
     ##gv2_ss_dc[4,0] = gv2_ss_deltmax
     
+    import numpy as np 
+        
     ##Calculating the constant value for the exting stream
     if gv2_ss_dc[1,0] == 0:
         exit_cst_value = 0

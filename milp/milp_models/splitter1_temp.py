@@ -5,24 +5,28 @@
     ##layers
     ##process
     ##utility
-    ##utility_mt
     
-def checktype_splitter1_temp_4nc (unit_type):                  ##Input the unit type here
+def checktype_splitter1_temp (unit_type):                  ##Input the unit type here
+
+    ##unit_type     --- a variable to store the type of unit    
+
     unit_type = 'utility'
+
     return unit_type
 
-def splitter1_temp_4nc (sp1_temp_4nc_mdv, utilitylist, streams, cons_eqns, cons_eqns_terms):
-    import pandas as pd
-    
-    #Model description 
+#Model description 
     ##This model copies the inlet stream and duplicates it to the required number of outlet streams 
+def splitter1_temp (mdv, utilitylist, streams, cons_eqns, cons_eqns_terms):
     
+    import pandas as pd
+
+#################################################################################################################################################################################################    
     ##Unit definition
     
     ##Unit 1
 
     sp1_temp = {}
-    sp1_temp['Name'] = 'sp1_temp_4nc'
+    sp1_temp['Name'] = 'sp1_temp'
     sp1_temp['Variable1'] = 't_inout'                                                                                                     
     sp1_temp['Variable2'] = '-'                                                                                                       
     sp1_temp['Fmin_v1'] = 0 
@@ -73,14 +77,15 @@ def splitter1_temp_4nc (sp1_temp_4nc_mdv, utilitylist, streams, cons_eqns, cons_
                                                       'Cinv_v1_1', 'Cinv_v2_2', 'Cinv_v2_1', 'Cinv_v1_v2', 'Cinv_cst', 'Power_v1_2', 'Power_v1_1', 'Power_v2_2', 'Power_v2_1', 'Power_v1_v2',
                                                       'Power_cst', 'Impact_v1_2', 'Impact_v1_1', 'Impact_v2_2', 'Impact_v2_1', 'Impact_v1_v2', 'Impact_cst'])
     utilitylist = utilitylist.append(unitdf, ignore_index=True)
-    
+
+#################################################################################################################################################################################################    
     ##Layer and stream definition 
     
     ##Stream 1
-    stream = {}                                                                ##This is the input from the chillers. 
-    stream['Parent'] = 'sp1_temp_4nc'
+    stream = {}                                                                          ##This is the input from the chillers. 
+    stream['Parent'] = 'sp1_temp'
     stream['Type'] = 'temp_chil'
-    stream['Name'] = 'chil2sp1_temp_4nc_tin'
+    stream['Name'] = 'chil2sp1_temp_tin'
     stream['Layer'] = 'chil2sp1_temp'
     stream['Stream_coeff_v1_2'] = 0
     stream['Stream_coeff_v1_1'] = 30
@@ -98,9 +103,9 @@ def splitter1_temp_4nc (sp1_temp_4nc_mdv, utilitylist, streams, cons_eqns, cons_
 
     ##Stream 2
     stream = {} 
-    stream['Parent'] = 'sp1_temp_4nc'                                              ##Copied output to the common pipe
+    stream['Parent'] = 'sp1_temp'                                                       ##Copied output to the common pipe
     stream['Type'] = 'temp_chil'
-    stream['Name'] = 'sp1_temp_4nc2cp_nwk_4nc_tout'
+    stream['Name'] = 'sp1_temp_2cp_nwk_tout'
     stream['Layer'] = 'sp12cp_temp'
     stream['Stream_coeff_v1_2'] = 0
     stream['Stream_coeff_v1_1'] = 30
@@ -117,10 +122,10 @@ def splitter1_temp_4nc (sp1_temp_4nc_mdv, utilitylist, streams, cons_eqns, cons_
     streams = streams.append(streamdf, ignore_index=True)  
     
     ##Stream 3
-    stream = {}                                                                ##Copied output to gv2 substation 
-    stream['Parent'] = 'sp1_temp_4nc'
+    stream = {}                                                                         ##Copied output to gv2 substation 
+    stream['Parent'] = 'sp1_temp'
     stream['Type'] = 'temp_chil'
-    stream['Name'] = 'sp1_temp_4nc2gv2_ss_4nc_tout'
+    stream['Name'] = 'sp1_temp_2gv2_ss_tout'
     stream['Layer'] = 'sp12gv2_temp'
     stream['Stream_coeff_v1_2'] = 0
     stream['Stream_coeff_v1_1'] = 30
@@ -137,10 +142,10 @@ def splitter1_temp_4nc (sp1_temp_4nc_mdv, utilitylist, streams, cons_eqns, cons_
     streams = streams.append(streamdf, ignore_index=True)  
 
     ##Stream 4
-    stream = {}                                                                ##Copied output to hsb substation 
-    stream['Parent'] = 'sp1_temp_4nc'
+    stream = {}                                                                         ##Copied output to hsb substation 
+    stream['Parent'] = 'sp1_temp'
     stream['Type'] = 'temp_chil'
-    stream['Name'] = 'sp1_temp_4nc2hsb_ss_4nc_tout'
+    stream['Name'] = 'sp1_temp_2hsb_ss_tout'
     stream['Layer'] = 'sp12hsb_temp'
     stream['Stream_coeff_v1_2'] = 0
     stream['Stream_coeff_v1_1'] = 30
@@ -155,46 +160,5 @@ def splitter1_temp_4nc (sp1_temp_4nc_mdv, utilitylist, streams, cons_eqns, cons_
     streamdf = pd.DataFrame(data = [streaminput], columns=['Parent', 'Type', 'Name', 'Layer', 'Stream_coeff_v1_2', 'Stream_coeff_v1_1', 'Stream_coeff_v2_2', 'Stream_coeff_v2_1',
                                                           'Stream_coeff_v1_v2', 'Stream_coeff_cst', 'InOut'])
     streams = streams.append(streamdf, ignore_index=True)     
-    
-    ##Stream 5
-    stream = {}                                                                ##Copied output to pfa substation 
-    stream['Parent'] = 'sp1_temp_4nc'
-    stream['Type'] = 'temp_chil'
-    stream['Name'] = 'sp1_temp_4nc2pfa_ss_4nc_tout'
-    stream['Layer'] = 'sp12pfa_temp'
-    stream['Stream_coeff_v1_2'] = 0
-    stream['Stream_coeff_v1_1'] = 30
-    stream['Stream_coeff_v2_2'] = 0
-    stream['Stream_coeff_v2_1'] = 0
-    stream['Stream_coeff_v1_v2'] = 0
-    stream['Stream_coeff_cst'] = 273.15
-    stream['InOut'] = 'out'
-    
-    streaminput = [stream['Parent'], stream['Type'], stream['Name'], stream['Layer'], stream['Stream_coeff_v1_2'], stream['Stream_coeff_v1_1'], stream['Stream_coeff_v2_2'],
-                   stream['Stream_coeff_v2_1'], stream['Stream_coeff_v1_v2'], stream['Stream_coeff_cst'], stream['InOut']]
-    streamdf = pd.DataFrame(data = [streaminput], columns=['Parent', 'Type', 'Name', 'Layer', 'Stream_coeff_v1_2', 'Stream_coeff_v1_1', 'Stream_coeff_v2_2', 'Stream_coeff_v2_1',
-                                                          'Stream_coeff_v1_v2', 'Stream_coeff_cst', 'InOut'])
-    streams = streams.append(streamdf, ignore_index=True)     
-    
-    ##Stream 6
-    stream = {}                                                                ##Copied output to ser substation 
-    stream['Parent'] = 'sp1_temp_4nc'
-    stream['Type'] = 'temp_chil'
-    stream['Name'] = 'sp1_temp_4nc2ser_ss_4nc_tout'
-    stream['Layer'] = 'sp12ser_temp'
-    stream['Stream_coeff_v1_2'] = 0
-    stream['Stream_coeff_v1_1'] = 30
-    stream['Stream_coeff_v2_2'] = 0
-    stream['Stream_coeff_v2_1'] = 0
-    stream['Stream_coeff_v1_v2'] = 0
-    stream['Stream_coeff_cst'] = 273.15
-    stream['InOut'] = 'out'
-    
-    streaminput = [stream['Parent'], stream['Type'], stream['Name'], stream['Layer'], stream['Stream_coeff_v1_2'], stream['Stream_coeff_v1_1'], stream['Stream_coeff_v2_2'],
-                   stream['Stream_coeff_v2_1'], stream['Stream_coeff_v1_v2'], stream['Stream_coeff_cst'], stream['InOut']]
-    streamdf = pd.DataFrame(data = [streaminput], columns=['Parent', 'Type', 'Name', 'Layer', 'Stream_coeff_v1_2', 'Stream_coeff_v1_1', 'Stream_coeff_v2_2', 'Stream_coeff_v2_1',
-                                                          'Stream_coeff_v1_v2', 'Stream_coeff_cst', 'InOut'])
-    streams = streams.append(streamdf, ignore_index=True)       
-    
-    
+            
     return utilitylist, streams, cons_eqns, cons_eqns_terms

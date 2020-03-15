@@ -1,17 +1,17 @@
 
 def sorting_linear_and_bilinear_terms (layerslist, utilitylist, processlist, streams, cons_eqns, cons_eqns_terms, obj_func, bilinear_pieces):
+
+    ##layerslist            --- the list of all the layers in the optimization problem 
+    ##utilitylist           --- the list of all the utilities 
+    ##processlist           --- the list of all the processes
+    ##streams               --- the list of all the streams
+    ##cons_eqns             --- the list of all the additional constraints 
+    ##cons_eqns_terms       --- the list of all the terms in the additional constraints 
+    ##obj_func              --- the objective function selected for the slave 
+    ##bilinear_pieces       --- the number of bilinear pieces for the linearization of the bilinear terms 
     
     import pandas as pd
-    
-    ##layerslist --- the list of all the layers in the optimization problem 
-    ##utilitylist --- the list of all the utilities 
-    ##processlist --- the list of all the processes
-    ##streams --- the list of all the streams
-    ##cons_eqns --- the list of all the additional constraints 
-    ##cons_eqns_terms --- the list of all the terms in the additional constraints 
-    ##obj_func --- the objective function selected for the slave 
-    ##bilinear_pieces --- the number of bilinear pieces for the linearization of the bilinear terms 
-    
+        
     ##Initializing empty Dataframes for storage of the sorted data
     utilitylist_bilinear, processlist_bilinear, streams_bilinear, cons_eqns_bilinear, cons_eqns_terms_bilinear = generate_linear_lists ()
     utilitylist_linear, processlist_linear, streams_linear, cons_eqns_all, cons_eqns_terms_linear = generate_linear_lists ()
@@ -90,22 +90,21 @@ def sorting_linear_and_bilinear_terms (layerslist, utilitylist, processlist, str
          
     return ret_dataframes, affected_list
 
-
 ##############################################################################################################################################################
-
+##############################################################################################################################################################
 ##Additional functions
 
 ##This function takes in the names of the list to modify and performs the modification accordingly 
 def modify_unit_binary_for_bilinear (unit_binary_names_to_modify, cons_eqns, cons_eqns_terms, cons_eqns_bilinear):
+
+    ##unit_binary_names_to_modify       --- a list of all the names to modify 
+    ##cons_eqns                         --- the list of equations 
+    ##cons_eqns_terms                   --- the list of terms in the original cons_eqns_terms
+    ##cons_eqns_bilinear                --- the list of all the bilinear cons_eqns
+    ##unit_binary_equality              --- the list of unit_binary_equality terms to add
     
     import pandas as pd 
-    
-    ##unit_binary_names_to_modify --- a list of all the names to modify 
-    ##cons_eqns --- the list of equations 
-    ##cons_eqns_terms --- the list of terms in the original cons_eqns_terms
-    ##cons_eqns_bilinear --- the list of all the bilinear cons_eqns
-    ##unit_binary_equality --- the list of unit_binary_equality terms to add
-    
+        
     ##Initiating a dataframe to hold the return values 
     ret_values_bilin_ub_terms = pd.DataFrame(columns = ['Variable', 'Parent_unit', 'Parent_eqn', 'Parent_stream', 'Coefficient', 'Grad', 'Cst'])
     
@@ -140,15 +139,15 @@ def modify_unit_binary_for_bilinear (unit_binary_names_to_modify, cons_eqns, con
 ##This function deals with purely linear data 
 def gen_linear_lp_data (utilityproclist, streams, cons_eqns, cons_eqns_terms, index, key):
 
-    import pandas as pd
-        
-    ##utilityproclist --- either utility or processlist 
-    ##streams --- the list of streams 
-    ##cons_eqns --- the list of additional constraints 
-    ##cons_eqns_terms --- the list of additional constraints 
-    ##index --- the associated index
-    ##key --- the chosen objective function for the slave and its asociated key 
+    ##utilityproclist       --- either utility or processlist 
+    ##streams               --- the list of streams 
+    ##cons_eqns             --- the list of additional constraints 
+    ##cons_eqns_terms       --- the list of additional constraints 
+    ##index                 --- the associated index
+    ##key                   --- the chosen objective function for the slave and its asociated key 
     
+    import pandas as pd
+            
     ##Generating linear lists for return values 
     ul_lin, pl_lin, s_lin, cq_lin, cet_lin = generate_linear_lists ()
     
@@ -203,20 +202,20 @@ def gen_linear_lp_data (utilityproclist, streams, cons_eqns, cons_eqns_terms, in
 
 ##A function to determine the parameters linearized bilinear variables 
 def gen_bilinear_lp_relax_data (utilityproclist, streams, cons_eqns, cons_eqns_terms, index, key, bilinear_pieces, unit_binary_names_to_modify, unit_binary_equality, list_type):
+
+    ##utilityproclist                   --- either utility or processlist 
+    ##streams                           --- the list of streams 
+    ##cons_eqns                         --- the list of additional constraints 
+    ##cons_eqns_terms                   --- the list of additional constraints 
+    ##index                             --- the associated index
+    ##key                               --- the chosen objective function for the slave and its asociated key 
+    ##bilinear_pieces                   --- the number of bilinear pieces 
+    ##unit_binary_names_to_modify       --- a record of binary names to modify
+    ##unit_binary_equality              --- a record of binary equality terms to add
+    ##list_type                         --- utility or process
     
     import pandas as pd
-    
-    ##utilityproclist --- either utility or processlist 
-    ##streams --- the list of streams 
-    ##cons_eqns --- the list of additional constraints 
-    ##cons_eqns_terms --- the list of additional constraints 
-    ##index --- the associated index
-    ##key --- the chosen objective function for the slave and its asociated key 
-    ##bilinear_pieces --- the number of bilinear pieces 
-    ##unit_binary_names_to_modify -- a record of binary names to modify
-    ##unit_binary_equality --- a record of binary equality terms to add
-    ##list_type --- utility or process
-    
+        
     ##Generating linear lists for return values 
     ul_bilin, pl_bilin, s_bilin, cq_bilin, cet_bilin = generate_linear_lists ()
     
@@ -291,26 +290,26 @@ def gen_bilinear_lp_relax_data (utilityproclist, streams, cons_eqns, cons_eqns_t
 
 ##A function to deal with the additional constraints of the linearization of bilinear variables
 def convert_constraint_variables_linear (utilityproclist, cons_eqns_terms, cons_eqns_add, parent, u_name, v_name, u_grad, u_int, v_grad, v_int, unit_binary_names_to_modify, unit_binary_equality, cons_eqns, list_type):
-
+ 
+    ##utilityproclist               --- either utility or processlist 
+    ##cons_eqns_terms               --- the list of all the streams 
+    ##cons_eqns_add                 --- a list of additional constraints to be added
+    ##parent                        --- the name of the parent unit 
+    ##u_name                        --- the name of the newly introduced u variable 
+    ##v_name                        --- the name of the newly introduced v variable
+    ##u_grad                        --- the associated gradient of the u variable 
+    ##u_int                         --- the associated intercept of the u variable
+    ##v_grad                        --- the associated gradient of the v variable 
+    ##v_int                         --- the associated intercept of the v variable 
+    ##unit_binary_names_to_modify   --- a dataframe containing names of 'unit_binary' constraints to be modified
+    ##unit_binary_equality          --- a dataframe containing names of 'unit_binary_equality' constraints to be modified 
+    ##cons_eqns                     --- a list of all the additional constraints 
+    ##list_type                     --- utility or process
+    
     import sys
     import pandas as pd 
     
     eps = sys.float_info.epsilon
-
-    ##utilityproclist --- either utility or processlist 
-    ##cons_eqns_terms --- the list of all the streams 
-    ##cons_eqns_add --- a list of additional constraints to be added
-    ##parent --- the name of the parent unit 
-    ##u_name --- the name of the newly introduced u variable 
-    ##v_name --- the name of the newly introduced v variable
-    ##u_grad --- the associated gradient of the u variable 
-    ##u_int --- the associated intercept of the u variable 
-    ##v_grad --- the associated gradient of the v variable 
-    ##v_int --- the associated intercept of the v variable 
-    ##unit_binary_names_to_modify --- a dataframe containing names of 'unit_binary' constraints to be modified
-    ##unit_binary_equality --- a dataframe containing names of 'unit_binary_equality' constraints to be modified 
-    ##cons_eqns --- a list of all the additional constraints 
-    ##list_type --- utility or process
     
     ##Initialize a temporary dataframe to hold the return values 
     ret_cons_eqns_terms_lin = pd.DataFrame(columns = ['Variable', 'Parent_unit', 'Parent_eqn', 'Parent_stream', 'Coefficient', 'Grad', 'Cst'])
@@ -500,19 +499,18 @@ def convert_constraint_variables_linear (utilityproclist, cons_eqns_terms, cons_
 
 ##A function to scan through the streams, and convert the variables into the bilinear counter part 
 def convert_streams_variables_linear (streams, parent, u_name, v_name, u_grad, u_int, v_grad, v_int):
+
+    ##streams           --- the list of all the streams 
+    ##parent            --- the name of the parent unit 
+    ##u_name            --- the name of the newly introduced u variable 
+    ##v_name            --- the name of the newly introduced v variable
+    ##u_grad            --- the associated gradient of the u variable 
+    ##u_int             --- the associated intercept of the u variable 
+    ##v_grad            --- the associated gradient of the v variable 
+    ##v_int             --- the associated intercept of the v variable 
     
     import pandas as pd
-    
-    ##streams --- the list of all the streams 
-    ##parent --- the name of the parent unit 
-    ##u_name --- the name of the newly introduced u variable 
-    ##v_name --- the name of the newly introduced v variable
-    ##u_grad --- the associated gradient of the u variable 
-    ##u_int --- the associated intercept of the u variable 
-    ##v_grad --- the associated gradient of the v variable 
-    ##v_int --- the associated intercept of the v variable 
-    
-    
+        
     ##Initialize a temporary dataframe to hold the return values 
     ret_streams = pd.DataFrame(columns = ['Parent', 'Variable', 'Type', 'Name', 'Layer', 'Flow_min', 'Flow_grad', 'InOut'])
     dim_streams = streams.shape 
@@ -562,11 +560,11 @@ def scan_bilinear_affected_list (affected_list, string, bilin_type):
 ##This function scans the affected lists and records the unit name if it is affected by bilinear variable relationships
 def detect_bilinear_variables (utilitylist, processlist, streams, cons_eqns_terms, obj_func):
 
-    ##utilitylist --- the list of all the utilities 
-    ##processlist --- the list of all the processes
-    ##streams --- the list of all the streams
-    ##cons_eqns_terms --- the list of all the terms in the additional constraints 
-    ##obj_func --- the objective function selected for the slave
+    ##utilitylist       --- the list of all the utilities 
+    ##processlist       --- the list of all the processes
+    ##streams           --- the list of all the streams
+    ##cons_eqns_terms   --- the list of all the terms in the additional constraints 
+    ##obj_func          --- the objective function selected for the slave
     
     import sys    
     import pandas as pd 
@@ -693,17 +691,17 @@ def obj_function_detect (obj_func):
 
 ##This function fills up the array for the dataframe with the appropriate key 
 def fill_obj_func_values (key, grad, intercept, parent, name, fmin, fmax):
+
+    ##key       --- the associated key for the objective function 
+    ##grad      --- the gradient value
+    ##intercept --- the intercept value
+    ##parent    --- the parent name 
+    ##name      --- the variable name 
+    ##fmin      --- variable fmin 
+    ##fmax      --- variable fmax
     
     import pandas as pd 
-    
-    ##key --- the associated key for the objective function 
-    ##grad --- the gradient value
-    ##intercept --- the intercept value
-    ##parent --- the parent name 
-    ##name --- the variable name 
-    ##fmin --- variable fmin 
-    ##fmax --- variable fmax
-    
+        
     if key == 'Cinv':
         ret_values = [parent, name, fmin, fmax, 0, 0, grad, intercept, 0, 0, 0, 0]
     elif key == 'Cost':
@@ -719,6 +717,7 @@ def fill_obj_func_values (key, grad, intercept, parent, name, fmin, fmax):
 
 ##This function is to check if the given value exists in the list 
 def check_if_exists(value, check_list):
+    
     ##value --- the value to be checked
     ##check_list --- the list to be checked for 
     

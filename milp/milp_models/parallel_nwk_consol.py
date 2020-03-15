@@ -5,23 +5,25 @@
     ##layers
     ##process
     ##utility
-    ##utility_mt
     
-def checktype_parallel_nwk_consol_4nc (unit_type):                  ##Input the unit type here
+def checktype_parallel_nwk_consol (unit_type):                  ##Input the unit type here
+
+    ##unit_type     --- a variable to store the type of unit
+    
     unit_type = 'utility'
+    
     return unit_type
 
-def parallel_nwk_consol_4nc (para_nwk_con_4nc_mdv, utilitylist, streams, cons_eqns, cons_eqns_terms):
-    import pandas as pd
-    import numpy as np
+##This model represents the parallel network pressure consolidation unit
+def parallel_nwk_consol (mdv, utilitylist, streams, cons_eqns, cons_eqns_terms):
 
-    ##This model represents the parallel network pressure consolidation unit
+    ##mdv               --- the associated decision variables from the GA, or parameters 
+    ##utilitylist       --- a dataframe to extract general information from the model 
+    ##streams           --- a dataframe to extract stream information from the model 
+    ##cons_eqns         --- a dataframe to extract constraint equations from the model 
+    ##cons_eqns_terms   --- a dataframe to extract terms in the constraint equation from the model 
     
-    ##para_nwk_con_4nc_mdv --- the master decision variables which are used as parameters at this stage 
-    ##utilitylist --- a dataframe to hold essential values for writing the MILP script 
-    ##streams --- a dataframe to write connections to other units 
-    ##cons_eqns --- additional constraints are explicitly stated here 
-    ##cons_eqns_terms --- the terms to the constraints 
+    import pandas as pd
     
     ##Defining inputs 
     
@@ -36,7 +38,7 @@ def parallel_nwk_consol_4nc (para_nwk_con_4nc_mdv, utilitylist, streams, cons_eq
     #Parallel network pressure consolidation unit definition 
     
     ud = {}
-    ud['Name'] = 'para_nwk_con_4nc'
+    ud['Name'] = 'para_nwk_con'
     ud['Variable1'] = 'delp'                                                                        
     ud['Variable2'] = '-'                                                                  
     ud['Fmin_v1'] = 0
@@ -95,9 +97,9 @@ def parallel_nwk_consol_4nc (para_nwk_con_4nc_mdv, utilitylist, streams, cons_eq
 
     ##Stream --- input pressure from gv2_consol_delp
     stream = {}                         
-    stream['Parent'] = 'para_nwk_con_4nc'
+    stream['Parent'] = 'para_nwk_con'
     stream['Type'] = 'pressure'
-    stream['Name'] = 'gv2_cdp_4nc_2_para_nwk_con_4nc_delp'
+    stream['Name'] = 'gv2_cdp_2_para_nwk_con_delp'
     stream['Layer'] = 'gv2_consol_delp'
     stream['Stream_coeff_v1_2'] = 0
     stream['Stream_coeff_v1_1'] = 1
@@ -115,50 +117,10 @@ def parallel_nwk_consol_4nc (para_nwk_con_4nc_mdv, utilitylist, streams, cons_eq
     
     ##Stream --- input pressure from hsb_consol_delp
     stream = {}                         
-    stream['Parent'] = 'para_nwk_con_4nc'
+    stream['Parent'] = 'para_nwk_con'
     stream['Type'] = 'pressure'
-    stream['Name'] = 'hsb_cdp_4nc_2_para_nwk_con_4nc_delp'
+    stream['Name'] = 'hsb_cdp_2_para_nwk_con_delp'
     stream['Layer'] = 'hsb_consol_delp'
-    stream['Stream_coeff_v1_2'] = 0
-    stream['Stream_coeff_v1_1'] = 1
-    stream['Stream_coeff_v2_2'] = 0
-    stream['Stream_coeff_v2_1'] = 0
-    stream['Stream_coeff_v1_v2'] = 0
-    stream['Stream_coeff_cst'] = 0
-    stream['InOut'] = 'in'
-    
-    streaminput = [stream['Parent'], stream['Type'], stream['Name'], stream['Layer'], stream['Stream_coeff_v1_2'], stream['Stream_coeff_v1_1'], stream['Stream_coeff_v2_2'],
-                   stream['Stream_coeff_v2_1'], stream['Stream_coeff_v1_v2'], stream['Stream_coeff_cst'], stream['InOut']]
-    streamdf = pd.DataFrame(data = [streaminput], columns=['Parent', 'Type', 'Name', 'Layer', 'Stream_coeff_v1_2', 'Stream_coeff_v1_1', 'Stream_coeff_v2_2', 'Stream_coeff_v2_1',
-                                                          'Stream_coeff_v1_v2', 'Stream_coeff_cst', 'InOut'])
-    streams = streams.append(streamdf, ignore_index=True) 
-
-    ##Stream --- input pressure from pfa_consol_delp
-    stream = {}                         
-    stream['Parent'] = 'para_nwk_con_4nc'
-    stream['Type'] = 'pressure'
-    stream['Name'] = 'pfa_cdp_4nc_2_para_nwk_con_4nc_delp'
-    stream['Layer'] = 'pfa_consol_delp'
-    stream['Stream_coeff_v1_2'] = 0
-    stream['Stream_coeff_v1_1'] = 1
-    stream['Stream_coeff_v2_2'] = 0
-    stream['Stream_coeff_v2_1'] = 0
-    stream['Stream_coeff_v1_v2'] = 0
-    stream['Stream_coeff_cst'] = 0
-    stream['InOut'] = 'in'
-    
-    streaminput = [stream['Parent'], stream['Type'], stream['Name'], stream['Layer'], stream['Stream_coeff_v1_2'], stream['Stream_coeff_v1_1'], stream['Stream_coeff_v2_2'],
-                   stream['Stream_coeff_v2_1'], stream['Stream_coeff_v1_v2'], stream['Stream_coeff_cst'], stream['InOut']]
-    streamdf = pd.DataFrame(data = [streaminput], columns=['Parent', 'Type', 'Name', 'Layer', 'Stream_coeff_v1_2', 'Stream_coeff_v1_1', 'Stream_coeff_v2_2', 'Stream_coeff_v2_1',
-                                                          'Stream_coeff_v1_v2', 'Stream_coeff_cst', 'InOut'])
-    streams = streams.append(streamdf, ignore_index=True) 
-
-    ##Stream --- input pressure from ser_consol_delp
-    stream = {}                         
-    stream['Parent'] = 'para_nwk_con_4nc'
-    stream['Type'] = 'pressure'
-    stream['Name'] = 'ser_cdp_4nc_2_para_nwk_con_4nc_delp'
-    stream['Layer'] = 'ser_consol_delp'
     stream['Stream_coeff_v1_2'] = 0
     stream['Stream_coeff_v1_1'] = 1
     stream['Stream_coeff_v2_2'] = 0
@@ -175,9 +137,9 @@ def parallel_nwk_consol_4nc (para_nwk_con_4nc_mdv, utilitylist, streams, cons_eq
     
     ##Stream --- output pressure from the unit 
     stream = {}                         
-    stream['Parent'] = 'para_nwk_con_4nc'
+    stream['Parent'] = 'para_nwk_con'
     stream['Type'] = 'pressure'
-    stream['Name'] = 'para_nwk_con_4nc_2_dist_nwk_pump_delp'
+    stream['Name'] = 'para_nwk_con_2_dist_nwk_pump_delp'
     stream['Layer'] = 'paranwk2distpump_delp'
     stream['Stream_coeff_v1_2'] = 0
     stream['Stream_coeff_v1_1'] = 1

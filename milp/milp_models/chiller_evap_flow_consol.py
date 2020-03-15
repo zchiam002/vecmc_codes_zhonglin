@@ -1,31 +1,40 @@
 ##This is an additional unit to ensure that the flowrate of the chillers match that of the master decision variable is totally consumed
 
 ##This function is to check the unit type, make sure that all units defined in this file are of the same type  
-##There are only 4 types of units 
+##There are only 3 types of units 
     ##layers
     ##process
     ##utility
-    ##utility_mt
     
-def checktype_chiller_evap_flow_consol_4nc (unit_type):                  ##Input the unit type here
+def checktype_chiller_evap_flow_consol (unit_type): 
+             
+    ##unit_type     --- a variable to store the type of unit   
+    
     unit_type = 'process'
     return unit_type
-    
-def chiller_evap_flow_consol_4nc (ch_e_f_c_4nc_mdv, processlist, streams, cons_eqns, cons_eqns_terms):
-    import pandas as pd
-    
-    ##Model description 
+
+##Model description 
     ##This model ensures that all the flowrate from the chillers tally to the the decided total flowrate by the master optimizer
     ##The purpose of this model is just to introduce some additional equality constraints  
     
+def chiller_evap_flow_consol (mdv, processlist, streams, cons_eqns, cons_eqns_terms):
+
+    ##mdv               --- the associated decision variables from the GA, or parameters 
+    ##processlist       --- a dataframe to extract general information from the model 
+    ##streams           --- a dataframe to extract stream information from the model 
+    ##cons_eqns         --- a dataframe to extract constraint equations from the model 
+    ##cons_eqns_terms   --- a dataframe to extract terms in the constraint equation from the model 
+
+    import pandas as pd
+    
     ##Processing the list of master decision variables as parameters 
-    ch_e_f_c_tf = ch_e_f_c_4nc_mdv['Value'][0]
+    ch_e_f_c_tf = mdv['Value'][0]
     
     ##Unit definition 
     
     ##Unit 1 
     ud = {}
-    ud['Name'] = 'ch_e_f_c_4nc'
+    ud['Name'] = 'ch_e_f_c'
     ud['Variable1'] = 'm_perc'                                                                                                                 
     ud['Variable2'] = '-'                                                                                                          
     ud['Fmin_v1'] = 0 
@@ -81,9 +90,9 @@ def chiller_evap_flow_consol_4nc (ch_e_f_c_4nc_mdv, processlist, streams, cons_e
     
     ##Stream 1
     stream = {}                                                                ##The input stream from the chillers need to match to that of the master decision 
-    stream['Parent'] = 'ch_e_f_c_4nc'
+    stream['Parent'] = 'ch_e_f_c'
     stream['Type'] = 'balancing_only'
-    stream['Name'] = 'ch_e_f_c_4nc_flow_in'
+    stream['Name'] = 'ch_e_f_c_flow_in'
     stream['Layer'] = 'evapnwk_consol_flow'
     stream['Stream_coeff_v1_2'] = 0
     stream['Stream_coeff_v1_1'] = ch_e_f_c_tf 

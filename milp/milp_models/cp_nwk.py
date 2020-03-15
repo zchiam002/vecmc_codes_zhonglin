@@ -5,38 +5,42 @@
     ##layers
     ##process
     ##utility
-    ##utility_mt
     
-def checktype_cp_nwk_4nc (unit_type):                  ##Input the unit type here
+def checktype_cp_nwk (unit_type):                  ##Input the unit type here
+ 
+    ##unit_type     --- a variable to store the type of unit  
+    
     unit_type = 'utility'
+    
     return unit_type 
+
+##Model description: 
+    ##This the the common pipe model. It serves as a short circuit for chilled water from the evaporator    
+def cp_nwk (mdv, utilitylist, streams, cons_eqns, cons_eqns_terms):
+
+    ##mdv               --- the associated decision variables from the GA, or parameters 
+    ##utilitylist       --- a dataframe to extract general information from the model 
+    ##streams           --- a dataframe to extract stream information from the model 
+    ##cons_eqns         --- a dataframe to extract constraint equations from the model 
+    ##cons_eqns_terms   --- a dataframe to extract terms in the constraint equation from the model 
     
-def cp_nwk_4nc (cp_nwk_4nc_mdv, utilitylist, streams, cons_eqns, cons_eqns_terms):
-    import pandas as pd
-    import numpy as np 
-    
-    ##Model description: 
-    ##This the the common pipe model. It serves as a short circuit for chilled water from the evaporator
-    
-    ##Legend of input variables 
-    
-    ##cp_nwk_totalnwkflow       - The total flowrate in the entire parallel configuration (m3/h)
-    
+    import pandas as pd    
+
     ##Processing list of master decision variables as parameters
-    cp_nwk_totalnwkflow = cp_nwk_4nc_mdv['Value'][0]
+    cp_nwk_totalnwkflow = mdv['Value'][0]                                               ##The total flowrate in the entire parallel configuration
 
     ##Unit definition 
 
     ##Unit 1
     cp_nwk = {}
-    cp_nwk['Name'] = 'cp_nwk_4nc'
+    cp_nwk['Name'] = 'cp_nwk'
     cp_nwk['Variable1'] = 'm_perc'                                                                                                    
     cp_nwk['Variable2'] = 'tinout'                                                                                                     
     cp_nwk['Fmin_v1'] = 0 
     cp_nwk['Fmax_v1'] = 1                                                                                                            
     cp_nwk['Fmin_v2'] = 0                                                                                                          
     cp_nwk['Fmax_v2'] = 1                                                                                  
-    cp_nwk['Coeff_v1_2'] = 0                                                    ##No related constraints for the 2 variables                                                                                      
+    cp_nwk['Coeff_v1_2'] = 0                                                            ##No related constraints for the 2 variables                                                                                      
     cp_nwk['Coeff_v1_1'] = 0          
     cp_nwk['Coeff_v2_2'] = 0
     cp_nwk['Coeff_v2_1'] = 0
@@ -84,10 +88,10 @@ def cp_nwk_4nc (cp_nwk_4nc_mdv, utilitylist, streams, cons_eqns, cons_eqns_terms
     ##Layer and stream definition 
     
     ##Stream 1
-    stream1 = {}                                                                ##Temperature of fluid entering the unit 
-    stream1['Parent'] = 'cp_nwk_4nc'
+    stream1 = {}                                                                        ##Temperature of fluid entering the unit 
+    stream1['Parent'] = 'cp_nwk'
     stream1['Type'] = 'temp_chil'
-    stream1['Name'] = 'cp_nwk_4nc_tin'
+    stream1['Name'] = 'cp_nwk_tin'
     stream1['Layer'] = 'sp12cp_temp'
     stream1['Stream_coeff_v1_2'] = 0
     stream1['Stream_coeff_v1_1'] = 0
@@ -104,10 +108,10 @@ def cp_nwk_4nc (cp_nwk_4nc_mdv, utilitylist, streams, cons_eqns, cons_eqns_terms
     streams = streams.append(streamdf, ignore_index=True)
     
     ##Stream 2
-    stream2 = {}                                                                ##Temperature of fluid exiting the unit 
-    stream2['Parent'] = 'cp_nwk_4nc'
+    stream2 = {}                                                                        ##Temperature of fluid exiting the unit 
+    stream2['Parent'] = 'cp_nwk'
     stream2['Type'] = 'temp_chil'
-    stream2['Name'] = 'cp_nwk_4nc_tout'
+    stream2['Name'] = 'cp_nwk_tout'
     stream2['Layer'] = 'ss2sp2_temp'
     stream2['Stream_coeff_v1_2'] = 0
     stream2['Stream_coeff_v1_1'] = 273.15
@@ -124,10 +128,10 @@ def cp_nwk_4nc (cp_nwk_4nc_mdv, utilitylist, streams, cons_eqns, cons_eqns_terms
     streams = streams.append(streamdf, ignore_index=True)
     
     ##Stream 3
-    stream3 = {}                                                                ##Flowrate of water into the common pipe, it is unnecessary to have an outlet for this 
-    stream3['Parent'] = 'cp_nwk_4nc'
+    stream3 = {}                                                                        ##Flowrate of water into the common pipe, it is unnecessary to have an outlet for this 
+    stream3['Parent'] = 'cp_nwk'
     stream3['Type'] = 'flow'
-    stream3['Name'] = 'cp_nwk_4nc_flow_in'
+    stream3['Name'] = 'cp_nwk_flow_in'
     stream3['Layer'] = 'evap_nwk_flow'
     stream3['Stream_coeff_v1_2'] = 0
     stream3['Stream_coeff_v1_1'] = cp_nwk_totalnwkflow
@@ -145,9 +149,9 @@ def cp_nwk_4nc (cp_nwk_4nc_mdv, utilitylist, streams, cons_eqns, cons_eqns_terms
     
     ##Stream 4
     stream = {}                                                                
-    stream['Parent'] = 'cp_nwk_4nc'                                                ##Flowrate stream exiting the substation 
+    stream['Parent'] = 'cp_nwk'                                                         ##Flowrate stream exiting the substation 
     stream['Type'] = 'balancing_only'
-    stream['Name'] = 'cp_nwk_4nc_flow_out'
+    stream['Name'] = 'cp_nwk_flow_out'
     stream['Layer'] = 'evapnwk_consol_flow'
     stream['Stream_coeff_v1_2'] = 0
     stream['Stream_coeff_v1_1'] = cp_nwk_totalnwkflow 

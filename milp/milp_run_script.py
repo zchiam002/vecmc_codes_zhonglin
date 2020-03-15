@@ -9,6 +9,7 @@ def milp_run_script ():
     sys.path.append(current_path + 'milp_models//')                                             ##Location of the milp models
     from mrs_ancillaries import mrs_import_relevant_files
     from mrs_ancillaries import mrs_write_slave_param
+    from milp_prog_run import milp_prog_run
     
     ##Parameters 
     pwl_steps = 4                                                                               ##The number of piecewise linear steps used for the model  
@@ -27,7 +28,11 @@ def milp_run_script ():
     ##Preparing the parameters for the model 
     mrs_write_slave_param (cooling_load_data, weather_condition, ga_inputs, pwl_steps, parallel_thread_num)
     ##Solving the preparing and solving the MILP problem 
-        
+    obj_value, results, results_y  = milp_prog_run(parallel_thread_num, bl_steps, solver)
+    
+    
+        ##needs parallel_thread_num , bilinear_pieces and solver choice 
+    
 
     
 

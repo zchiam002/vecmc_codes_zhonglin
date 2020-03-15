@@ -45,7 +45,7 @@ def get_values_models(files, parallel_thread_num, models_location):
         
         if unit_type == 'layers':                                                                ##Populating the associated dataframes for LP input file 
             layerslist = getattr(j, files['Filename'][i])(layerslist)
-            
+        
         elif unit_type == 'utility':
             mdv = process_master_var(files['Filename'][i], parallel_thread_num)
             utilitylist, streams, cons_eqns, cons_eqns_terms = getattr(j, files['Filename'][i])(mdv, utilitylist, streams, cons_eqns, cons_eqns_terms)
@@ -54,6 +54,7 @@ def get_values_models(files, parallel_thread_num, models_location):
         elif unit_type == 'process':
             mdv = process_master_var(files['Filename'][i], parallel_thread_num)
             processlist, streams, cons_eqns, cons_eqns_terms = getattr(j, files['Filename'][i])(mdv, processlist, streams, cons_eqns, cons_eqns_terms)
+            
         else:
             print('Input file error...')
     

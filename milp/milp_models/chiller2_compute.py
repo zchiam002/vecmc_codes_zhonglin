@@ -1,10 +1,8 @@
 #This is the compute file 
 
-def chiller2_evap_4nc_compute (ch2_4nc_dc):
-     
-    import pandas as pd
-    
-    ##ch2_4nc_dc    - list of input values
+def chiller2_compute (ch2_dc):
+
+    ##ch2_4nc_dc    --- list of input values
     ##ch2_4nc_dc[0,0] = ch2_4nc_evaptret
     ##ch2_4nc_dc[1,0] = ch2_4nc_condtin
     ##ch2_4nc_dc[2,0] = ch2_4nc_rated_cap
@@ -14,25 +12,27 @@ def chiller2_evap_4nc_compute (ch2_4nc_dc):
     ##ch2_4nc_dc[6,0] = ch2_4nc_qc_coeff
     ##ch2_4nc_dc[7,0] = ch2_4nc_totalenwkflow
     ##ch2_4nc_dc[8,0] = ch2_4nc_steps
+     
+    import pandas as pd
     
     ##Initialize a return value for the 
     ret_vals = pd.DataFrame(columns = ['lb', 'ub', 'grad', 'int'])
     
-    for i in range (0, int(ch2_4nc_dc[8,0])):
+    for i in range (0, int(ch2_dc[8,0])):
         
         ##Determining the upper and lower bounds of the capacity 
         if i == 0:
             qe_lb = 0.0001
-            qe_ub = (1 / ch2_4nc_dc[8,0]) * ch2_4nc_dc[2,0]
+            qe_ub = (1 / ch2_dc[8,0]) * ch2_dc[2,0]
         else:
-            qe_lb = i * (1 / ch2_4nc_dc[8,0]) * ch2_4nc_dc[2,0]
-            qe_ub = (i + 1) * (1 / ch2_4nc_dc[8,0]) * ch2_4nc_dc[2,0]
+            qe_lb = i * (1 / ch2_dc[8,0]) * ch2_dc[2,0]
+            qe_ub = (i + 1) * (1 / ch2_dc[8,0]) * ch2_dc[2,0]
             
-        lb_frac = i * (1/ch2_4nc_dc[8,0])
-        ub_frac = (i + 1) * (1 / ch2_4nc_dc[8,0])
+        lb_frac = i * (1/ch2_dc[8,0])
+        ub_frac = (i + 1) * (1 / ch2_dc[8,0])
             
-        cop1, qc1 = gnu_chiller2_4nc (ch2_4nc_dc[3,0], ch2_4nc_dc[4,0], ch2_4nc_dc[5,0], ch2_4nc_dc[6,0], ch2_4nc_dc[0,0], ch2_4nc_dc[1,0], qe_lb)
-        cop2, qc2 = gnu_chiller2_4nc (ch2_4nc_dc[3,0], ch2_4nc_dc[4,0], ch2_4nc_dc[5,0], ch2_4nc_dc[6,0], ch2_4nc_dc[0,0], ch2_4nc_dc[1,0], qe_ub)
+        cop1, qc1 = gnu_chiller2 (ch2_dc[3,0], ch2_dc[4,0], ch2_dc[5,0], ch2_dc[6,0], ch2_dc[0,0], ch2_dc[1,0], qe_lb)
+        cop2, qc2 = gnu_chiller2 (ch2_dc[3,0], ch2_dc[4,0], ch2_dc[5,0], ch2_dc[6,0], ch2_dc[0,0], ch2_dc[1,0], qe_ub)
         
         ##Determining the gradient and the intercepts for the E vs Qe graph 
         elect_cons_lb = qe_lb / cop1
@@ -48,7 +48,7 @@ def chiller2_evap_4nc_compute (ch2_4nc_dc):
     return ret_vals   
 
 ##Function to calculate the COP of the chiller using GNU method 
-def gnu_chiller2_4nc (b0, b1, b2, qc_coeff, Tin_evap, Tin_cond, Qe):
+def gnu_chiller2 (b0, b1, b2, qc_coeff, Tin_evap, Tin_cond, Qe):
 
     ##b0, b1, b2    --- regression derived coefficients 
     ##qc_coeff      --- not condenser heat rejection coefficient 

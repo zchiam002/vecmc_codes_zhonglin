@@ -1,0 +1,3 @@
+,Name,Variable1,Variable2,Fmin_v1,Fmax_v1,Fmin_v2,Fmax_v2,Coeff_v1_2,Coeff_v1_1,Coeff_v2_2,Coeff_v2_1,Coeff_v1_v2,Coeff_cst,Fmin,Fmax,Cost_v1_2,Cost_v1_1,Cost_v2_2,Cost_v2_1,Cost_v1_v2,Cost_cst,Cinv_v1_2,Cinv_v1_1,Cinv_v2_2,Cinv_v2_1,Cinv_v1_v2,Cinv_cst,Power_v1_2,Power_v1_1,Power_v2_2,Power_v2_1,Power_v1_v2,Power_cst,Impact_v1_2,Impact_v1_1,Impact_v2_2,Impact_v2_1,Impact_v1_v2,Impact_cst
+0,ch_e_f_c,m_perc,-,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+1,ch_evap_ret,t_in,-,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0

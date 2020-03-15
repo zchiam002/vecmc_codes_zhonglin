@@ -12,10 +12,14 @@
 
 def milp_prog_run(parallel_thread_num, bilinear_pieces, solver_choice):
     
+    ##parallel_thread_num       --- the unique parallel thread number assigned for file referencing 
+    ##bilinear_pieces           --- the number of pieces used to linearize the binlinear variables 
+    ##solver_choice             --- the choice of solver used
+    
     import os 
-    current_path = os.path.dirname(__file__) + '//'    
+    current_path = os.path.dirname(__file__)[:-13] + '//'    
     import sys 
-    sys.path.append(current_path + 'milp_conversion_handlers\\')
+    sys.path.append(current_path + 'milp_conversion_handlers//')
     from milp_backend import milp_backend
     import pandas as pd 
     
@@ -28,10 +32,10 @@ def milp_prog_run(parallel_thread_num, bilinear_pieces, solver_choice):
     
     ##############################################################################################################    
     ##Chiller evaporator modules 
-    inputmodel = pd.DataFrame(data = ['chiller1_evap'], columns = ['Filename'])                
+    inputmodel = pd.DataFrame(data = ['chiller1'], columns = ['Filename'])                
     files = files.append(inputmodel, ignore_index=True)    
     
-    inputmodel = pd.DataFrame(data = ['chiller2_evap'], columns = ['Filename'])                
+    inputmodel = pd.DataFrame(data = ['chiller2'], columns = ['Filename'])                
     files = files.append(inputmodel, ignore_index=True)        
     
     ##############################################################################################################

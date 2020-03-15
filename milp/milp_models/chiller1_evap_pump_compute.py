@@ -2,20 +2,17 @@
 
 ##Note: Some of the implementations may be more accurate than others due to the dynamic step size 
 
-def chiller1_evap_pump_4nc_compute (ch1_ep_dc):
-    
-    import numpy as np 
-    import pandas as pd
-    
-    ##list of input values 
-    ##ch1_ep_dc = np.zeros((5,1))
-    
+def chiller1_evap_pump_compute (ch1_ep_dc):
+
+    ##ch1_ep_dc     --- list of values
     ##ch1_ep_dc[0,0] = ch1_ep_c0
     ##ch1_ep_dc[1,0] = ch1_ep_c1
     ##ch1_ep_dc[2,0] = ch1_ep_c2
     ##ch1_ep_dc[3,0] = ch1_ep_max_m
     ##ch1_ep_dc[4,0] = ch1_ep_steps
-
+    
+    import pandas as pd
+    
     ##Initializing an array to store the return values 
     ch1_ep_calc = pd.DataFrame(columns = ['grad', 'int' ,'lb' ,'ub'])
     

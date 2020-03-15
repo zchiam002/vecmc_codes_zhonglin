@@ -5,31 +5,34 @@
     ##layers
     ##process
     ##utility
-    ##utility_mt
     
-def checktype_ice_nwk_4nc (unit_type):                  ##Input the unit type here
+def checktype_ice_nwk (unit_type):                  ##Input the unit type here
+
+    ##unit_type     --- a variable to store the type of unit
+
     unit_type = 'utility'
+
     return unit_type
 
-def ice_nwk_4nc (ice_nwk_4nc_mdv, utilitylist, streams, cons_eqns, cons_eqns_terms):
-    from ice_nwk_4nc_compute import ice_nwk_4nc_compute
+##This model represents the ice network before the split to gv2 and hsb
+def ice_nwk (mdv, utilitylist, streams, cons_eqns, cons_eqns_terms):
+
+    ##mdv               --- the associated decision variables from the GA, or parameters 
+    ##utilitylist       --- a dataframe to extract general information from the model 
+    ##streams           --- a dataframe to extract stream information from the model 
+    ##cons_eqns         --- a dataframe to extract constraint equations from the model 
+    ##cons_eqns_terms   --- a dataframe to extract terms in the constraint equation from the model 
+
+    from ice_nwk_compute import ice_nwk_compute
     import pandas as pd
     import numpy as np
-
-    ##This model represents the ice network before the split to gv2 and hsb
-    
-    ##ice_nwk_4nc_mdv --- the master decision variables which are used as parameters at this stage 
-    ##utilitylist --- a dataframe to hold essential values for writing the MILP script 
-    ##streams --- a dataframe to write connections to other units 
-    ##cons_eqns --- additional constraints are explicitly stated here 
-    ##cons_eqns_terms --- the terms to the constraints 
     
     ##Defining inputs 
     
     ##Processing list of master decision variables
-    ice_nwk_steps = ice_nwk_4nc_mdv['Value'][0]
-    ice_nwk_tf = ice_nwk_4nc_mdv['Value'][1]
-    ice_nwk_max_flow = ice_nwk_4nc_mdv['Value'][1]                    ##This upper bound is needed for the computation of stepwise pressure
+    ice_nwk_steps = mdv['Value'][0]
+    ice_nwk_tf = mdv['Value'][1]
+    ice_nwk_max_flow = mdv['Value'][1]                                                  ##This upper bound is needed for the computation of stepwise pressure
     
     ##Defined constants 
     ice_nwk_coeff = 0.0000104227119644958
@@ -43,7 +46,7 @@ def ice_nwk_4nc (ice_nwk_4nc_mdv, utilitylist, streams, cons_eqns, cons_eqns_ter
     ice_nwk_dc[2,0] = ice_nwk_max_flow
     ice_nwk_dc[3,0] = ice_nwk_steps
 
-    ice_nwk_calc = ice_nwk_4nc_compute(ice_nwk_dc)
+    ice_nwk_calc = ice_nwk_compute(ice_nwk_dc)
     
 #################################################################################################################################################################################################        
     ##Unit definition 
@@ -52,7 +55,7 @@ def ice_nwk_4nc (ice_nwk_4nc_mdv, utilitylist, streams, cons_eqns, cons_eqns_ter
     
     for i in range (0, int(ice_nwk_steps)):
         ud = {}
-        ud['Name'] = 'ice_nwk_4nc_' + str(i + 1)
+        ud['Name'] = 'ice_nwk_' + str(i + 1)
         ud['Variable1'] = 'm_perc'                                                                        
         ud['Variable2'] = '-'                                                                  
         ud['Fmin_v1'] = ice_nwk_calc['lb'][i]
@@ -112,9 +115,9 @@ def ice_nwk_4nc (ice_nwk_4nc_mdv, utilitylist, streams, cons_eqns, cons_eqns_ter
         
         ##Stream --- flowrate into the ice network from the evaporator pumps 
         stream = {}                         
-        stream['Parent'] = 'ice_nwk_4nc_' + str(i + 1)
+        stream['Parent'] = 'ice_nwk_' + str(i + 1)
         stream['Type'] = 'flow'
-        stream['Name'] = 'ice_nwk_4nc_' + str(i + 1) + '_flow_in'
+        stream['Name'] = 'ice_nwk_' + str(i + 1) + '_flow_in'
         stream['Layer'] = 'evap_nwk_flow'
         stream['Stream_coeff_v1_2'] = 0
         stream['Stream_coeff_v1_1'] = ice_nwk_tf
@@ -132,9 +135,9 @@ def ice_nwk_4nc (ice_nwk_4nc_mdv, utilitylist, streams, cons_eqns, cons_eqns_ter
 
         ##Stream --- flowrate out of the ice network into gv2 and hsb networks
         stream = {}                                                                
-        stream['Parent'] = 'ice_nwk_4nc_' + str(i + 1)
+        stream['Parent'] = 'ice_nwk_' + str(i + 1)
         stream['Type'] = 'flow'
-        stream['Name'] = 'ice_nwk_4nc_' + str(i + 1) + '_flow_out'
+        stream['Name'] = 'ice_nwk_' + str(i + 1) + '_flow_out'
         stream['Layer'] = 'ice_outlet_flow'
         stream['Stream_coeff_v1_2'] = 0
         stream['Stream_coeff_v1_1'] = ice_nwk_tf 
@@ -152,9 +155,9 @@ def ice_nwk_4nc (ice_nwk_4nc_mdv, utilitylist, streams, cons_eqns, cons_eqns_ter
         
         ##Stream --- pressure flow from ice network to gv2 pressure layer
         stream = {}                                                                
-        stream['Parent'] = 'ice_nwk_4nc_' + str(i + 1)
+        stream['Parent'] = 'ice_nwk_' + str(i + 1)
         stream['Type'] = 'pressure'
-        stream['Name'] = 'ice_nwk_4nc_' + str(i + 1) + '_2_gv2_nwk_4nc_delp_out'
+        stream['Name'] = 'ice_nwk_' + str(i + 1) + '_2_gv2_nwk_delp_out'
         stream['Layer'] = 'gv2_consol_delp'
         stream['Stream_coeff_v1_2'] = 0
         stream['Stream_coeff_v1_1'] = ice_nwk_tf * ice_nwk_calc['grad'][i]
@@ -172,9 +175,9 @@ def ice_nwk_4nc (ice_nwk_4nc_mdv, utilitylist, streams, cons_eqns, cons_eqns_ter
 
         ##Stream --- pressure flow from ice network to hsb pressure layer
         stream = {}                                                                
-        stream['Parent'] = 'ice_nwk_4nc_' + str(i + 1)
+        stream['Parent'] = 'ice_nwk_' + str(i + 1)
         stream['Type'] = 'pressure'
-        stream['Name'] = 'ice_nwk_4nc_' + str(i + 1) + '_2_hsb_nwk_4nc_delp_out'
+        stream['Name'] = 'ice_nwk_' + str(i + 1) + '_2_hsb_nwk_delp_out'
         stream['Layer'] = 'hsb_consol_delp'
         stream['Stream_coeff_v1_2'] = 0
         stream['Stream_coeff_v1_1'] = ice_nwk_tf * ice_nwk_calc['grad'][i]
@@ -198,7 +201,7 @@ def ice_nwk_4nc (ice_nwk_4nc_mdv, utilitylist, streams, cons_eqns, cons_eqns_ter
     
     ##Ensure that the totaluse is equals to 0 or 1 
     eqn = {}
-    eqn['Name'] = 'totaluse_ice_nwk_4nc'
+    eqn['Name'] = 'totaluse_ice_nwk'
     eqn['Type'] = 'unit_binary'
     eqn['Sign'] = 'less_than_equal_to'
     eqn['RHS_value'] = 1
@@ -211,11 +214,11 @@ def ice_nwk_4nc (ice_nwk_4nc_mdv, utilitylist, streams, cons_eqns, cons_eqns_ter
 
     for i in range (0, int(ice_nwk_steps)):   
         term = {}
-        term['Parent_unit'] = 'ice_nwk_4nc_' + str(i + 1)
-        term['Parent_eqn'] = 'totaluse_ice_nwk_4nc'
-        term['Parent_stream'] = '-'                                    ##Only applicable for stream_limit types 
+        term['Parent_unit'] = 'ice_nwk_' + str(i + 1)
+        term['Parent_eqn'] = 'totaluse_ice_nwk'
+        term['Parent_stream'] = '-'                                                     ##Only applicable for stream_limit types 
         term['Coefficient'] = 1
-        term['Coeff_v1_2'] = 0                                         ##Only applicable for stream_limit_modified types 
+        term['Coeff_v1_2'] = 0                                                          ##Only applicable for stream_limit_modified types 
         term['Coeff_v1_1'] = 0
         term['Coeff_v2_2'] = 0
         term['Coeff_v2_1'] = 0

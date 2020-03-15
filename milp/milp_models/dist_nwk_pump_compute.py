@@ -2,38 +2,43 @@
 
 ##Note: Some of the implementations may be more accurate than others due to the dynamic step size 
 
-def dist_nwk_pump_4nc_compute (dist_np_dc, dist_np_table, dist_np_pres_table):
-    
-    import numpy as np 
-    import pandas as pd
-    
-    ##list of input values 
-    
-    ##dist_np_dc = np.zeros((2,1))
+def dist_nwk_pump_compute (dist_np_dc, dist_np_table, dist_np_pres_table):
+
+    ##dist_np_dc    --- list of input values
     ##dist_np_dc[0,0] = dist_np_nwk_choice
     ##dist_np_dc[1,0] = dist_np_steps
     
     ##dist_np_table --- a dataframe containing all possible pump combinations for the distribution network
     ##dist_np_pres_table --- a dataframe containing all the corresponding pressure curves for the pump combinations 
+     
+    import pandas as pd
     
     ##Forming the table of choices according to the associated distribution network choice 
     
-    ##Intializing a table to holde the associated pump parameters and values 
-    dist_np_possible_choices = pd.DataFrame(columns = ['p1_m_coeff', 'p1_p_coeff', 'p1_cst', 'p1_max_m', 'p1_max_p', 'p2_m_coeff', 'p2_p_coeff', 'p2_cst', 'p2_max_m', 
-                                                       'p2_max_p', 'p3_m_coeff', 'p3_p_coeff', 'p3_cst', 'p3_max_m', 'p3_max_p', 'p1_c0', 'p1_c1', 'p1_c2'])
+    ##Intializing a table to hold the associated pump parameters and values 
+    dist_np_possible_choices = pd.DataFrame(columns = ['p1_m_coeff', 'p1_p_coeff', 'p1_cst', 'p1_max_m', 'p1_max_p', 
+                                                       'p2_m_coeff', 'p2_p_coeff', 'p2_cst', 'p2_max_m', 'p2_max_p', 
+                                                       'p3_m_coeff', 'p3_p_coeff', 'p3_cst', 'p3_max_m', 'p3_max_p', 
+                                                       'p1_c0', 'p1_c1', 'p1_c2'])
     
     ##The values to be copied according to the associated network choice
         ##The first value is the starting index, the second is the number of iterations, and the third represents the number of activated pumps at a given time
-    starting_values_chosen = [34, 7, 1]
+        ##We are only using these configurations at the moment
+    starting_values_chosen = [34, 7, 1]                                     
         
     start = int(starting_values_chosen[0])
     end = int(starting_values_chosen[0] + starting_values_chosen[1])
     
     for i in range (start, end):
-        temp_data = [dist_np_table['p1_m_coeff'][i], dist_np_table['p1_p_coeff'][i], dist_np_table['p1_cst'][i], dist_np_table['p1_max_m'][i],
-                     dist_np_table['p1_max_p'][i], dist_np_pres_table['p1_c0'][i], dist_np_pres_table['p1_c1'][i], dist_np_pres_table['p1_c2'][i]]
+        temp_data = [dist_np_table['p1_m_coeff'][i], dist_np_table['p1_p_coeff'][i], dist_np_table['p1_cst'][i], dist_np_table['p1_max_m'][i], dist_np_table['p1_max_p'][i],
+                     0, 0 ,0, 0, 0,
+                     0, 0 ,0, 0, 0,                    
+                     dist_np_pres_table['p1_c0'][i], dist_np_pres_table['p1_c1'][i], dist_np_pres_table['p1_c2'][i]]
         
-        temp_df = pd.DataFrame(data = [temp_data], columns = ['p1_m_coeff', 'p1_p_coeff', 'p1_cst', 'p1_max_m', 'p1_max_p', 'p1_c0', 'p1_c1', 'p1_c2'])
+        temp_df = pd.DataFrame(data = [temp_data], columns = ['p1_m_coeff', 'p1_p_coeff', 'p1_cst', 'p1_max_m', 'p1_max_p', 
+                                                              'p2_m_coeff', 'p2_p_coeff', 'p2_cst', 'p2_max_m', 'p2_max_p', 
+                                                              'p3_m_coeff', 'p3_p_coeff', 'p3_cst', 'p3_max_m', 'p3_max_p', 
+                                                              'p1_c0', 'p1_c1', 'p1_c2'])
         dist_np_possible_choices = dist_np_possible_choices.append(temp_df, ignore_index = True)
     
     ##Asembling the dataframe of return values
@@ -45,13 +50,12 @@ def dist_nwk_pump_4nc_compute (dist_np_dc, dist_np_table, dist_np_pres_table):
 ##Additional functions 
 
 def piecewise_dist_np_ret_values (dist_np_possible_choices, starting_values_chosen, dist_np_dc):
-    
-    import pandas as pd 
-    import numpy as np
-    
+
     ##dist_np_possible_choices --- associated dataframe pump details 
     ##starting_values_chosen --- the associated values of the chosen network (starting index, number of combinations, number of activated pumps)
     ##dist_np_dc --- decision values from the main script 
+    
+    import pandas as pd 
 
     dim_dist_np_possible_choices = dist_np_possible_choices.shape   
     

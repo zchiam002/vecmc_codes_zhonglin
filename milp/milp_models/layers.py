@@ -10,13 +10,20 @@
     ##layers
     ##process
     ##utility
-    ##utility_mt
     
-def checktype_layers_4nc (unit_type):                  ##Input the unit type here
+def checktype_layers (unit_type):                  ##Input the unit type here
+
+    ##unit_type     --- a variable to store the type of unit
+
     unit_type = 'layers'
-    return unit_type
     
-def layers_4nc (layerslist):
+    return unit_type
+
+##Function to record the list of layers 
+def layers (layerslist):
+    
+    ##layerlist         --- the list of layers
+    
     import pandas as pd 
     
     ##Layers definition
@@ -29,10 +36,6 @@ def layers_4nc (layerslist):
     layerslist = layerslist.append(layerdf, ignore_index=True)
     
     layer = ['flow', 'ch2_2_ch2evapnwk_flow']                                   ##Chiller 2 evap to evap network flow               
-    layerdf = pd.DataFrame(data = [layer], columns=['Type', 'Name'])
-    layerslist = layerslist.append(layerdf, ignore_index=True)
-
-    layer = ['flow', 'ch3_2_ch3evapnwk_flow']                                   ##Chiller 3 evap to evap network flow              
     layerdf = pd.DataFrame(data = [layer], columns=['Type', 'Name'])
     layerslist = layerslist.append(layerdf, ignore_index=True)
     
@@ -48,11 +51,7 @@ def layers_4nc (layerslist):
     
     layer = ['flow', 'ch2evapnwk_2_ch2pump_flow']                               ##Chiller 2 evap nwk to chiller 2 evap pump flow                                  
     layerdf = pd.DataFrame(data = [layer], columns=['Type', 'Name'])
-    layerslist = layerslist.append(layerdf, ignore_index=True)        
-    
-    layer = ['flow', 'ch3evapnwk_2_ch3pump_flow']                               ##Chiller 3 evap nwk to chiller 3 evap pump flow                                  
-    layerdf = pd.DataFrame(data = [layer], columns=['Type', 'Name'])
-    layerslist = layerslist.append(layerdf, ignore_index=True)         
+    layerslist = layerslist.append(layerdf, ignore_index=True)                
     
     layer = ['pressure', 'ch1evapnwk_2_ch1pump_delp']                           ##Chiller 1 evap nwk to chiller 1 evap pump delp                                  
     layerdf = pd.DataFrame(data = [layer], columns=['Type', 'Name'])
@@ -61,12 +60,8 @@ def layers_4nc (layerslist):
     layer = ['pressure', 'ch2evapnwk_2_ch2pump_delp']                           ##Chiller 2 evap nwk to chiller 2 evap pump delp                                  
     layerdf = pd.DataFrame(data = [layer], columns=['Type', 'Name'])
     layerslist = layerslist.append(layerdf, ignore_index=True)        
-    
-    layer = ['pressure', 'ch3evapnwk_2_ch3pump_delp']                           ##Chiller 3 evap nwk to chiller 3 evap pump delp                                  
-    layerdf = pd.DataFrame(data = [layer], columns=['Type', 'Name'])
-    layerslist = layerslist.append(layerdf, ignore_index=True)      
+
        
-    
     ##Evaporator pumps to distribution network and common pipe
     layer = ['flow', 'evap_nwk_flow']                                           ##Evaporator pumps to distribution network and common pipe flow                                  
     layerdf = pd.DataFrame(data = [layer], columns=['Type', 'Name'])
@@ -84,16 +79,8 @@ def layers_4nc (layerslist):
     
     layer = ['temp_chil', 'sp12hsb_temp']                                       ##Splitter1_temp to hsb substation temp                                 
     layerdf = pd.DataFrame(data = [layer], columns=['Type', 'Name'])
-    layerslist = layerslist.append(layerdf, ignore_index=True)       
-    
-    layer = ['temp_chil', 'sp12pfa_temp']                                       ##Splitter1_temp to pfa substation temp                                  
-    layerdf = pd.DataFrame(data = [layer], columns=['Type', 'Name'])
-    layerslist = layerslist.append(layerdf, ignore_index=True)       
-    
-    layer = ['temp_chil', 'sp12ser_temp']                                       ##Splitter1_temp to ser substation temp                                 
-    layerdf = pd.DataFrame(data = [layer], columns=['Type', 'Name'])
-    layerslist = layerslist.append(layerdf, ignore_index=True)     
-    
+    layerslist = layerslist.append(layerdf, ignore_index=True)         
+
     
     ##Ice_network, gv2_network and hsb_network 
     layer = ['flow', 'ice_outlet_flow']                                         ##Ice_network to gv2_network and hsb_network flow                                  
@@ -115,28 +102,6 @@ def layers_4nc (layerslist):
     layer = ['pressure', 'hsb_consol_delp']                                     ##Ice_network and hsb_network delp                                 
     layerdf = pd.DataFrame(data = [layer], columns=['Type', 'Name'])
     layerslist = layerslist.append(layerdf, ignore_index=True)    
-    
-    
-    ##Tro_network to pfa_network and ser_network
-    layer = ['flow', 'tro_outlet_flow']                                         ##Tro_network to pfa_network and ser_network flow                                  
-    layerdf = pd.DataFrame(data = [layer], columns=['Type', 'Name'])
-    layerslist = layerslist.append(layerdf, ignore_index=True)    
-    
-    layer = ['flow', 'pfanwk2ss_flow']                                          ##Pfa_network to pfa_substation flow                                  
-    layerdf = pd.DataFrame(data = [layer], columns=['Type', 'Name'])
-    layerslist = layerslist.append(layerdf, ignore_index=True)    
-    
-    layer = ['pressure', 'pfa_consol_delp']                                     ##Tro_network and pfa_network delp                                  
-    layerdf = pd.DataFrame(data = [layer], columns=['Type', 'Name'])
-    layerslist = layerslist.append(layerdf, ignore_index=True)      
-    
-    layer = ['flow', 'sernwk2ss_flow']                                          ##Ser_network to ser_substation flow                                  
-    layerdf = pd.DataFrame(data = [layer], columns=['Type', 'Name'])
-    layerslist = layerslist.append(layerdf, ignore_index=True)    
-    
-    layer = ['pressure', 'ser_consol_delp']                                     ##Tro_network and ser_network delp                                 
-    layerdf = pd.DataFrame(data = [layer], columns=['Type', 'Name'])
-    layerslist = layerslist.append(layerdf, ignore_index=True) 
     
     
     ##Distribution pump related layers 
@@ -163,103 +128,6 @@ def layers_4nc (layerslist):
     layer = ['balancing_only', 'sp22chilret_temp']                              ##The consolidation of return temperatures from all splitter2_temp to return temperature unit                         
     layerdf = pd.DataFrame(data = [layer], columns=['Type', 'Name'])
     layerslist = layerslist.append(layerdf, ignore_index=True)     
-    
-    
-    ##Chiller evaporator to condenser layers
-    layer = ['energy_reverse', 'ch1_evap2cond']                                         ##The energy flow from chiller 1 evaporator to its condenser
-    layerdf = pd.DataFrame(data = [layer], columns=['Type', 'Name'])
-    layerslist = layerslist.append(layerdf, ignore_index=True)     
-
-    layer = ['energy_reverse', 'ch2_evap2cond']                                         ##The energy flow from chiller 2 evaporator to its condenser
-    layerdf = pd.DataFrame(data = [layer], columns=['Type', 'Name'])
-    layerslist = layerslist.append(layerdf, ignore_index=True) 
-    
-    layer = ['energy_reverse', 'ch3_evap2cond']                                         ##The energy flow from chiller 3 evaporator to its condenser
-    layerdf = pd.DataFrame(data = [layer], columns=['Type', 'Name'])
-    layerslist = layerslist.append(layerdf, ignore_index=True)  
-    
-    
-    ##Chiller condenser side layers 
-    layer = ['flow_reverse', 'ch1_2_ch1condnwk_flow']                                   ##The flowrate from chiller 1 condenser to the condensation network
-    layerdf = pd.DataFrame(data = [layer], columns=['Type', 'Name'])
-    layerslist = layerslist.append(layerdf, ignore_index=True)      
-    
-    layer = ['flow_reverse', 'ch2_2_ch2condnwk_flow']                                   ##The flowrate from chiller 2 condenser to the condensation network
-    layerdf = pd.DataFrame(data = [layer], columns=['Type', 'Name'])
-    layerslist = layerslist.append(layerdf, ignore_index=True)  
-
-    layer = ['flow_reverse', 'ch3_2_ch3condnwk_flow']                                   ##The flowrate from chiller 3 condenser to the condensation network
-    layerdf = pd.DataFrame(data = [layer], columns=['Type', 'Name'])
-    layerslist = layerslist.append(layerdf, ignore_index=True)  
-
-#    layer = ['temp_chil', 'chilcond2sp3_temp']                                  ##The temperature flow from chiller condensers to splitter 3 
-#    layerdf = pd.DataFrame(data = [layer], columns=['Type', 'Name'])
-#    layerslist = layerslist.append(layerdf, ignore_index=True)     
-    
-
-    ##Condenser network to condenser pumps 
-    layer = ['flow_reverse', 'ch1condnwk_2_ch1condpump_flow']                           ##The flowrate from chiller 1 condenser network to chiller 1 condenser pump
-    layerdf = pd.DataFrame(data = [layer], columns=['Type', 'Name'])
-    layerslist = layerslist.append(layerdf, ignore_index=True)  
-
-    layer = ['pressure', 'ch1condnwk_2_ch1condpump_delp']                       ##The pressure flow from chiller 1 condenser network to chiller 1 condenser pump
-    layerdf = pd.DataFrame(data = [layer], columns=['Type', 'Name'])
-    layerslist = layerslist.append(layerdf, ignore_index=True)      
-
-    layer = ['flow_reverse', 'ch2condnwk_2_ch2condpump_flow']                           ##The flowrate from chiller 2 condenser network to chiller 2 condenser pump
-    layerdf = pd.DataFrame(data = [layer], columns=['Type', 'Name'])
-    layerslist = layerslist.append(layerdf, ignore_index=True)  
-
-    layer = ['pressure', 'ch2condnwk_2_ch2condpump_delp']                       ##The pressure flow from chiller 2 condenser network to chiller 2 condenser pump
-    layerdf = pd.DataFrame(data = [layer], columns=['Type', 'Name'])
-    layerslist = layerslist.append(layerdf, ignore_index=True)  
-    
-    layer = ['flow_reverse', 'ch3condnwk_2_ch3condpump_flow']                           ##The flowrate from chiller 3 condenser network to chiller 3 condenser pump
-    layerdf = pd.DataFrame(data = [layer], columns=['Type', 'Name'])
-    layerslist = layerslist.append(layerdf, ignore_index=True)  
-
-    layer = ['pressure', 'ch3condnwk_2_ch3condpump_delp']                       ##The pressure flow from chiller 3 condenser network to chiller 3 condenser pump
-    layerdf = pd.DataFrame(data = [layer], columns=['Type', 'Name'])
-    layerslist = layerslist.append(layerdf, ignore_index=True) 
-    
-
-#    ##Splitter 3 to cooling towers
-#    layer = ['temp_chil', 'sp3_2_ct1_temp']                                     ##The temperature flow from splitter 3 to cooling tower 1
-#    layerdf = pd.DataFrame(data = [layer], columns=['Type', 'Name'])
-#    layerslist = layerslist.append(layerdf, ignore_index=True)     
-#
-#    layer = ['temp_chil', 'sp3_2_ct2_temp']                                     ##The temperature flow from splitter 3 to cooling tower 2
-#    layerdf = pd.DataFrame(data = [layer], columns=['Type', 'Name'])
-#    layerslist = layerslist.append(layerdf, ignore_index=True)     
-#
-#    layer = ['temp_chil', 'sp3_2_ct3_temp']                                     ##The temperature flow from splitter 3 to cooling tower 3
-#    layerdf = pd.DataFrame(data = [layer], columns=['Type', 'Name'])
-#    layerslist = layerslist.append(layerdf, ignore_index=True)     
-#
-#    layer = ['temp_chil', 'sp3_2_ct4_temp']                                     ##The temperature flow from splitter 3 to cooling tower 4
-#    layerdf = pd.DataFrame(data = [layer], columns=['Type', 'Name'])
-#    layerslist = layerslist.append(layerdf, ignore_index=True)     
-#
-#    layer = ['temp_chil', 'sp3_2_ct5_temp']                                     ##The temperature flow from splitter 3 to cooling tower 5
-#    layerdf = pd.DataFrame(data = [layer], columns=['Type', 'Name'])
-#    layerslist = layerslist.append(layerdf, ignore_index=True)         
-    
-    
-#    #Cooling towers to Splitter 4
-#    layer = ['temp_chil', 'ct_2_sp4_temp']                                      ##The temperature flow from all cooling towers to splitter 4
-#    layerdf = pd.DataFrame(data = [layer], columns=['Type', 'Name'])
-#    layerslist = layerslist.append(layerdf, ignore_index=True)  
-
-    
-    ##Condenser return layers 
-    layer = ['flow', 'cond_nwk_flow']                                 ##The flowrate consolidation unit for chiller 1 condenser network
-    layerdf = pd.DataFrame(data = [layer], columns=['Type', 'Name'])
-    layerslist = layerslist.append(layerdf, ignore_index=True)    
-    
-#    layer = ['balancing_only', 'sp4_2_condin_temp']                             ##The temperature flow from splitter 4 to the condenser inlet unit
-#    layerdf = pd.DataFrame(data = [layer], columns=['Type', 'Name'])
-#    layerslist = layerslist.append(layerdf, ignore_index=True)   
-    
     
     return layerslist
 
