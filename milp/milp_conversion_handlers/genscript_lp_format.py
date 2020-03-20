@@ -1,16 +1,36 @@
 
 def genscript_lp_format (input_dataframes, utilitylist, processlist, layerslist, parallel_thread_num, obj_func, bilinear_pieces):
 
+    ##Legend of the inputs
+    
+    ##input_dataframes = {}                                     --- it is a dictionary of dataframes
+    ##input_dataframes['utilitylist_bilinear']                  --- list of bilinear utilities 
+    ##input_dataframes['processlist_bilinear']                  --- list of bilinear processes
+    ##input_dataframes['streams_bilinear']                      --- list of bilinear streams 
+    ##input_dataframes['cons_eqns_terms_bilinear']              --- list of bilinear cons_eqns_terms
+    ##input_dataframes['utilitylist_linear']                    --- linear utility list 
+    ##input_dataframes['processlist_linear']                    --- linear process list 
+    ##input_dataframes['streams_linear']                        --- linear streams list 
+    ##input_dataframes['cons_eqns_terms_linear']                --- linear cons_eqns_terms 
+    ##input_dataframes['cons_eqns_all']                         --- all cons_eqns
+    
+    ##utilitylist --- the list of all the utilities
+    ##processlist --- the list of all the processes
+    ##layerslist --- the list of layers 
+    ##parallel_thread_num --- the number to append for the directory to be unique 
+    ##obj_func --- the objective function, it can be of 4 types 
+    ##bilinear_pieces --- the number of bilinear pieces
+    
     import os
+    current_directory = os.path.dirname(__file__) + '//'    
     import sys
     import shutil
-    import pandas as pd
-    sys.path.append('C:\\Optimization_zlc\\slave_convex_handlers\\auxillary\\')
+    sys.path.append(current_directory + 'auxillary//')
     from single_sign_string import single_sign_string
     
     ##Dealing with the storage directory for this script 
     ##Setting the path directory 
-    master_folder = 'C:\\Optimization_zlc\\slave_convex_handlers\\solver_lp_format_holder\\'
+    master_folder = current_directory + 'solver_lp_format_holder\\'
     sub_folder = 'thread_' + str(parallel_thread_num) + '\\'
     script = 'script_' + str(parallel_thread_num) + '.lp'
     
@@ -74,24 +94,45 @@ def genscript_lp_format (input_dataframes, utilitylist, processlist, layerslist,
     ##Writing the utility terms in the objective function for strictly linear terms
     dim_utilitylist_linear = input_dataframes['utilitylist_linear'].shape
    
+    prev_y_name = ''                                                            ##For the sake of GLPK                                     
+    
     for i in range (0, dim_utilitylist_linear[0]):
         var_name_temp = input_dataframes['utilitylist_linear']['Parent'][i] + '_' + input_dataframes['utilitylist_linear']['Name'][i]
-        var_name_temp_y = input_dataframes['utilitylist_linear']['Parent'][i] + '_y'
-        grad_temp = input_dataframes['utilitylist_linear'][key + '1'][i]
-        int_temp = input_dataframes['utilitylist_linear'][key + '2'][i]
-       
-        check_empty = check_empty_string(obj_function_input)
-       
-        if check_empty == 1:
-            temp_term = ''
-            temp_term = temp_term + str(grad_temp) + ' ' + var_name_temp
-            temp_term = temp_term + single_sign_string(int_temp, '+') + ' ' + var_name_temp_y
-            obj_function_input = obj_function_input + temp_term
+        
+        if prev_y_name != input_dataframes['utilitylist_linear']['Parent'][i] + '_y':
+            var_name_temp_y = input_dataframes['utilitylist_linear']['Parent'][i] + '_y'
+            prev_y_name = input_dataframes['utilitylist_linear']['Parent'][i] + '_y'
+            
+            grad_temp = input_dataframes['utilitylist_linear'][key + '1'][i]
+            int_temp = input_dataframes['utilitylist_linear'][key + '2'][i]
+           
+            check_empty = check_empty_string(obj_function_input)
+           
+            if check_empty == 1:
+                temp_term = ''
+                temp_term = temp_term + str(grad_temp) + ' ' + var_name_temp
+                temp_term = temp_term + single_sign_string(int_temp, '+') + ' ' + var_name_temp_y
+                obj_function_input = obj_function_input + temp_term
+            else:
+                temp_term = ''
+                temp_term = temp_term + single_sign_string(grad_temp, '+') + ' ' + var_name_temp
+                temp_term = temp_term + single_sign_string(int_temp, '+') + ' ' + var_name_temp_y
+                obj_function_input = obj_function_input + temp_term
         else:
-            temp_term = ''
-            temp_term = temp_term + single_sign_string(grad_temp, '+') + ' ' + var_name_temp
-            temp_term = temp_term + single_sign_string(int_temp, '+') + ' ' + var_name_temp_y
-            obj_function_input = obj_function_input + temp_term
+            prev_y_name = ''
+            grad_temp = input_dataframes['utilitylist_linear'][key + '1'][i]
+            int_temp = input_dataframes['utilitylist_linear'][key + '2'][i]
+           
+            check_empty = check_empty_string(obj_function_input)
+           
+            if check_empty == 1:
+                temp_term = ''
+                temp_term = temp_term + str(grad_temp) + ' ' + var_name_temp
+                obj_function_input = obj_function_input + temp_term
+            else:
+                temp_term = ''
+                temp_term = temp_term + single_sign_string(grad_temp, '+') + ' ' + var_name_temp
+                obj_function_input = obj_function_input + temp_term 
 
     ##Writing the utility terms in the objective function for relaxed bilinear terms 
     dim_utilitylist_bilinear = input_dataframes['utilitylist_bilinear'].shape
@@ -118,24 +159,45 @@ def genscript_lp_format (input_dataframes, utilitylist, processlist, layerslist,
     ##Writing the process terms in the objective function for strictly linear terms
     dim_processlist_linear = input_dataframes['processlist_linear'].shape
     
+    prev_y_name = ''                                                            ##For the sake of GLPK                                     
+    
     for i in range (0, dim_processlist_linear[0]):
         var_name_temp = input_dataframes['processlist_linear']['Parent'][i] + '_' + input_dataframes['processlist_linear']['Name'][i]
-        var_name_temp_y = input_dataframes['processlist_linear']['Parent'][i] + '_y'
-        grad_temp = input_dataframes['processlist_linear'][key + '1'][i]
-        int_temp = input_dataframes['processlist_linear'][key + '2'][i]
-       
-        check_empty = check_empty_string(obj_function_input)
-       
-        if check_empty == 1:
-            temp_term = ''
-            temp_term = temp_term + str(grad_temp) + ' ' + var_name_temp
-            temp_term = temp_term + single_sign_string(int_temp, '+') + ' ' + var_name_temp_y
-            obj_function_input = obj_function_input + temp_term
+        
+        if prev_y_name != input_dataframes['processlist_linear']['Parent'][i] + '_y':
+            var_name_temp_y = input_dataframes['processlist_linear']['Parent'][i] + '_y'
+            prev_y_name = input_dataframes['processlist_linear']['Parent'][i] + '_y'
+            
+            grad_temp = input_dataframes['processlist_linear'][key + '1'][i]
+            int_temp = input_dataframes['processlist_linear'][key + '2'][i]
+           
+            check_empty = check_empty_string(obj_function_input)
+           
+            if check_empty == 1:
+                temp_term = ''
+                temp_term = temp_term + str(grad_temp) + ' ' + var_name_temp
+                temp_term = temp_term + single_sign_string(int_temp, '+') + ' ' + var_name_temp_y
+                obj_function_input = obj_function_input + temp_term
+            else:
+                temp_term = ''
+                temp_term = temp_term + single_sign_string(grad_temp, '+') + ' ' + var_name_temp
+                temp_term = temp_term + single_sign_string(int_temp, '+') + ' ' + var_name_temp_y
+                obj_function_input = obj_function_input + temp_term
         else:
-            temp_term = ''
-            temp_term = temp_term + single_sign_string(grad_temp, '+') + ' ' + var_name_temp
-            temp_term = temp_term + single_sign_string(int_temp, '+') + ' ' + var_name_temp_y
-            obj_function_input = obj_function_input + temp_term
+            prev_y_name = ''
+            grad_temp = input_dataframes['processlist_linear'][key + '1'][i]
+            int_temp = input_dataframes['processlist_linear'][key + '2'][i]
+           
+            check_empty = check_empty_string(obj_function_input)
+           
+            if check_empty == 1:
+                temp_term = ''
+                temp_term = temp_term + str(grad_temp) + ' ' + var_name_temp
+                obj_function_input = obj_function_input + temp_term
+            else:
+                temp_term = ''
+                temp_term = temp_term + single_sign_string(grad_temp, '+') + ' ' + var_name_temp
+                obj_function_input = obj_function_input + temp_term 
            
     ##Writing the process terms in the objective function for relaxed bilinear terms 
     dim_processlist_bilinear = input_dataframes['processlist_bilinear'].shape
@@ -450,22 +512,36 @@ def genscript_lp_format (input_dataframes, utilitylist, processlist, layerslist,
             temp_in = ''
             temp_out = ''
             
+            prev_y_name = ''                                                    ##For the sake of GLPK
+            
             ##Scanning through the linear stream list 
             for j in range (0, dim_streams_linear[0]):
                 if input_dataframes['streams_linear']['Layer'][j] == current_layer:
                     if input_dataframes['streams_linear']['InOut'][j] == 'in':
                         var_name_temp = input_dataframes['streams_linear']['Parent'][j] + '_' + input_dataframes['streams_linear']['Variable'][j]
                         check_empty = check_empty_string(temp_in)
+                        
                         if check_empty == 1:
                             temp_in = temp_in + str(input_dataframes['streams_linear']['Flow_grad'][j]) + ' ' + var_name_temp
                             temp_in = temp_in + single_sign_string(input_dataframes['streams_linear']['Flow_min'][j], '+') + ' ' + input_dataframes['streams_linear']['Parent'][j] + '_y'
+                            prev_y_name = input_dataframes['streams_linear']['Parent'][j] + '_y'
                         else:
-                            temp_in = temp_in + single_sign_string(input_dataframes['streams_linear']['Flow_grad'][j], '+') + ' ' + var_name_temp
-                            temp_in = temp_in + single_sign_string(input_dataframes['streams_linear']['Flow_min'][j], '+') + ' ' + input_dataframes['streams_linear']['Parent'][j] + '_y'                          
+                            if prev_y_name != input_dataframes['streams_linear']['Parent'][j] + '_y':
+                                temp_in = temp_in + single_sign_string(input_dataframes['streams_linear']['Flow_grad'][j], '+') + ' ' + var_name_temp
+                                temp_in = temp_in + single_sign_string(input_dataframes['streams_linear']['Flow_min'][j], '+') + ' ' + input_dataframes['streams_linear']['Parent'][j] + '_y' 
+                                prev_y_name = input_dataframes['streams_linear']['Parent'][j] + '_y'
+                            else:
+                                temp_in = temp_in + single_sign_string(input_dataframes['streams_linear']['Flow_grad'][j], '+') + ' ' + var_name_temp                               
+
+                                
                     elif input_dataframes['streams_linear']['InOut'][j] == 'out':
                         var_name_temp = input_dataframes['streams_linear']['Parent'][j] + '_' + input_dataframes['streams_linear']['Variable'][j]
-                        temp_out = temp_out + single_sign_string(input_dataframes['streams_linear']['Flow_grad'][j], '-') + ' ' + var_name_temp
-                        temp_out = temp_out + single_sign_string(input_dataframes['streams_linear']['Flow_min'][j], '-') + ' ' + input_dataframes['streams_linear']['Parent'][j] + '_y'  
+                        if prev_y_name != input_dataframes['streams_linear']['Parent'][j] + '_y':
+                            temp_out = temp_out + single_sign_string(input_dataframes['streams_linear']['Flow_grad'][j], '-') + ' ' + var_name_temp
+                            temp_out = temp_out + single_sign_string(input_dataframes['streams_linear']['Flow_min'][j], '-') + ' ' + input_dataframes['streams_linear']['Parent'][j] + '_y' 
+                            prev_y_name = input_dataframes['streams_linear']['Parent'][j] + '_y'
+                        else:
+                            temp_out = temp_out + single_sign_string(input_dataframes['streams_linear']['Flow_grad'][j], '-') + ' ' + var_name_temp                    
           
             #Scanning through the bilinear stream list 
             for j in range (0, dim_streams_bilinear[0]):
@@ -497,22 +573,36 @@ def genscript_lp_format (input_dataframes, utilitylist, processlist, layerslist,
             temp_in = ''
             temp_out = ''
             
+            prev_y_name = ''                                                    ##For the sake of GLPK
+            
             ##Scanning through the linear stream list 
             for j in range (0, dim_streams_linear[0]):
                 if input_dataframes['streams_linear']['Layer'][j] == current_layer:
                     if input_dataframes['streams_linear']['InOut'][j] == 'in':
                         var_name_temp = input_dataframes['streams_linear']['Parent'][j] + '_' + input_dataframes['streams_linear']['Variable'][j]
                         check_empty = check_empty_string(temp_in)
+                        
                         if check_empty == 1:
                             temp_in = temp_in + str(input_dataframes['streams_linear']['Flow_grad'][j]) + ' ' + var_name_temp
                             temp_in = temp_in + single_sign_string(input_dataframes['streams_linear']['Flow_min'][j], '+') + ' ' + input_dataframes['streams_linear']['Parent'][j] + '_y'
+                            prev_y_name = input_dataframes['streams_linear']['Parent'][j] + '_y'
                         else:
-                            temp_in = temp_in + single_sign_string(input_dataframes['streams_linear']['Flow_grad'][j], '+') + ' ' + var_name_temp
-                            temp_in = temp_in + single_sign_string(input_dataframes['streams_linear']['Flow_min'][j], '+') + ' ' + input_dataframes['streams_linear']['Parent'][j] + '_y'                          
+                            if prev_y_name != input_dataframes['streams_linear']['Parent'][j] + '_y':
+                                temp_in = temp_in + single_sign_string(input_dataframes['streams_linear']['Flow_grad'][j], '+') + ' ' + var_name_temp
+                                temp_in = temp_in + single_sign_string(input_dataframes['streams_linear']['Flow_min'][j], '+') + ' ' + input_dataframes['streams_linear']['Parent'][j] + '_y'
+                                prev_y_name = input_dataframes['streams_linear']['Parent'][j] + '_y'
+                            else:
+                                temp_in = temp_in + single_sign_string(input_dataframes['streams_linear']['Flow_grad'][j], '+') + ' ' + var_name_temp
+                            
+                            
                     elif input_dataframes['streams_linear']['InOut'][j] == 'out':
                         var_name_temp = input_dataframes['streams_linear']['Parent'][j] + '_' + input_dataframes['streams_linear']['Variable'][j]
-                        temp_out = temp_out + single_sign_string(input_dataframes['streams_linear']['Flow_grad'][j], '-') + ' ' + var_name_temp
-                        temp_out = temp_out + single_sign_string(input_dataframes['streams_linear']['Flow_min'][j], '-') + ' ' + input_dataframes['streams_linear']['Parent'][j] + '_y'  
+                        if prev_y_name != input_dataframes['streams_linear']['Parent'][j] + '_y':                        
+                            temp_out = temp_out + single_sign_string(input_dataframes['streams_linear']['Flow_grad'][j], '-') + ' ' + var_name_temp
+                            temp_out = temp_out + single_sign_string(input_dataframes['streams_linear']['Flow_min'][j], '-') + ' ' + input_dataframes['streams_linear']['Parent'][j] + '_y'  
+                            prev_y_name = input_dataframes['streams_linear']['Parent'][j] + '_y'  
+                        else:
+                            temp_out = temp_out + single_sign_string(input_dataframes['streams_linear']['Flow_grad'][j], '-') + ' ' + var_name_temp
           
             #Scanning through the bilinear stream list 
             for j in range (0, dim_streams_bilinear[0]):
@@ -544,6 +634,8 @@ def genscript_lp_format (input_dataframes, utilitylist, processlist, layerslist,
             temp_in = ''
             temp_out = ''
             
+            prev_y_name = ''
+            
             ##Scanning through the linear stream list 
             for j in range (0, dim_streams_linear[0]):
                 if input_dataframes['streams_linear']['Layer'][j] == current_layer:
@@ -553,14 +645,24 @@ def genscript_lp_format (input_dataframes, utilitylist, processlist, layerslist,
                         if check_empty == 1:
                             temp_in = temp_in + str(input_dataframes['streams_linear']['Flow_grad'][j]) + ' ' + var_name_temp
                             temp_in = temp_in + single_sign_string(input_dataframes['streams_linear']['Flow_min'][j], '+') + ' ' + input_dataframes['streams_linear']['Parent'][j] + '_y'
+                            prev_y_name = input_dataframes['streams_linear']['Parent'][j] + '_y'
                         else:
-                            temp_in = temp_in + single_sign_string(input_dataframes['streams_linear']['Flow_grad'][j], '+') + ' ' + var_name_temp
-                            temp_in = temp_in + single_sign_string(input_dataframes['streams_linear']['Flow_min'][j], '+') + ' ' + input_dataframes['streams_linear']['Parent'][j] + '_y'                          
+                            if prev_y_name != input_dataframes['streams_linear']['Parent'][j] + '_y':
+                                temp_in = temp_in + single_sign_string(input_dataframes['streams_linear']['Flow_grad'][j], '+') + ' ' + var_name_temp
+                                temp_in = temp_in + single_sign_string(input_dataframes['streams_linear']['Flow_min'][j], '+') + ' ' + input_dataframes['streams_linear']['Parent'][j] + '_y' 
+                                prev_y_name = input_dataframes['streams_linear']['Parent'][j] + '_y'
+                            else:
+                                temp_in = temp_in + single_sign_string(input_dataframes['streams_linear']['Flow_grad'][j], '+') + ' ' + var_name_temp
+                                
                     elif input_dataframes['streams_linear']['InOut'][j] == 'out':
                         var_name_temp = input_dataframes['streams_linear']['Parent'][j] + '_' + input_dataframes['streams_linear']['Variable'][j]
-                        temp_out = temp_out + single_sign_string(input_dataframes['streams_linear']['Flow_grad'][j], '-') + ' ' + var_name_temp
-                        temp_out = temp_out + single_sign_string(input_dataframes['streams_linear']['Flow_min'][j], '-') + ' ' + input_dataframes['streams_linear']['Parent'][j] + '_y'  
-          
+                        if prev_y_name != input_dataframes['streams_linear']['Parent'][j] + '_y':                        
+                            temp_out = temp_out + single_sign_string(input_dataframes['streams_linear']['Flow_grad'][j], '-') + ' ' + var_name_temp
+                            temp_out = temp_out + single_sign_string(input_dataframes['streams_linear']['Flow_min'][j], '-') + ' ' + input_dataframes['streams_linear']['Parent'][j] + '_y'  
+                            prev_y_name = input_dataframes['streams_linear']['Parent'][j] + '_y'
+                        else:
+                            temp_out = temp_out + single_sign_string(input_dataframes['streams_linear']['Flow_grad'][j], '-') + ' ' + var_name_temp                            
+
             #Scanning through the bilinear stream list 
             for j in range (0, dim_streams_bilinear[0]):
                 if input_dataframes['streams_bilinear']['Layer'][j] == current_layer:                
@@ -677,6 +779,9 @@ def genscript_lp_format (input_dataframes, utilitylist, processlist, layerslist,
             sign_temp = determine_sign (input_dataframes['cons_eqns_all']['Sign'][i])            
             rhs_value = str(input_dataframes['cons_eqns_all']['RHS_value'][i])
             temp_lhs = ''
+            
+            prev_y_name = ''
+            
             ##Scanning through the linear list first
             for j in range (0, dim_cons_eqns_terms_linear[0]):
                 if input_dataframes['cons_eqns_terms_linear']['Parent_eqn'][j] == eqn_name_temp:
@@ -686,9 +791,14 @@ def genscript_lp_format (input_dataframes, utilitylist, processlist, layerslist,
                     if check_empty == 1:
                         temp_lhs = temp_lhs + str(input_dataframes['cons_eqns_terms_linear']['Grad'][j]) + ' ' + var_temp_name
                         temp_lhs = temp_lhs + single_sign_string(input_dataframes['cons_eqns_terms_linear']['Cst'][j], '+') + ' ' + var_temp_name_y
+                        prev_y_name = var_temp_name_y
                     else:
-                        temp_lhs = temp_lhs + single_sign_string(input_dataframes['cons_eqns_terms_linear']['Grad'][j], '+') + ' ' + var_temp_name
-                        temp_lhs = temp_lhs + single_sign_string(input_dataframes['cons_eqns_terms_linear']['Cst'][j], '+') + ' ' + var_temp_name_y   
+                        if prev_y_name != var_temp_name_y:
+                            temp_lhs = temp_lhs + single_sign_string(input_dataframes['cons_eqns_terms_linear']['Grad'][j], '+') + ' ' + var_temp_name
+                            temp_lhs = temp_lhs + single_sign_string(input_dataframes['cons_eqns_terms_linear']['Cst'][j], '+') + ' ' + var_temp_name_y  
+                            prev_y_name = var_temp_name_y   
+                        else:
+                            temp_lhs = temp_lhs + single_sign_string(input_dataframes['cons_eqns_terms_linear']['Grad'][j], '+') + ' ' + var_temp_name                             
                         
             ##Scanning through the bilinear list next 
             for j in range (0, dim_cons_eqns_terms_bilinear[0]):
@@ -903,5 +1013,3 @@ def check_if_item_in_list (check_list, item):
             
     return ret_value
 
-
-    

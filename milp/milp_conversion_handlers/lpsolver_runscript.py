@@ -1,56 +1,34 @@
 ## Glpk scripting 
 
 def lpsolver_runscript(thread_num, solver_choice):
+    
     ##thread_num --- the associated parallel thread number 
     ##solver_choice ---the solver choice 
+
+    import sys    
     
-    if solver_choice == 'gurobi':
-        smooth, convergence = gurobi_runscript (thread_num)
-        
-    elif solver_choice == 'glpk':
+    if solver_choice == 'glpk':
         smooth, convergence = glpk_runscript(thread_num)
+        
+    else:
+        print('Solver unavailable... ...')
+        sys.exit()
     
     return smooth, convergence
 
 ############################################################################################################################################################################
 ##Additional functions 
-
-##This function runs gurobi 
-def gurobi_runscript (thread_num):
-    import subprocess
-    import os
     
-    ##thread_num --- the parallel thread number
-    
-    ##Directories 
-    main_call = 'gurobi_cl'
-    result_file_call = 'ResultFile=C:\Optimization_zlc\slave_convex_handlers\solver_lp_format_holder' + r'\t' + 'hread_' + str(thread_num) + '\out.sol'
-    file_location = 'C:\Optimization_zlc\slave_convex_handlers\solver_lp_format_holder' + r'\t' + 'hread_' + str(thread_num) + '\script_' + str(thread_num) + '.lp'
-    result_location = 'C:\Optimization_zlc\slave_convex_handlers\solver_lp_format_holder' + r'\t' + 'hread_' + str(thread_num) + '\out.sol'
-    
-    command = main_call + ' ' + result_file_call + ' ' + file_location
-    o = subprocess.check_call(command, shell= True)    
-    
-    output = 0
-    ##Checking is the output file exists, if it does, there is convergence
-    if os.path.isfile(result_location) == True:
-        with open(result_location, 'r') as fo:
-            solver_msg = fo.read()
-        if 'Objective value' in solver_msg:
-            output = 1
-    
-    return o, output
-
-##This function runs glpk
+##This function runs glpk solver
 def glpk_runscript(thread_num):
     import subprocess
     import os
-    
+    current_path = os.path.dirname(__file__)[:-25] + '/' 
     
     ##Directories 
-    main_call = 'C:\Optimization_zlc\winglpk-4.61\glpk-4.61\w64\glpsol --lp'
-    file_location = 'C:\Optimization_zlc\slave_convex_handlers\solver_lp_format_holder' + r'\t' + 'hread_' + str(thread_num) + '\script_' + str(thread_num) + '.lp'
-    result_location = 'C:\Optimization_zlc\slave_convex_handlers\solver_lp_format_holder' + r'\t' + 'hread_' + str(thread_num) + '\out.txt'
+    main_call = current_path + 'winglpk-4.61\glpk-4.61\w64\glpsol --lp'
+    file_location = current_path + 'milp_conversion_handlers\solver_lp_format_holder' + r'\t' + 'hread_' + str(thread_num) + '\script_' + str(thread_num) + '.lp'
+    result_location = current_path + 'milp_conversion_handlers\solver_lp_format_holder' + r'\t' + 'hread_' + str(thread_num) + '\out.txt'
     
     command = main_call + ' ' + file_location + ' -o ' + result_location
 
@@ -80,5 +58,7 @@ def glpk_runscript(thread_num):
     
     return o, convergence
 
+
+    
 
 

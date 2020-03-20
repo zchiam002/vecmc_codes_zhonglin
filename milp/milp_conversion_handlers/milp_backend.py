@@ -16,7 +16,9 @@ def milp_backend(files, obj_func, parallel_thread_num, models_location, bilinear
     sys.path.append(current_path + 'auxillary//')
     sys.path.append(models_location)
     from get_values_models import get_values_models
-    from sorting_linear_and_bilinear_terms import sorting_linear_and_bilinear_terms    
+    from sorting_linear_and_bilinear_terms import sorting_linear_and_bilinear_terms
+    from genscript_lp_format import genscript_lp_format
+    from lpsolver_runscript import lpsolver_runscript
     
     ##Initial inputs 
     save_file = 'yes'           ##Determine if the intermediate dataframes are to be saved or not
@@ -31,8 +33,21 @@ def milp_backend(files, obj_func, parallel_thread_num, models_location, bilinear
     save_function (ret_dataframes, layerslist, utilitylist, processlist, streams, cons_eqns, cons_eqns_terms, save_file)
 
     ##Generating linear program script in LP format 
-    genscript_lp_format_v0(ret_dataframes, utilitylist, processlist, layerslist, parallel_thread_num, obj_func, bilinear_pieces)
+    genscript_lp_format(ret_dataframes, utilitylist, processlist, layerslist, parallel_thread_num, obj_func, bilinear_pieces)
     
+    ##Running the linear programming solver 
+    smooth, convergence = lpsolver_runscript(parallel_thread_num, solver_choice)    
+
+#    ##The value of convergence can only be 1 or 0, 1 represents convergence, 0 otherwise
+#    if solver_choice == 'glpk':
+#        if convergence == 1:
+#            obj_value, results, results_y = extract_and_process_values(ret_dataframes, utilitylist, processlist, bilinear_pieces, solver_choice, parallel_thread_num, affected_list)
+#        else:
+#            obj_value = 'na'
+#            results = 'na'
+#            results_y = 'na'
+
+   
     print(layerslist)
     import sys 
     sys.exit()
