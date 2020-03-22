@@ -92,7 +92,7 @@ def chiller_ret (mdv, processlist, streams, cons_eqns, cons_eqns_terms):
     
     stream = {}                                                                
     stream['Parent'] = 'ch_evap_ret'
-    stream['Type'] = 'balancing_only'
+    stream['Type'] = 'temp_chil'
     stream['Name'] = 'ch_evap_tin'
     stream['Layer'] = 'sp22chilret_temp'
     stream['Stream_coeff_v1_2'] = 0

@@ -17,6 +17,5 @@
 15,pressure,hsb_consol_delp
 16,flow,distnwk_consol_flow
 17,pressure,paranwk2distpump_delp
-18,temp_chil,ss2sp2_temp
-19,balancing_only,evapnwk_consol_flow
-20,balancing_only,sp22chilret_temp
+18,balancing_only,evapnwk_consol_flow
+19,temp_chil,sp22chilret_temp

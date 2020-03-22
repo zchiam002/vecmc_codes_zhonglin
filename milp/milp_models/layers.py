@@ -113,22 +113,16 @@ def layers (layerslist):
     layerdf = pd.DataFrame(data = [layer], columns=['Type', 'Name'])
     layerslist = layerslist.append(layerdf, ignore_index=True)  
     
-    
-    ##Substation to splitter2_temp return temperature 
-    layer = ['temp_chil', 'ss2sp2_temp']                                        ##The consolidation of return temperatures from all substations into splitter2_temp                          
-    layerdf = pd.DataFrame(data = [layer], columns=['Type', 'Name'])
-    layerslist = layerslist.append(layerdf, ignore_index=True)     
-    
-    
+        
     ##All return layers
     layer = ['balancing_only', 'evapnwk_consol_flow']                           ##The consolidation of flow from all substations and the common pipe                          
     layerdf = pd.DataFrame(data = [layer], columns=['Type', 'Name'])
     layerslist = layerslist.append(layerdf, ignore_index=True)     
     
-    layer = ['balancing_only', 'sp22chilret_temp']                              ##The consolidation of return temperatures from all splitter2_temp to return temperature unit                         
+    layer = ['temp_chil', 'sp22chilret_temp']                                   ##The consolidation of return temperatures from all substations into splitter2_temp                          
     layerdf = pd.DataFrame(data = [layer], columns=['Type', 'Name'])
-    layerslist = layerslist.append(layerdf, ignore_index=True)     
-    
+    layerslist = layerslist.append(layerdf, ignore_index=True)        
+
     return layerslist
 
 

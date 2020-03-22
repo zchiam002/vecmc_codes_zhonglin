@@ -9,7 +9,6 @@ def milp_backend(files, obj_func, parallel_thread_num, models_location, bilinear
     ##bilinear_pieces           --- the number of bilinear pieces for linearization of bilinear variables 
     ##solver_choice             --- only GLPK is available for now
     
-    import pandas as pd
     import os 
     current_path = os.path.dirname(__file__) + '//'  
     import sys 
@@ -19,6 +18,7 @@ def milp_backend(files, obj_func, parallel_thread_num, models_location, bilinear
     from sorting_linear_and_bilinear_terms import sorting_linear_and_bilinear_terms
     from genscript_lp_format import genscript_lp_format
     from lpsolver_runscript import lpsolver_runscript
+    from extract_and_process_values import extract_and_process_values
     
     ##Initial inputs 
     save_file = 'yes'           ##Determine if the intermediate dataframes are to be saved or not
@@ -36,23 +36,18 @@ def milp_backend(files, obj_func, parallel_thread_num, models_location, bilinear
     genscript_lp_format(ret_dataframes, utilitylist, processlist, layerslist, parallel_thread_num, obj_func, bilinear_pieces)
     
     ##Running the linear programming solver 
-    smooth, convergence = lpsolver_runscript(parallel_thread_num, solver_choice)    
+    smooth, convergence = lpsolver_runscript(parallel_thread_num, solver_choice) 
 
-#    ##The value of convergence can only be 1 or 0, 1 represents convergence, 0 otherwise
-#    if solver_choice == 'glpk':
-#        if convergence == 1:
-#            obj_value, results, results_y = extract_and_process_values(ret_dataframes, utilitylist, processlist, bilinear_pieces, solver_choice, parallel_thread_num, affected_list)
-#        else:
-#            obj_value = 'na'
-#            results = 'na'
-#            results_y = 'na'
-
-   
-    print(layerslist)
-    import sys 
-    sys.exit()
+    ##The value of convergence can only be 1 or 0, 1 represents convergence, 0 otherwise
+    if solver_choice == 'glpk':
+        if convergence == 1:
+            obj_value, results, results_y = extract_and_process_values(ret_dataframes, utilitylist, processlist, bilinear_pieces, solver_choice, parallel_thread_num, affected_list)
+        else:
+            obj_value = 'na'
+            results = 'na'
+            results_y = 'na'
     
-    return 
+    return obj_value, results, results_y
 
 ###############################################################################################################################################################################
 

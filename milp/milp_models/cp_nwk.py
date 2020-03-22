@@ -112,7 +112,7 @@ def cp_nwk (mdv, utilitylist, streams, cons_eqns, cons_eqns_terms):
     stream2['Parent'] = 'cp_nwk'
     stream2['Type'] = 'temp_chil'
     stream2['Name'] = 'cp_nwk_tout'
-    stream2['Layer'] = 'ss2sp2_temp'
+    stream2['Layer'] = 'sp22chilret_temp'
     stream2['Stream_coeff_v1_2'] = 0
     stream2['Stream_coeff_v1_1'] = 273.15
     stream2['Stream_coeff_v2_2'] = 0

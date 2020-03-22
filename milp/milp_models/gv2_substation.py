@@ -160,7 +160,7 @@ def gv2_substation (mdv, utilitylist, streams, cons_eqns, cons_eqns_terms):
     stream['Parent'] = 'gv2_ss'                                                       ##Temperture stream exiting the substation 
     stream['Type'] = 'temp_chil'
     stream['Name'] = 'gv2_ss_tout'
-    stream['Layer'] = 'ss2sp2_temp'
+    stream['Layer'] = 'sp22chilret_temp'
     stream['Stream_coeff_v1_2'] = 0
     stream['Stream_coeff_v1_1'] = (273.15 + 1) 
     stream['Stream_coeff_v2_2'] = 0
