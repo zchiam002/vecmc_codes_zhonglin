@@ -24,18 +24,23 @@ def hsb_substation (mdv, utilitylist, streams, cons_eqns, cons_eqns_terms):
     ##cons_eqns         --- a dataframe to extract constraint equations from the model 
     ##cons_eqns_terms   --- a dataframe to extract terms in the constraint equation from the model 
 
+    import os 
+    current_path = os.path.dirname(__file__)[:-12] + '//'   
     from hsb_substation_compute import hsb_substation_compute
     import pandas as pd
     import numpy as np 
     
     ##Defining inputs 
    
+    ##Importing local MILP model parameters 
+    add_param = pd.read_csv(current_path + 'model_param//model_param.csv')
+    
     ##Processing list of master decision variables/inputs as parameters 
     hsb_ss_demand = mdv['Value'][0]
     hsb_ss_totalflownwk = mdv['Value'][1]
 
     ##Defined constants
-    hsb_ss_tinmax  = 273.15 + 5                                                         ##The maximum temperature of water entering the substation 
+    hsb_ss_tinmax  = add_param['Value'][0]                                              ##The maximum temperature of water entering the substation 
     hsb_ss_deltmax  = 10                                                                ##The maximum delta t of the substation on the cold side  (value based on hsb)
     hsb_ss_cp = 4.2                                                                     ##The heat capacity of water 
 

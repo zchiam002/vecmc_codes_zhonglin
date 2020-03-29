@@ -20,9 +20,6 @@ def milp_backend(files, obj_func, parallel_thread_num, models_location, bilinear
     from lpsolver_runscript import lpsolver_runscript
     from extract_and_process_values import extract_and_process_values
     
-    ##Initial inputs 
-    save_file = 'yes'           ##Determine if the intermediate dataframes are to be saved or not
-    
     ##Getting the values from the models 
     layerslist, utilitylist, processlist, streams, cons_eqns, cons_eqns_terms = get_values_models(files, parallel_thread_num, models_location)     
 
@@ -30,7 +27,7 @@ def milp_backend(files, obj_func, parallel_thread_num, models_location, bilinear
     ret_dataframes, affected_list = sorting_linear_and_bilinear_terms (layerslist, utilitylist, processlist, streams, cons_eqns, cons_eqns_terms, obj_func, bilinear_pieces)    
     
     ##Saving the dataframes for checking 
-    save_function (ret_dataframes, layerslist, utilitylist, processlist, streams, cons_eqns, cons_eqns_terms, save_file)
+    all_dataframes = save_function (ret_dataframes, layerslist, utilitylist, processlist, streams, cons_eqns, cons_eqns_terms)
 
     ##Generating linear program script in LP format 
     genscript_lp_format(ret_dataframes, utilitylist, processlist, layerslist, parallel_thread_num, obj_func, bilinear_pieces)
@@ -45,16 +42,16 @@ def milp_backend(files, obj_func, parallel_thread_num, models_location, bilinear
         else:
             obj_value = 'na'
             results = 'na'
-            results_y = 'na'
+            results_y = 'na'    
     
-    return obj_value, results, results_y
+    return obj_value, results, results_y, all_dataframes
 
 ###############################################################################################################################################################################
 
 ##Additional functions
 
 ##This function saved the dataframes into csvfiles for checking purposes 
-def save_function (ret_dataframes, layerslist, utilitylist, processlist, streams, cons_eqns, cons_eqns_terms, save_file):
+def save_function (ret_dataframes, layerslist, utilitylist, processlist, streams, cons_eqns, cons_eqns_terms):
     
     ##ret_dataframes                                          --- it is a dictionary of dataframes
     ##ret_dataframes['utilitylist_bilinear']                  --- list of bilinear utilities 
@@ -76,28 +73,38 @@ def save_function (ret_dataframes, layerslist, utilitylist, processlist, streams
     
     import os 
     current_path = os.path.dirname(__file__) + '//' 
+    import copy 
     
     ##Determining the save path 
     save_path = current_path + 'save_dataframes//'
     
-    if save_file == 'yes':
-        ret_dataframes['utilitylist_bilinear'].to_csv(save_path + '01.utilitylist_bilinear.csv')
-        ret_dataframes['processlist_bilinear'].to_csv(save_path + '02.processlist_bilinear.csv')
-        ret_dataframes['streams_bilinear'].to_csv(save_path + '03.streams_bilinear.csv')
-        ret_dataframes['cons_eqns_terms_bilinear'].to_csv(save_path + '04.cons_eqns_terms_bilinear.csv')
-        ret_dataframes['utilitylist_linear'].to_csv(save_path + '05.utilitylist_linear.csv')
-        ret_dataframes['processlist_linear'].to_csv(save_path + '06.processlist_linear.csv')
-        ret_dataframes['streams_linear'].to_csv(save_path + '07.streams_linear.csv')
-        ret_dataframes['cons_eqns_terms_linear'].to_csv(save_path + '08.cons_eqns_terms_linear.csv')
-        ret_dataframes['cons_eqns_all'].to_csv(save_path + '09.cons_eqns_all.csv')
-        
-        layerslist.to_csv(save_path + '10.layerslist_orginal.csv')
-        utilitylist.to_csv(save_path + '11.utilitylist_orginal.csv')
-        processlist.to_csv(save_path + '12.processlist_orginal.csv')
-        streams.to_csv(save_path + '13.streams_orginal.csv')
-        cons_eqns.to_csv(save_path + '14.cons_eqns_orginal.csv')
-        cons_eqns_terms.to_csv(save_path + '15.cons_eqns_terms_orginal.csv')  
+    ret_dataframes['utilitylist_bilinear'].to_csv(save_path + '01.utilitylist_bilinear.csv')
+    ret_dataframes['processlist_bilinear'].to_csv(save_path + '02.processlist_bilinear.csv')
+    ret_dataframes['streams_bilinear'].to_csv(save_path + '03.streams_bilinear.csv')
+    ret_dataframes['cons_eqns_terms_bilinear'].to_csv(save_path + '04.cons_eqns_terms_bilinear.csv')
+    ret_dataframes['utilitylist_linear'].to_csv(save_path + '05.utilitylist_linear.csv')
+    ret_dataframes['processlist_linear'].to_csv(save_path + '06.processlist_linear.csv')
+    ret_dataframes['streams_linear'].to_csv(save_path + '07.streams_linear.csv')
+    ret_dataframes['cons_eqns_terms_linear'].to_csv(save_path + '08.cons_eqns_terms_linear.csv')
+    ret_dataframes['cons_eqns_all'].to_csv(save_path + '09.cons_eqns_all.csv')
     
-    return 
+    layerslist.to_csv(save_path + '10.layerslist_orginal.csv')
+    utilitylist.to_csv(save_path + '11.utilitylist_orginal.csv')
+    processlist.to_csv(save_path + '12.processlist_orginal.csv')
+    streams.to_csv(save_path + '13.streams_orginal.csv')
+    cons_eqns.to_csv(save_path + '14.cons_eqns_orginal.csv')
+    cons_eqns_terms.to_csv(save_path + '15.cons_eqns_terms_orginal.csv')  
+    
+    ##Saving all the dataframe into a dictionary for easy reference 
+    all_dataframes = copy.deepcopy(ret_dataframes)
+    
+    all_dataframes['layerslist'] = layerslist
+    all_dataframes['utilitylist'] = utilitylist
+    all_dataframes['processlist'] = processlist
+    all_dataframes['streams'] = streams
+    all_dataframes['cons_eqns'] = cons_eqns
+    all_dataframes['cons_eqns_terms'] = cons_eqns_terms    
+    
+    return all_dataframes
 
     

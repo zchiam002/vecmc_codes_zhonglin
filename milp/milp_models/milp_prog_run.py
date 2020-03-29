@@ -107,6 +107,6 @@ def milp_prog_run(parallel_thread_num, bilinear_pieces, solver_choice):
     obj_func = 'power'
     
     ##Preferred solver 
-    obj_value, results, results_y = milp_backend(files, obj_func, parallel_thread_num, models_location, bilinear_pieces, solver_choice)
+    obj_value, results, results_y, all_dataframes = milp_backend(files, obj_func, parallel_thread_num, models_location, bilinear_pieces, solver_choice)
     
-    return obj_value, results, results_y
+    return obj_value, results, results_y, all_dataframes

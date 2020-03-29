@@ -18,13 +18,10 @@ Done:
 1. GA
 2. NSGA_II
 3. RL 
+4. MILP
 
-16/02/2020 agenda:
-Fix the MILP implementation
-	- slave only implementation
- 	- got to make the model simple enough, such that it can be solved solely using the slave.
 
-Fix the lineariztaion models 
+Fix the linearization of the models 
 Fix the simulation models at the component level 
 Fix the sliding window technique interface 
 Fix the RL interface 

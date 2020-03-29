@@ -231,7 +231,7 @@ def mrs_manual_edit_milp_param (cooling_load_data, weather_condition, ga_inputs,
     ##gv2_substation
     input_value = {}
     input_value['Name'] = 'gv2_substation_demand' 
-    input_value['Value'] = cooling_load_data['ss_gv2_demand'][0]
+    input_value['Value'] = cooling_load_data['gv2_ss'][0]
     input_value['Unit'] = 'kWh'
     
     temp_values = [input_value['Name'], input_value['Value'], input_value['Unit']]
@@ -271,7 +271,7 @@ def mrs_manual_edit_milp_param (cooling_load_data, weather_condition, ga_inputs,
     ##hsb_substation  
     input_value = {}
     input_value['Name'] = 'hsb_substation_demand' 
-    input_value['Value'] = cooling_load_data['ss_hsb_demand'][0]
+    input_value['Value'] = cooling_load_data['hsb_ss'][0]
     input_value['Unit'] = 'kWh'
     
     temp_values = [input_value['Name'], input_value['Value'], input_value['Unit']]

@@ -23,21 +23,26 @@ def gv2_substation (mdv, utilitylist, streams, cons_eqns, cons_eqns_terms):
     ##streams           --- a dataframe to extract stream information from the model 
     ##cons_eqns         --- a dataframe to extract constraint equations from the model 
     ##cons_eqns_terms   --- a dataframe to extract terms in the constraint equation from the model 
-    
+
+    import os 
+    current_path = os.path.dirname(__file__)[:-12] + '//'       
     from gv2_substation_compute import gv2_substation_compute
     import pandas as pd
     import numpy as np 
     
     ##Defining inputs 
 
+    ##Importing local MILP model parameters 
+    add_param = pd.read_csv(current_path + 'model_param//model_param.csv')
+
     ##Processing list of master decision variables/inputs as parameters 
     gv2_ss_demand = mdv['Value'][0]
     gv2_ss_totalflownwk = mdv['Value'][1]
 
     ##Defined constants
-    gv2_ss_tinmax  = 273.15 + 5       ##The maximum temperature of water entering the substation 
-    gv2_ss_deltmax  = 5               ##The maximum delta t of the substation on the cold side  (value based on gv2)
-    gv2_ss_cp = 4.2                   ##The heat capacity of water 
+    gv2_ss_tinmax  = add_param['Value'][0]          ##The maximum temperature of water entering the substation 
+    gv2_ss_deltmax  = 5                             ##The maximum delta t of the substation on the cold side  (value based on gv2)
+    gv2_ss_cp = 4.2                                 ##The heat capacity of water 
 
     ##Dependent constants 
     gv2_ss_dc = np.zeros((5,1))                                                       ##Initialize the list, note the number of constants 
