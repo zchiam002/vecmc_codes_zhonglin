@@ -1,4 +1,12 @@
 Key developments:
+1. tighten up the RL models 
+2. do the sliding window interface 
+3. finish the individual models 
+4. do up the regression models for getting the values for the chiller 
+5. do up the documentation
+
+
+
 Decomposition approach for holistic optimization 
 Sliding-window coupled multi-objective optimization
 RL-MILP approach for holistic real-time optimization

@@ -8,7 +8,6 @@
 ###########################################################################################################################################################################
 ###########################################################################################################################################################################
 ###########################################################################################################################################################################
-
 ##Model 1: Gordon-ng chiller model 
 def chiller_gnu (reg_cst, qc_coeff, Tin_evap, Tout_evap, Tin_cond, mevap, mcond, Qe_max):
     
@@ -99,7 +98,6 @@ def chiller_gnu (reg_cst, qc_coeff, Tin_evap, Tout_evap, Tin_cond, mevap, mcond,
 ###########################################################################################################################################################################
 ###########################################################################################################################################################################
 ###########################################################################################################################################################################
-
 ##Model 2: The effect of step-wise linearization of COP 
 def chiller_gnu_stepwise_cop (reg_cst, qc_coeff, Tin_evap, Tout_evap, Tin_cond, mevap, mcond, Qe_max, steps):
 
@@ -206,7 +204,6 @@ def chiller_gnu_stepwise_cop (reg_cst, qc_coeff, Tin_evap, Tout_evap, Tin_cond, 
 ###########################################################################################################################################################################
 ###########################################################################################################################################################################
 ###########################################################################################################################################################################    
-
 ##Model 3: The effect of LP relaxation of bilinear terms on the model 
 def chiller_gnu_stepwise_cop_lprelax (reg_cst, qc_coeff, Tin_evap, Tout_evap, Tin_cond, mevap, mcond, Qe_max, steps, bilinear_pieces, mevap_t, mcond_t, twb):
     
@@ -214,8 +211,8 @@ def chiller_gnu_stepwise_cop_lprelax (reg_cst, qc_coeff, Tin_evap, Tout_evap, Ti
     current_path = os.path.dirname(os.path.abspath(__file__)) + '\\' 
     import sys 
     sys.path.append(current_path + 'sub_scripts\\')
-    sys.path.append(current_path + 'C:\Optimization_zlc\glpk_handlers\simulation_output_extractor\\')
-    sys.path.append('C:\\Optimization_zlc\\glpk_handlers\\')
+    sys.path.append(current_path + 'glpk_handlers\simulation_output_extractor\\')
+    sys.path.append(current_path + 'glpk_handlers\\')
     import pandas as pd
     from optimaluv_chiller_cond_gen_script_lpformat import optimaluv_chiller_cond_gen_script_lpformat
     from glpk_runscript import glpk_runscript
@@ -283,8 +280,8 @@ def chiller_gnu_stepwise_cop_lprelax (reg_cst, qc_coeff, Tin_evap, Tout_evap, Ti
     var_list = optimaluv_chiller_cond_gen_script_lpformat(Qc, bilin_pieces_list_cond, Tin_cond, mcond, mcond_t, org_var_bounds)
     
     ##Using the GLPK to solve the reverse problem 
-    input_dir = 'C:\\Optimization_zlc\\simulation_models\\ecoenergies_models\\sub_scripts\\result_holder\\chiller_cond_bilin.lp'
-    output_dir = 'C:\\Optimization_zlc\\simulation_models\\ecoenergies_models\\sub_scripts\\result_holder\\glpk_chiller_cond_bilin_out.txt'
+    input_dir = current_path + 'sub_scripts\\result_holder\\chiller_cond_bilin.lp'
+    output_dir = current_path + 'sub_scripts\\result_holder\\glpk_chiller_cond_bilin_out.txt'
     file_format = '--lp'
     
     output = glpk_runscript(input_dir, output_dir, file_format)
@@ -414,7 +411,3 @@ def combine_u_v_table (u_table, v_table):
 
     return combined_table
 
-import os 
-current_path = os.path.dirname(os.path.abspath(__file__)) + '\\'  
-
-print(current_path)
