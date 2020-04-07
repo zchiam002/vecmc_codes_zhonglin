@@ -1,0 +1,333 @@
+data;
+
+set UNIT_TYPES := utility process;
+set UNITS_ALL := ch1_1 ch1_2 ch1_3 ch1_4 ch2_1 ch2_2 ch2_3 ch2_4 ch3_1 ch3_2 ch3_3 ch3_4 sp1 sscp ssgv2 sshsb sspfa
+	         ssser ssfir sp2 ch1_ret ch2_ret ch3_ret;
+set UNIT[utility] := ch1_1 ch1_2 ch1_3 ch1_4 ch2_1 ch2_2 ch2_3 ch2_4 ch3_1 ch3_2 ch3_3 ch3_4 sp1 sscp ssgv2 sshsb 
+		      sspfa ssser ssfir sp2;
+set UNIT[process] := ch1_ret ch2_ret ch3_ret;
+
+set LAYER_TYPES := balancing_only;
+set LAYERS_ALL := chil2sp1 sp12cp sp12gv2 sp12hsb sp12pfa sp12ser sp12fir ss2sp2 sp22ch1 sp22ch2 sp22ch3;
+set LAYERS[balancing_only] := chil2sp1 sp12cp sp12gv2 sp12hsb sp12pfa sp12ser sp12fir ss2sp2 sp22ch1 sp22ch2 
+			      sp22ch3;
+set LAYERS_DIR_IN[chil2sp1] := ch1_1 ch1_2 ch1_3 ch1_4 ch2_1 ch2_2 ch2_3 ch2_4 ch3_1 ch3_2 ch3_3 ch3_4;
+set LAYERS_DIR_OUT[chil2sp1] := sp1;
+set LAYERS_DIR_IN[sp12cp] := sp1;
+set LAYERS_DIR_OUT[sp12cp] := sscp;
+set LAYERS_DIR_IN[sp12gv2] := sp1;
+set LAYERS_DIR_OUT[sp12gv2] := ssgv2;
+set LAYERS_DIR_IN[sp12hsb] := sp1;
+set LAYERS_DIR_OUT[sp12hsb] := sshsb;
+set LAYERS_DIR_IN[sp12pfa] := sp1;
+set LAYERS_DIR_OUT[sp12pfa] := sspfa;
+set LAYERS_DIR_IN[sp12ser] := sp1;
+set LAYERS_DIR_OUT[sp12ser] := ssser;
+set LAYERS_DIR_IN[sp12fir] := sp1;
+set LAYERS_DIR_OUT[sp12fir] := ssfir;
+set LAYERS_DIR_IN[ss2sp2] := sscp ssgv2 sshsb sspfa ssser ssfir;
+set LAYERS_DIR_OUT[ss2sp2] := sp2;
+set LAYERS_DIR_IN[sp22ch1] := sp2;
+set LAYERS_DIR_OUT[sp22ch1] := ch1_ret;
+set LAYERS_DIR_IN[sp22ch2] := sp2;
+set LAYERS_DIR_OUT[sp22ch2] := ch2_ret;
+set LAYERS_DIR_IN[sp22ch3] := sp2;
+set LAYERS_DIR_OUT[sp22ch3] := ch3_ret;
+
+set LAYERS_DIR := in out;
+
+set ADD_CONS_TYPES := unit_binary stream_limit;
+set ADD_CONS_SIGN := greater_than_equal_to equal_to less_than_equal_to;
+set ADD_CONS_ALL: totaluse_ch1 totaluse_ch2 totaluse_ch3 ssgv2_in ssgv2_out sshsb_in sshsb_out sspfa_in sspfa_out
+		  ssser_in ssser_out ssfir_in ssfir_out;
+
+set ADD_CONS_GREATER_THAN_EQUAL_TO[unit_binary] := default;
+set ADD_CONS_GREATER_THAN_EQUAL_TO[stream_limit] := default;
+set ADD_CONS_EQUAL_TO[unit_binary] := default;
+set ADD_CONS_EQUAL_TO[stream_limit] := default;
+set ADD_CONS_LESS_THAN_EQUAL_TO[unit_binary] := totaluse_ch1 totaluse_ch2 totaluse_ch3;
+set ADD_CONS_LESS_THAN_EQUAL_TO[stream_limit] := ssgv2_in ssgv2_out sshsb_in sshsb_out sspfa_in sspfa_out ssser_in 
+						 ssser_out ssfir_in ssfir_out;
+
+set ADD_TERMS_PARENT[unit_binary] := ch1_1 ch1_2 ch1_3 ch1_4 ch2_1 ch2_2 ch2_3 ch2_4 ch3_1 ch3_2 ch3_3 ch3_4;
+set ADD_TERMS_PARENT[stream_limit] := ssgv2 sshsb sspfa ssser ssfir;
+set ADD_TERMS_STREAM_NAME := sp12gv2_tin ssgv22sp2_tout sp12hsb_tin sshsb2sp2_tout sp12pfa_tin sspfa2sp2_tout 
+			     sp12ser_tin ssser2sp2 sp12fir_tin ssfir2sp2_tout;
+
+set ADD_TERMS_STREAM_PARENT[sp12gv2_tin] := ssgv2;
+set ADD_TERMS_STREAM_PARENT[ssgv22sp2_tout] := ssgv2;
+set ADD_TERMS_STREAM_PARENT[sp12hsb_tin] := sshsb;
+set ADD_TERMS_STREAM_PARENT[sshsb2sp2_tout] := sshsb;
+set ADD_TERMS_STREAM_PARENT[sp12pfa_tin] := sspfa;
+set ADD_TERMS_STREAM_PARENT[sspfa2sp2_tout] := sspfa;
+set ADD_TERMS_STREAM_PARENT[sp12ser_tin] := ssser;
+set ADD_TERMS_STREAM_PARENT[ssser2sp2] := ssser;
+set ADD_TERMS_STREAM_PARENT[sp12fir_tin] := ssfir;
+set ADD_TERMS_STREAM_PARENT[ssfir2sp2_tout] := ssfir;
+
+set ADD_TERMS[totaluse_ch1] := ch1_1 ch1_2 ch1_3 ch1_4;
+set ADD_TERMS[totaluse_ch2] := ch2_1 ch2_2 ch2_3 ch2_4;
+set ADD_TERMS[totaluse_ch3] := ch3_1 ch3_2 ch3_3 ch3_4;
+set ADD_TERMS[ssgv2_in] := sp12gv2_tin;
+set ADD_TERMS[ssgv2_out] := ssgv22sp2_tout;
+set ADD_TERMS[sshsb_in] := sp12hsb_tin;
+set ADD_TERMS[sshsb_out] := sshsb2sp2_tout;
+set ADD_TERMS[sspfa_in] := sp12pfa_tin;
+set ADD_TERMS[sspfa_out] := sspfa2sp2_tout;
+set ADD_TERMS[ssser_in] := sp12ser_tin;
+set ADD_TERMS[ssser_out] := ssser2sp2;
+set ADD_TERMS[ssfir_in] := sp12fir_tin;
+set ADD_TERMS[ssfir_out] := ssfir2sp2_tout;
+
+
+set OBJ_FUNC_TYPES := power;
+set OBJ_FUNC[power] := ch1_1 ch1_2 ch1_3 ch1_4 ch2_1 ch2_2 ch2_3 ch2_4 ch3_1 ch3_2 ch3_3 ch3_4 sp1 sscp ssgv2 sshsb 
+		       sspfa ssser ssfir sp2 ch1_ret ch2_ret ch3_ret;
+
+param add_terms_streams_const :=
+	sp12gv2_tin 0
+	ssgv22sp2_tout 0.632784448
+	sp12hsb_tin 0
+	sshsb2sp2_tout 0.632784448
+	sp12pfa_tin 0
+	sspfa2sp2_tout 0.632784448
+	sp12ser_tin 0
+	ssser2sp2 0.632784448
+	sp12fir_tin 0
+	ssfir2sp2_tout 0
+;
+
+param add_terms_streams_grad :=
+	sp12gv2_tin 1000
+	ssgv22sp2_tout 299.8101647
+	sp12hsb_tin 1000
+	sshsb2sp2_tout 199.8734431
+	sp12pfa_tin 1000
+	sspfa2sp2_tout 199.8734431
+	sp12ser_tin 1000
+	ssser2sp2 199.8734431
+	sp12fir_tin 1000
+	ssfir2sp2_tout 0
+;
+
+param less_than_equal_to_unit_binary_terms_coeff :=
+	ch1_1 1
+	ch1_2 1
+	ch1_3 1
+	ch1_4 1
+	ch2_1 1
+	ch2_2 1
+	ch2_3 1
+	ch2_4 1
+	ch3_1 1
+	ch3_2 1
+	ch3_3 1
+	ch3_4 1
+;
+
+param less_than_equal_to_unit_binary :=
+	totaluse_ch1 1
+	totaluse_ch2 1
+	totaluse_ch3 1
+;
+
+param less_than_equal_to_stream_limit :=
+	ssgv2_in 278.15
+	ssgv2_out 287.15
+	sshsb_in 278.15
+	sshsb_out 287.15
+	sspfa_in 278.15
+	sspfa_out 287.15
+	ssser_in 278.15
+	ssser_out 287.15
+	ssfir_in 278.15
+	ssfir_out 287.15
+;
+
+param fmin :=
+	ch1_1 0 
+	ch1_2 0.25 
+	ch1_3 0.5 
+	ch1_4 0.75 
+	ch2_1 0 
+	ch2_2 0.25 
+	ch2_3 0.5 
+	ch2_4 0.75 
+	ch3_1 0 
+	ch3_2 0.25 
+	ch3_3 0.5 
+	ch3_4 0.75 
+	sp1 0 
+	sscp 0 
+	ssgv2 0 
+	sshsb 0 
+	sspfa 0 
+	ssser 0 
+	ssfir 0 
+	sp2 0 
+	ch1_ret 1 
+	ch2_ret 1 
+	ch3_ret 1
+;
+
+param fmax := 
+	ch1_1 0.25 
+	ch1_2 0.5 
+	ch1_3 0.75 
+	ch1_4 1 
+	ch2_1 0.25 
+	ch2_2 0.5 
+	ch2_3 0.75 
+	ch2_4 1 
+	ch3_1 0.25 
+	ch3_2 0.5 
+	ch3_3 0.75 
+	ch3_4 1 
+	sp1 1 
+	sscp 1 
+	ssgv2 1 
+	sshsb 1 
+	sspfa 1 
+	ssser 1 
+	ssfir 1 
+	sp2 1 
+	ch1_ret 1 
+	ch2_ret 1 
+	ch3_ret 1
+;
+
+param obj1 :=
+	power ch1_1 0.000000
+	power ch1_2 23.933993
+	power ch1_3 -68.947931
+	power ch1_4 -225.794971
+	power ch2_1 0.000000
+	power ch2_2 279.491578
+	power ch2_3 34.470608
+	power ch2_4 -367.074916
+	power ch3_1 0.000000
+	power ch3_2 279.491578
+	power ch3_3 34.470608
+	power ch3_4 -367.074916
+	power sp1 0.000000
+	power sscp 0.000000
+	power ssgv2 0.000000
+	power sshsb 0.000000
+	power sspfa 0.000000
+	power ssser 0.000000
+	power ssfir 0.000000
+	power sp2 0.000000
+	power ch1_ret 0.000000
+	power ch2_ret 0.000000
+	power ch3_ret 0.000000
+;
+
+param obj2 :=
+	power ch1_1 403.944904
+	power ch1_2 308.208933
+	power ch1_3 493.972780
+	power ch1_4 703.102167
+	power ch2_1 2027.470328
+	power ch2_2 909.504015
+	power ch2_3 1399.545956
+	power ch2_4 1934.939988
+	power ch3_1 2027.470328
+	power ch3_2 909.504015
+	power ch3_3 1399.545956
+	power ch3_4 1934.939988
+	power sp1 0.000000
+	power sscp 0.000000
+	power ssgv2 0.000000
+	power sshsb 0.000000
+	power sspfa 0.000000
+	power ssser 0.000000
+	power ssfir 0.000000
+	power sp2 0.000000
+	power ch1_ret 0.000000
+	power ch2_ret 0.000000
+	power ch3_ret 0.000000
+;
+
+param layers_const :=
+		balancing_only chil2sp1 in ch1_1 27.872861
+		balancing_only chil2sp1 in ch1_2 27.872861
+		balancing_only chil2sp1 in ch1_3 27.872861
+		balancing_only chil2sp1 in ch1_4 27.872861
+		balancing_only chil2sp1 in ch2_1 128.563570
+		balancing_only chil2sp1 in ch2_2 128.563570
+		balancing_only chil2sp1 in ch2_3 128.563570
+		balancing_only chil2sp1 in ch2_4 128.563570
+		balancing_only chil2sp1 in ch3_1 128.563570
+		balancing_only chil2sp1 in ch3_2 128.563570
+		balancing_only chil2sp1 in ch3_3 128.563570
+		balancing_only chil2sp1 in ch3_4 128.563570
+		balancing_only sp12cp in sp1 0
+		balancing_only sp12gv2 in sp1 0
+		balancing_only sp12hsb in sp1 0
+		balancing_only sp12pfa in sp1 0
+		balancing_only sp12ser in sp1 0
+		balancing_only sp12fir in sp1 0
+		balancing_only ss2sp2 in sscp 0
+		balancing_only ss2sp2 in ssgv2 0.632784448
+		balancing_only ss2sp2 in sshsb 0.632784448
+		balancing_only ss2sp2 in sspfa 0.632784448
+		balancing_only ss2sp2 in ssser 0.632784448
+		balancing_only ss2sp2 in ssfir 0
+		balancing_only sp22ch1 in sp2 0
+		balancing_only sp22ch2 in sp2 0
+		balancing_only sp22ch3 in sp2 0
+		balancing_only chil2sp1 out sp1 0
+		balancing_only sp12cp out sscp 0
+		balancing_only sp12gv2 out ssgv2 0
+		balancing_only sp12hsb out sshsb 0	
+		balancing_only sp12pfa out sspfa 0
+		balancing_only sp12ser out ssser 0
+		balancing_only sp12fir out ssfir 0
+		balancing_only ss2sp2 out sp2 0
+		balancing_only sp22ch1 out ch1_ret 0
+		balancing_only sp22ch2 out ch2_ret 0
+		balancing_only sp22ch3 out ch3_ret 0
+;
+
+param layers_grad :=
+		balancing_only chil2sp1 in ch1_1 -0.819310391
+		balancing_only chil2sp1 in ch1_2 -0.819310391
+		balancing_only chil2sp1 in ch1_3 -0.819310391
+		balancing_only chil2sp1 in ch1_4 -0.819310391
+		balancing_only chil2sp1 in ch2_1 -4.894437653
+		balancing_only chil2sp1 in ch2_2 -4.894437653
+		balancing_only chil2sp1 in ch2_3 -4.894437653
+		balancing_only chil2sp1 in ch2_4 -4.894437653
+		balancing_only chil2sp1 in ch3_1 -4.894437653
+		balancing_only chil2sp1 in ch3_2 -4.894437653
+		balancing_only chil2sp1 in ch3_3 -4.894437653
+		balancing_only chil2sp1 in ch3_4 -4.894437653
+		balancing_only sp12cp in sp1 1000
+		balancing_only sp12gv2 in sp1 1000
+		balancing_only sp12hsb in sp1 1000
+		balancing_only sp12pfa in sp1 1000
+		balancing_only sp12ser in sp1 1000
+		balancing_only sp12fir in sp1 1000
+		balancing_only ss2sp2 in sscp 100
+		balancing_only ss2sp2 in ssgv2 299.810165
+		balancing_only ss2sp2 in sshsb 199.873443
+		balancing_only ss2sp2 in sspfa 199.873443
+		balancing_only ss2sp2 in ssser 199.873443
+		balancing_only ss2sp2 in ssfir 0
+		balancing_only sp22ch1 in sp2 1000
+		balancing_only sp22ch2 in sp2 1000
+		balancing_only sp22ch3 in sp2 1000
+		balancing_only chil2sp1 out sp1 1000
+		balancing_only sp12cp out sscp 1000
+		balancing_only sp12gv2 out ssgv2 1000
+		balancing_only sp12hsb out sshsb 1000	
+		balancing_only sp12pfa out sspfa 1000
+		balancing_only sp12ser out ssser 1000
+		balancing_only sp12fir out ssfir 1000
+		balancing_only ss2sp2 out sp2 1000
+		balancing_only sp22ch1 out ch1_ret 285
+		balancing_only sp22ch2 out ch2_ret 285
+		balancing_only sp22ch3 out ch3_ret 285
+;
+
+end;

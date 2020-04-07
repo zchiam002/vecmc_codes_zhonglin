@@ -21,7 +21,6 @@ Done:
 4. MILP
 
 
-Fix the linearization of the models 
 Fix the simulation models at the component level 
 Fix the sliding window technique interface 
 Fix the RL interface 
