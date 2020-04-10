@@ -5,10 +5,10 @@ def run_standalone_models ():
     from evap_network_model_main import run_evaporator_network_model_main 
     
     ##Running the chiller models
-    #run_chiller_model_main()
+    run_chiller_model_main()
     
     ##Running the evaporator network models
-    #run_evaporator_network_model_main()
+    run_evaporator_network_model_main()
     return 
 
 ###############################################################################################################################################################################

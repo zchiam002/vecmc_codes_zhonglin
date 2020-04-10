@@ -45,14 +45,15 @@ def ga_mono_simple_setup_nb():
     ##yes or no
     parallel_process = 'yes'
    
-    ##Objective function plot
+    ##Objective function plot (dynamic)
     ##yes or no
     obj_func_plot = 'yes'
     
     ##Number of cores to be used (1 - max_cpu_core_count)
     cores_used = 8
     
-    ##Number of time steps (problem specific)
+    ##Number of time steps (problem specific), if this value is more than 1, defined will be generated as many times as the number of time steps defined.
+    ##variable names will also be augmented with the specific time step which they are associated with. 
     time_steps = 1
     
     ##Preparing the variables 
@@ -73,7 +74,6 @@ def variable_def (time_steps):
     import pandas as pd 
     import numpy as np    
     import os
-    current_path = os.path.dirname(__file__) + '//'                             ##Incase of the need to use relative directory
     
     #time_steps --- the number of time steps for the associated problem 
     
@@ -83,12 +83,12 @@ def variable_def (time_steps):
     for i in range (0, time_steps):
         
         variable = {}
-        variable['Name'] = 'v0'
-        variable['Type'] = 'continuous'
-        variable['Lower_bound'] = -5.12
-        variable['Upper_bound'] = 5.12
-        variable['Dec_prec'] = 2
-        variable['Steps'] = '-'
+        variable['Name'] = 'v0'                     ##Name of the variable 
+        variable['Type'] = 'continuous'             ##Type, continuous, binary, discrete
+        variable['Lower_bound'] = -5.12             ##Lower bound 
+        variable['Upper_bound'] = 5.12              ##Upper bound
+        variable['Dec_prec'] = 2                    ##Decimal precision if the variable type is continuous  
+        variable['Steps'] = '-'                     ##Number of steps if the variable type is discrete
         
         temp_data = [variable['Name'], variable['Type'], variable['Lower_bound'], variable['Upper_bound'], variable['Dec_prec'], variable['Steps']]
         temp_df = pd.DataFrame(data = [temp_data], columns = ['Name', 'Type', 'Lower_bound', 'Upper_bound', 'Dec_prec','Steps'])
@@ -132,12 +132,11 @@ def variable_def (time_steps):
 
     ##Initial variable values (seeds)
         ##The number of seeds
-    num_seeds = 1
-    num_variables_per_ts = 4
-    num_variables = num_variables_per_ts * time_steps
+    num_seeds = 1                                                                           ##The number of seeds
+    num_variables = variable_list.shape[0] 
     initial_variable_values = np.zeros((num_seeds, num_variables)) 
     
-    initial_variable_values[0,:] = [-5.044431644, 0.899512478, 3.028129792, 0.01297007]     
+    initial_variable_values[0,:] = [-5.044431644, 0.899512478, 3.028129792, 0.01297007]     ##Input each seed in the form of an array.
 
     return variable_list, initial_variable_values
 

@@ -2,6 +2,8 @@
 
 def dist_nwk_pump_select (choice):
     
+    ##choice            --- the choice of the pump and network configuration
+    
     ##Pump parameters for pressure drop and electricity 
     ##The pressure drop curves will be in the quadratic form while the electricity curve will be in the cubic form 
     ##The coefficients are arranged in the form of x3, x2, x and the constant 
@@ -12,16 +14,6 @@ def dist_nwk_pump_select (choice):
     fir_1 = [-0.0001095722, 0.0228923489, 35.2618445622]
     fir_2 = [-0.0000220090, 0.0091939614, 34.0585340963]
     fir_3 = [-0.0000220090, 0.0091939614, 34.0585340963]
-    
-    
-    ##Cubic form, more accurate but no confidence in extrapolation  
-    ##ice_1_e = [0, -0.0000456328, 0.1072050404, 22.7694786782]
-    ##ice_2_e = [0, 0.0000095593, 0.0548196056, 53.1923042054]
-    ##tro_1_e = [0, -0.0000055276, 0.0771653808, 106.7867892025]
-    ##tro_2_e = [0, -0.0000123489, 0.0845123896, 240.8517560062]
-    ##fir_1_e = [0, -0.0000372609, 0.0745145187, 13.8059958033]
-    ##fir_2_e =[0, -0.0000077383, 0.0506120010, 37.8841630174]
-    ##fir_3_e =[0, -0.0000077383, 0.0506120010, 37.8841630174]
     
     ##Linear form, should have better extrapolating properties 
     ice_1_e = [0, 0, 0.0808859098, 25.2120639936]

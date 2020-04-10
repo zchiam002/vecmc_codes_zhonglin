@@ -9,7 +9,7 @@
 ##Model 4: Lp relaxation of the temperature mixing  
 
 ##Model 1: Original distribution network model 
-def dist_nwk_org (consumer_demand, m_total, perc_split, nwk_pump_select, tin_dist_nwk):
+def dist_nwk_org (consumer_demand, m_total, perc_split, nwk_pump_select, tin_dist_nwk, param, flow_limit):
 
     ##consumer_demand[0] --- gv2_demand (kWh)
     ##consumer_demand[1] --- hsb_demand (kWh)
@@ -25,8 +25,10 @@ def dist_nwk_org (consumer_demand, m_total, perc_split, nwk_pump_select, tin_dis
     ##perc_split[3] --- the split of flowrate to ser (%)
     ##perc_split[4] --- the split of flowrate to fir (%)
 
-    ##nwk_pump_select --- a choice from 0 to 40 each corresponding to a different pump and netwrok combination 
-    ##tin_dist_nwk --- the temperature of fluid entering the distribution network 
+    ##nwk_pump_select   --- a choice from 0 to 40 each corresponding to a different pump and network combination 
+    ##tin_dist_nwk      --- the temperature of fluid entering the distribution network 
+    ##param             --- a dictionary containing the values of the network pipe friction coefficients
+    ##flow_limit        --- upper bound limit for calculation of the flowrate
     
     import os 
     current_path = os.path.dirname(os.path.abspath(__file__)) + '\\'      
@@ -40,13 +42,13 @@ def dist_nwk_org (consumer_demand, m_total, perc_split, nwk_pump_select, tin_dis
     return_values = {}
     
     ##Individual network pressure drop coefficients, they are all determined in the form of delp = A*m^1.852 
-    ice_main_coeff = 0.00011627906976743445
-    gv2_coeff = 0.00034883720930232456
-    hsb_coeff = 0.05046511627906977
-    tro_main_coeff = 0.001162790697674419
-    pfa_coeff = 0.0029069767441860417
-    ser_coeff = 0.00023255813953487953
-    fir_coeff = 0.005697674418604649
+    ice_main_coeff = param['ice_main_coeff']
+    gv2_coeff = param['gv2_coeff']
+    hsb_coeff = param['hsb_coeff']
+    tro_main_coeff = param['tro_main_coeff']
+    pfa_coeff = param['pfa_coeff']
+    ser_coeff = param['ser_coeff']
+    fir_coeff = param['ser_coeff']
     
     ##Preparing the flowrates 
     gv2_flow = perc_split[0] * m_total
@@ -62,7 +64,7 @@ def dist_nwk_org (consumer_demand, m_total, perc_split, nwk_pump_select, tin_dis
     network_pump_param = dist_nwk_pump_select(nwk_pump_select)
     
     ##Maximum flow, to act as bounds for the search based function 
-    max_flow = 1300
+    max_flow = flow_limit
     
     ##Checking which network choice 
     
