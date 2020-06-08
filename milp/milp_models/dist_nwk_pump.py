@@ -41,7 +41,7 @@ def dist_nwk_pump (mdv, utilitylist, streams, cons_eqns, cons_eqns_terms):
     
     ##The constants are chosen based on predefined pumps combinations
      
-    dist_np_look_up_table_loc = current_path + 'linearlized_models_coefficients//'       ##Distribution pump look up table location 
+    dist_np_look_up_table_loc = current_path + 'model_param//'       ##Distribution pump look up table location 
     dist_np_table_filename = 'dist_pump_lincoeff.csv'
     dist_np_table = pd.read_csv(dist_np_look_up_table_loc + dist_np_table_filename)
     dist_np_pres_table_filename = 'dist_pump_presscoeff.csv'

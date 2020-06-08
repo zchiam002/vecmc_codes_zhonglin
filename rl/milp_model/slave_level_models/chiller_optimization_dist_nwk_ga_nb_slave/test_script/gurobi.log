@@ -1,0 +1,80 @@
+
+Gurobi 7.0.2 (win64) logging started 05/05/19 19:43:44
+
+
+Gurobi Optimizer version 7.0.2 build v7.0.2rc1 (win64)
+Copyright (c) 2017, Gurobi Optimization, Inc.
+
+Read LP format model from file C:/Users/zhonglin.chiam/Documents/all_git_repo/Theme_Energy_Mng/district_cooling/ICAE2019_paper/codes//slave_convex_handlers\solver_lp_format_holder\thread_100137\script_100137.lp
+Reading time = 0.02 seconds
+obj: 1292 rows, 1033 columns, 8108 nonzeros
+Optimize a model with 1292 rows, 1033 columns and 8108 nonzeros
+Variable types: 530 continuous, 503 integer (503 binary)
+Coefficient statistics:
+  Matrix range     [8e-04, 7e+03]
+  Objective range  [2e-02, 1e+03]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e+00, 9e+01]
+Presolve removed 661 rows and 511 columns
+Presolve time: 0.06s
+Presolved: 631 rows, 522 columns, 3770 nonzeros
+Variable types: 273 continuous, 249 integer (249 binary)
+
+Root relaxation: objective 8.582806e+02, 576 iterations, 0.01 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0  858.28055    0   26          -  858.28055      -     -    0s
+     0     0  858.37612    0   42          -  858.37612      -     -    0s
+     0     0  858.37733    0   43          -  858.37733      -     -    0s
+     0     0  858.61105    0   43          -  858.61105      -     -    0s
+     0     0  858.68243    0   45          -  858.68243      -     -    0s
+     0     0  858.68527    0   49          -  858.68527      -     -    0s
+     0     0  858.68655    0   51          -  858.68655      -     -    0s
+     0     0  858.69181    0   50          -  858.69181      -     -    0s
+     0     0  858.69181    0   38          -  858.69181      -     -    0s
+H    0     0                     940.2131221  858.69181  8.67%     -    0s
+H    0     0                     936.0553308  858.69181  8.26%     -    0s
+     0     0  858.69181    0   26  936.05533  858.69181  8.26%     -    0s
+H    0     0                     935.5198414  858.69181  8.21%     -    0s
+     0     0  858.69181    0   44  935.51984  858.69181  8.21%     -    0s
+     0     0  858.69181    0   41  935.51984  858.69181  8.21%     -    0s
+     0     0  858.74867    0   34  935.51984  858.74867  8.21%     -    0s
+     0     0  858.74878    0   30  935.51984  858.74878  8.21%     -    0s
+     0     0  858.79019    0   38  935.51984  858.79019  8.20%     -    0s
+     0     0  858.81005    0   41  935.51984  858.81005  8.20%     -    0s
+     0     0  858.83740    0   42  935.51984  858.83740  8.20%     -    0s
+     0     0  858.83740    0   43  935.51984  858.83740  8.20%     -    0s
+     0     0  858.85067    0   47  935.51984  858.85067  8.20%     -    0s
+     0     0  858.85067    0   48  935.51984  858.85067  8.20%     -    0s
+     0     0  858.85067    0   46  935.51984  858.85067  8.20%     -    0s
+     0     0  858.85067    0   48  935.51984  858.85067  8.20%     -    0s
+     0     0  858.85067    0   48  935.51984  858.85067  8.20%     -    0s
+     0     0  859.61182    0   32  935.51984  859.61182  8.11%     -    0s
+     0     0  859.61182    0   29  935.51984  859.61182  8.11%     -    0s
+     0     0  859.61182    0   29  935.51984  859.61182  8.11%     -    0s
+     0     0  859.61182    0   29  935.51984  859.61182  8.11%     -    0s
+     0     2  859.61182    0   29  935.51984  859.61182  8.11%     -    0s
+*   21     7               9     885.3091287  861.99348  2.63%  13.8    0s
+*   28     3               6     884.7958780  863.93674  2.36%  17.4    0s
+
+Cutting planes:
+  Gomory: 5
+  Cover: 2
+  Implied bound: 4
+  MIR: 4
+  Flow cover: 12
+  GUB cover: 4
+
+Explored 56 nodes (3772 simplex iterations) in 0.78 seconds
+Thread count was 4 (of 4 available processors)
+
+Solution count 5: 884.796 885.309 935.52 ... 940.213
+Pool objective bound 884.796
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 8.847958780432e+02, best bound 8.847958780432e+02, gap 0.0000%
+
+Wrote result file 'C:/Users/zhonglin.chiam/Documents/all_git_repo/Theme_Energy_Mng/district_cooling/ICAE2019_paper/codes//slave_convex_handlers\solver_lp_format_holder\thread_100137\out.sol'
+

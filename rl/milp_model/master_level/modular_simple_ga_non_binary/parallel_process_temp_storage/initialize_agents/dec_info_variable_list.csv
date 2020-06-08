@@ -1,0 +1,3 @@
+,Name,Type,Lower_bound,Upper_bound,Interval,Dec_prec
+0,chiller_evap_return_temp_time_step_0,continuous,275.16,288.15,1298,2
+1,total_evap_nwk_flowrate_time_step_0,continuous,0.01,1860.0,185999,2

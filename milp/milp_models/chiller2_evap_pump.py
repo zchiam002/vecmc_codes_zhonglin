@@ -42,7 +42,7 @@ def chiller2_evap_pump (mdv, utilitylist, streams, cons_eqns, cons_eqns_terms):
     
     ##These values are pre-calculated and needs to be extracted from a specific location 
      
-    ch2_ep_p_look_up_table_loc = current_path + 'linearlized_models_coefficients//'       ##Distribution pump look up table location 
+    ch2_ep_p_look_up_table_loc = current_path + 'model_param//'       ##Distribution pump look up table location 
     ch2_ep_p_table_filename = 'evap_cond_pump_lincoeff.csv'
     ch2_ep_p_table = pd.read_csv(ch2_ep_p_look_up_table_loc + ch2_ep_p_table_filename)
     

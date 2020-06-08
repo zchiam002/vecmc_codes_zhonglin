@@ -19,9 +19,9 @@ def mrs_manual_edit_milp_param (cooling_load_data, weather_condition, ga_inputs,
     ##############################################################################################################
     ##chiller_evap_flow_consol    
     input_value = {}
-    input_value['Name'] = 'chiller_evap_flow_consol_tenwkflow' 
-    input_value['Value'] = ga_inputs['evap_flow'][0]
-    input_value['Unit'] = 'm3/h'
+    input_value['Name'] = 'chiller_evap_flow_consol_tenwkflow'                      ##Name of the parameter format = <model name>_<parameter name>
+    input_value['Value'] = ga_inputs['evap_flow'][0]                                ##Value of the parameter
+    input_value['Unit'] = 'm3/h'                                                    ##Units of the parameter
     
     temp_values = [input_value['Name'], input_value['Value'], input_value['Unit']]
     temp_df = pd.DataFrame(data = [temp_values], columns = ['Name', 'Value', 'Unit'])

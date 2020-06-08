@@ -129,17 +129,17 @@ def chiller1 (mdv, utilitylist, streams, cons_eqns, cons_eqns_terms):
         
         ##Stream --- temperature 
         stream = {}                         
-        stream['Parent'] = 'ch1_' + str(i + 1)
-        stream['Type'] = 'temp_chil'
-        stream['Name'] = 'ch1_' + str(i + 1) + '_tout'
-        stream['Layer'] = 'chil2sp1_temp'
-        stream['Stream_coeff_v1_2'] = 0
+        stream['Parent'] = 'ch1_' + str(i + 1)                                      ##Unit name 
+        stream['Type'] = 'temp_chil'                                                ##There are 3 types 'temp_chil', 'flow' and 'balancing_only'
+        stream['Name'] = 'ch1_' + str(i + 1) + '_tout'                              ##Name of the stream
+        stream['Layer'] = 'chil2sp1_temp'                                           ##Name of the layer
+        stream['Stream_coeff_v1_2'] = 0                                             ##The stream definition begins                                                 
         stream['Stream_coeff_v1_1'] = (273.15 + 1)
         stream['Stream_coeff_v2_2'] = 0
         stream['Stream_coeff_v2_1'] = 0
         stream['Stream_coeff_v1_v2'] = (ch1_evap_ret_temp - 273.15 - 1)
         stream['Stream_coeff_cst'] = 0
-        stream['InOut'] = 'out'
+        stream['InOut'] = 'out'                                                     ##Direction of the stream 'in' or 'out'
         
         streaminput = [stream['Parent'], stream['Type'], stream['Name'], stream['Layer'], stream['Stream_coeff_v1_2'], stream['Stream_coeff_v1_1'], stream['Stream_coeff_v2_2'],
                        stream['Stream_coeff_v2_1'], stream['Stream_coeff_v1_v2'], stream['Stream_coeff_cst'], stream['InOut']]
@@ -175,10 +175,10 @@ def chiller1 (mdv, utilitylist, streams, cons_eqns, cons_eqns_terms):
     
     ##Ensure that the totaluse is equals to 0 or 1 
     eqn = {}
-    eqn['Name'] = 'totaluse_ch1'
-    eqn['Type'] = 'unit_binary'
-    eqn['Sign'] = 'less_than_equal_to'
-    eqn['RHS_value'] = 1
+    eqn['Name'] = 'totaluse_ch1'                            ##The name of the constraint 
+    eqn['Type'] = 'unit_binary'                             ##The type of the constraint 
+    eqn['Sign'] = 'less_than_equal_to'                      ##The sign of the constraint 
+    eqn['RHS_value'] = 1                                    ##The right hand side value of the constraint 
     
     eqninput = [eqn['Name'], eqn['Type'], eqn['Sign'], eqn['RHS_value']]
     eqninputdf = pd.DataFrame(data = [eqninput], columns = ['Name', 'Type', 'Sign', 'RHS_value'])
@@ -200,9 +200,9 @@ def chiller1 (mdv, utilitylist, streams, cons_eqns, cons_eqns_terms):
         term = {}
         term['Parent_unit'] = 'ch1_' + str(i + 1)
         term['Parent_eqn'] = 'totaluse_ch1'
-        term['Parent_stream'] = '-'                                    ##Only applicable for stream_limit types 
-        term['Coefficient'] = 1
-        term['Coeff_v1_2'] = 0                                         ##Only applicable for stream_limit_modified types 
+        term['Parent_stream'] = '-'                                     ##For reference purposes
+        term['Coefficient'] = 1                                         ##Coefficient of the binary variable 
+        term['Coeff_v1_2'] = 0                                          ##Coefficients of continuous variables 
         term['Coeff_v1_1'] = 0
         term['Coeff_v2_2'] = 0
         term['Coeff_v2_1'] = 0

@@ -2,22 +2,22 @@
 ##and f(1), f(2), etc are the objective functions. The algorithm always minimizes the objective function hence if 
 ##you would like to maximize the function then multiply the function by negative one.
 
-def nsga_ii_para_imple_evaluate_objective (x, num_obj_func, iteration_number):
+def nsga_ii_para_imple_evaluate_objective (variable_values, num_obj_func, iteration_number):
 
-    ##x --- the array of variable values to be evaluated 
-    ##num_obj_func --- the nuber of objective functions to evaluate 
-    ##iteration_number --- a unique number so that saving the file name will be unique
+    ##variable_values       --- the array of variable values to be evaluated 
+    ##num_obj_func          --- the nuber of objective functions to evaluate 
+    ##iteration_number      --- a unique number so that saving the file name will be unique
     
     import numpy as np
     
     ##Creating a numpy array to store the objective function values 
-    f = np.zeros((1, num_obj_func))
+    objective_values = np.zeros((1, num_obj_func))
     
     ##Iterating based on the number of objective functions to be evaluated 
     for i in range (0, num_obj_func):
-        f[0,i] = kursawe_function_moo (x, i)
+        objective_values[0,i] = kursawe_function_moo (variable_values, i)
         
-    return f
+    return objective_values
 
 ######################################################################################################################################################################################
 ##Test functions 
