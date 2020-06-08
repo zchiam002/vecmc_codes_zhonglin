@@ -1,22 +1,21 @@
 ##This function handles all the backend operation for communicating with GLPK
 
-def slave_convex_backend(files, multi_time, obj_func, package_name, parallel_thread_num, slave_models_location, bilinear_pieces, solver_choice):
+def slave_convex_backend(files, multi_time, obj_func, parallel_thread_num, slave_models_location, bilinear_pieces, solver_choice):
     
     ##Not a multi-time problem
     import os
-    current_directory = os.path.dirname(__file__)[:-22] + '//'  
+    current_directory = os.path.dirname(__file__) + '//'  
     import sys
-    sys.path.append(current_directory + 'slave_convex_handlers\\auxillary\\')                       ##Add directories to working directories 
+    sys.path.append(current_directory + 'auxillary\\')                       ##Add directories to working directories 
     from get_values_models import get_values_models
-    sys.path.append(current_directory + 'slave_convex_handlers\\')
     sys.path.append(slave_models_location)
     from sorting_linear_and_bilinear_terms import sorting_linear_and_bilinear_terms
-    from genscript_lp_format_v0 import genscript_lp_format_v0
+    from genscript_lp_format import genscript_lp_format
     from lpsolver_runscript import lpsolver_runscript
     from extract_and_process_values import extract_and_process_values
     
     ##Getting the values from the models
-    layerslist, utilitylist, processlist, streams, cons_eqns, cons_eqns_terms = get_values_models(files, package_name, parallel_thread_num, slave_models_location) 
+    layerslist, utilitylist, processlist, streams, cons_eqns, cons_eqns_terms = get_values_models(files, parallel_thread_num, slave_models_location) 
     
     ##Linearizing the bilinear terms 
     ret_dataframes, affected_list = sorting_linear_and_bilinear_terms (layerslist, utilitylist, processlist, streams, cons_eqns, cons_eqns_terms, obj_func, bilinear_pieces)
@@ -26,7 +25,7 @@ def slave_convex_backend(files, multi_time, obj_func, package_name, parallel_thr
     save_function (ret_dataframes, layerslist, utilitylist, processlist, streams, cons_eqns, cons_eqns_terms, save_file)
     
     ##Generating linear program script in LP format 
-    genscript_lp_format_v0(ret_dataframes, utilitylist, processlist, layerslist, parallel_thread_num, obj_func, bilinear_pieces)
+    genscript_lp_format(ret_dataframes, utilitylist, processlist, layerslist, parallel_thread_num, obj_func, bilinear_pieces)
     
     ##Running LP solver 
     smooth, convergence = lpsolver_runscript(parallel_thread_num, solver_choice)
@@ -58,7 +57,7 @@ def slave_convex_backend(files, multi_time, obj_func, package_name, parallel_thr
 def save_function (ret_dataframes, layerslist, utilitylist, processlist, streams, cons_eqns, cons_eqns_terms, save_file):
 
     import os
-    current_directory = os.path.dirname(__file__)[:-22] + '//'   
+    current_directory = os.path.dirname(__file__) + '//'   
     
     ##ret_dataframes = {}                                     --- it is a dictionary of dataframes
     ##ret_dataframes['utilitylist_bilinear']                  --- list of bilinear utilities 

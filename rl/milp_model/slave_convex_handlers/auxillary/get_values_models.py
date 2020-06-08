@@ -4,7 +4,8 @@
 ##This is the gurobi qp edition
 
 
-def get_values_models(files, package_name, parallel_thread_num, slave_models_location):
+def get_values_models(files, parallel_thread_num, slave_models_location):
+    
     import pandas as pd
     import importlib
     from process_master_var import process_master_var
@@ -32,7 +33,7 @@ def get_values_models(files, package_name, parallel_thread_num, slave_models_loc
     
     for i in range (0,rows):
         #from layers import layers
-        module_loc = package_name + '.' + files['Filename'][i]
+        module_loc = files['Filename'][i]
         j=importlib.import_module(module_loc)                               ##Importing the relevant module for the models
             
         unit_type = ''                                                      ##Checking for the correct unit type 
