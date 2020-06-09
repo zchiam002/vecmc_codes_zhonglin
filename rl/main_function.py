@@ -16,33 +16,32 @@ def main_a2c_function ():
     ##Importing the environment 
     env = a2c_environment()
     
-    ##Parameters 
-    actor_input_dim = env.num_states
-    actor_output_dim = env.num_actions
-    actor_hidden_layers = [4000, 4000, 4000, 4000, 1000]
-    actor_lr = 0.0001
+    ##Parameters and network architecture
+    actor_input_dim = env.num_states                                ##The number of input neurons to the actor neural network
+    actor_output_dim = env.num_actions                              ##The number of output neurons of the actor neural network 
+    actor_hidden_layers = [400, 400, 100]                           ##The dimension of the hidden layers of the actor neural network
+    actor_lr = 0.001                                                ##The learning rate of the actor neural network 
     actor_output_bounds = {}
-    actor_output_bounds['lb'] = env.action_space_norm_low
-    actor_output_bounds['ub'] = env.action_space_norm_high
+    actor_output_bounds['lb'] = env.action_space_norm_low           ##The upper and lower bounds of the output of the actor neural network 
+    actor_output_bounds['ub'] = env.action_space_norm_high          
     
     model_output_bounds = {}
-    model_output_bounds['lb'] = env.model_output_norm_lb
-    model_output_bounds['ub'] = env.model_output_norm_ub    
+    model_output_bounds['lb'] = env.model_output_norm_lb            ##The upper and lower bounds of the output from the model to be solved, i.e. the model housed in the environment
+    model_output_bounds['ub'] = env.model_output_norm_ub            
     
-    critic_input_dim = actor_input_dim + actor_output_dim
-    critic_output_dim = 2
-    critic_hidden_layers = [5000, 5000, 4000, 4000, 1000]
-    critic_lr = 0.00001
+    critic_input_dim = actor_input_dim + actor_output_dim           ##The number of input neurons to the critic neural network 
+    critic_output_dim = 2                                           ##The number of output neurons of the critic neural network 
+    critic_hidden_layers = [400, 400, 100]                          ##The dimension of the hidden layers of the actor neural network
+    critic_lr = 0.0001                                              ##The learning rate of the actor neural network
     
-    training_episodes = 3
-    exploration_epsilon = 0.05
-    batch_size = 1
+    training_episodes = 3                                           ##The number of episodes(iterations) to train the actor-critic algorithm 
+    exploration_epsilon = 0.05                                      ##The chance that model will take a random action and explore outside of the reccomendations by the algorithm
+    batch_size = 1                                                  ##The number of concurrent samples to train the neural network with
     
     ##Offline trace information 
     offline_trace_folder = current_directory + 'batch_training_data\\'
     offline_trace_save_file_name = 'cleansed_norm_op.csv'
     offline_trace_full_dir = offline_trace_folder + offline_trace_save_file_name
-    
     
     ##The save path for the a2c model
     save_folder_directory = current_directory + 'saved_model\\'
@@ -71,19 +70,19 @@ def main_a2c_function ():
 
 #############################################################################################################################################################################
     ##Pretraining the neural networks with offline traces
-    a2c_offline_trace_training (env, action_tf_var, action_placeholder, training_op_actor, loss_actor, state_placeholder, last_layer, loss_critic, training_op_critic, 
-                                training_episodes, target_placeholder, delta_placeholder, save_dir, critic_input_placeholder, batch_size, offline_trace_full_dir)
+#    a2c_offline_trace_training (env, action_tf_var, action_placeholder, training_op_actor, loss_actor, state_placeholder, last_layer, loss_critic, training_op_critic, 
+#                                training_episodes, target_placeholder, delta_placeholder, save_dir, critic_input_placeholder, batch_size, offline_trace_full_dir)
 
 #############################################################################################################################################################################    
     ##Training the networks (online, fresh)
-    a2c_training_loop (env, action_tf_var, action_placeholder, training_op_actor, loss_actor, state_placeholder, last_layer, loss_critic, 
-                       training_op_critic, training_episodes, target_placeholder, delta_placeholder, save_dir, exploration_epsilon, critic_input_placeholder, batch_size)
+#    a2c_training_loop (env, action_tf_var, action_placeholder, training_op_actor, loss_actor, state_placeholder, last_layer, loss_critic, 
+#                       training_op_critic, training_episodes, target_placeholder, delta_placeholder, save_dir, exploration_epsilon, critic_input_placeholder, batch_size)
 
 #############################################################################################################################################################################    
     ##Resmue training the network 
-#    a2c_resume_training_saved_model (env, action_tf_var, action_placeholder, training_op_actor, loss_actor, state_placeholder, last_layer, loss_critic, training_op_critic, 
-#                                     training_episodes, target_placeholder, delta_placeholder, save_dir, exploration_epsilon, critic_input_placeholder, save_file_name, 
-#                                     resume_training_count, save_folder_directory, batch_size)
+    a2c_resume_training_saved_model (env, action_tf_var, action_placeholder, training_op_actor, loss_actor, state_placeholder, last_layer, loss_critic, training_op_critic, 
+                                     training_episodes, target_placeholder, delta_placeholder, save_dir, exploration_epsilon, critic_input_placeholder, save_file_name, 
+                                     resume_training_count, save_folder_directory, batch_size)
 #############################################################################################################################################################################
     ##Validating the trained neural network 
     trained_model_directory = current_directory + 'saved_model//'

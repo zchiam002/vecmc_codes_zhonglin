@@ -3,7 +3,6 @@ def milp_run_script ():
     
     import os 
     current_path = os.path.dirname(__file__) + '//'
-    current_path_basic = os.path.dirname(__file__)[:-5] + '//' 
     import sys 
     sys.path.append(current_path + 'linearlized_models_coefficients//')                         ##Certain models need coefficients when linearized 
     sys.path.append(current_path + 'milp_models//')                                             ##Location of the milp models
@@ -22,8 +21,8 @@ def milp_run_script ():
     obj_func_penalty = 10000                                                                    ##The default value of the objective function if infeasibility occurs. 
     
     ##Sepcific directories 
-    cooling_load_data_loc = current_path_basic + 'input_data//milp_sample//cooling_demand.csv'  ##Location of the cooling load data 
-    weather_condition_loc = current_path_basic + 'input_data//milp_sample//weather.csv'         ##Location of the weather data
+    cooling_load_data_loc = current_path + 'input_data//cooling_demand.csv'                     ##Location of the cooling load data 
+    weather_condition_loc = current_path + 'input_data//weather.csv'                            ##Location of the weather data
         ##Parameters
     ga_inputs_loc = current_path + 'ga_inputs\\ga_inputs.csv'                                   ##Location of the GA inputs (Sample)
     

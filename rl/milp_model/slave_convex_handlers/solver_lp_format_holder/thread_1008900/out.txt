@@ -1,7 +1,7 @@
 Problem:    
 Rows:       462
 Columns:    291 (139 integer, 139 binary)
-Non-zeros:  1931
+Non-zeros:  1929
 Status:     INTEGER EMPTY
 Objective:  obj = 0 (MINimum)
 

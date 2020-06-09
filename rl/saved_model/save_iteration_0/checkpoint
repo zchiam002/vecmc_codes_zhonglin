@@ -1,0 +1,2 @@
+model_checkpoint_path: "F:/all_git_repo/vecmc_codes_zhonglin/rl//saved_model\\a2c_trained.ckpt"
+all_model_checkpoint_paths: "F:/all_git_repo/vecmc_codes_zhonglin/rl//saved_model\\a2c_trained.ckpt"

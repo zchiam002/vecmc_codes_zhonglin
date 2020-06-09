@@ -6,16 +6,18 @@ class a2c_env_custom ():
         
         self.num_states = 5                             ##4 demand values + 1 weather value
         self.num_actions = 2                            ##Evap ret temp and total evap flow
+
+        self.action_space_lb = [275.16, 450]            ##Evap ret temp and total_evap_flow
+        self.action_space_ub = [279.00, 1000]
+
+        self.model_output_lb = [0, 0]
+        self.model_output_ub = [10000, 10000]
+
         self.state_space_norm_low = -1                  ##normalized state space values
         self.state_space_norm_high = 1      
         self.action_space_norm_low = -1                 ##normalized action space values 
         self.action_space_norm_high = 1
         
-        self.action_space_lb = [275.16, 450]            ##Evap ret temp and total_evap_flow
-        self.action_space_ub = [279.00, 1000]
-        
-        self.model_output_lb = [0, 0]
-        self.model_output_ub = [10000, 10000]
         self.model_output_norm_lb = [-1, -1]
         self.model_output_norm_ub = [1, 1]
         

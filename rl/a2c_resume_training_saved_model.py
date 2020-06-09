@@ -222,7 +222,7 @@ def a2c_resume_training_saved_model (env, action_tf_var, action_placeholder, tra
                 plt.pause(1e-17)
                 time.sleep(0.1)             
                 
-                ##Saving the networks after every 20 iterations 
+                ##Saving the networks after every 100 iterations 
                 if i%100 == 0:
                     saver = tf.train.Saver()
                     save_path = saver.save(sess, save_dir)     

@@ -220,7 +220,7 @@ def a2c_training_loop (env, action_tf_var, action_placeholder, training_op_actor
             else:
                 print('Bad sample... ...')    
                 
-            ##Saving the networks after every 20 iterations 
+            ##Saving the networks after every 100 iterations 
             if i%100 == 0:
                 
                 saver = tf.train.Saver()

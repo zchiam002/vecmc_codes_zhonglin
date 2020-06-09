@@ -1,9 +1,0 @@
-,Name,Value
-0,chilled_water_setpoint,5
-1,network_dt_target,4
-2,piecewise_steps,4
-3,bilinear_pieces,20
-4,twb_limit,25
-5,ch1_mevap,200
-6,ch2_mevap1,450
-7,ch2_mevap2,800

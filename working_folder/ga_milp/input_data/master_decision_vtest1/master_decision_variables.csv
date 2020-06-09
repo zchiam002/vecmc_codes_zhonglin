@@ -1,6 +1,0 @@
-Name,Value,LB,UB,Unit,Type,Steps
-chiller_evap_return_temp,0,274.15,288.15,K,continuous,30
-chiller_cond_entry_temp,0,289.15,308.15,K,continuous,30
-total_evap_nwk_flowrate,0,0,1910,m3/h,continuous ,1000
-total_cond_nwk_flowrate,0,0,4191,m3/h,continuous,1000
-dist_nwk_and_pump_option,0,0,40,0,discrete,41
