@@ -1,0 +1,19 @@
+1. Download the latest anaconda installer from https://www.anaconda.com/products/individual
+2. Open ANACONDA PROMPT in administrator mode.
+3. Create a new environment using the following command:
+	- conda create -n <-insert new environment name here-> python=3.5
+4. Activate the new environment:
+	- activate <-insert new environment name here->
+5. Install the basic packages:
+	- conda install anaconda
+6. Install tensorflow manually using the following command:
+	- pip install --ignore-installed --upgrade https://storage.googleapis.com/tensorflow/windows/cpu/tensorflow-1.0.1-cp35-cp35m-win_amd64.whl
+7. If the command does not work, manually change the directory 'https://storage.googleapis.com/tensorflow/windows/cpu/tensorflow-1.0.1-cp35-cp35m-win_amd64.whl' to the directory of the same file located in the folder this guide is stored in, i.e., '.../vecmc_codes_zhonglin/setup/tensorflow-1.0.1-cp35-cp35m-win_amd64.whl'
+8. Create a .bat file and place it on desktop so that spyder can be launched in the correct environment, i.e., the environment named <-insert new environment name here->. A sample .bat file is included in the this folder. Open it up using notepad to ensure that the directory on line 2 is correct. Also make sure that the name of the environment on line 3 is correct too.
+9. To run the sample reinforcement learning problems, OpenAI gym has to be installed. This can be done by following the guide found in ..vecmc_codes_zhonglin/setup/How to Install OpenAI Gym in a Windows Environment - Towards Data Science.pdf. Make sure that the packages are installed in the correct environment. To ensure that the packages are installed in the correct environment, please do the following:
+	- launch ANACONDA PROMPT in administrator mode. 
+	- type the command: activate <-insert new environment name here->
+	- then begin installing using either 'pip install ...' or 'conda install...', etc. 
+
+
+
