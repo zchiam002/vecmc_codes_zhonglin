@@ -42,41 +42,43 @@ def gurobi_runscript (thread_num):
     
     return o, output
 
-##This function runs glpk
+##This function runs glpk solver
 def glpk_runscript(thread_num):
     import subprocess
     import os
-    current_directory = os.path.dirname(__file__)[:-22] + '/'     
+    current_path = os.path.dirname(__file__)[:-25] + '/' 
     
     ##Directories 
-    main_call = current_directory + 'winglpk-4.61\glpk-4.61\w64\glpsol --lp'
-    file_location = current_directory + 'slave_convex_handlers\solver_lp_format_holder' + r'\t' + 'hread_' + str(thread_num) + '\script_' + str(thread_num) + '.lp'
-    result_location = current_directory + 'slave_convex_handlers\solver_lp_format_holder' + r'\t' + 'hread_' + str(thread_num) + '\out.txt'
+    main_call = '"' + current_path + 'winglpk-4.61\glpk-4.61\w64\glpsol"' + ' --lp'
+    file_location = '"' + current_path + 'milp_conversion_handlers\solver_lp_format_holder' + r'\t' + 'hread_' + str(thread_num) + '\script_' + str(thread_num) + '.lp"'
+    result_location = '"' + current_path + 'milp_conversion_handlers\solver_lp_format_holder' + r'\t' + 'hread_' + str(thread_num) + '\out.txt"'
+    
+    result_location_no_ic = current_path + 'milp_conversion_handlers\solver_lp_format_holder' + r'\t' + 'hread_' + str(thread_num) + '\out.txt'
     
     command = main_call + ' ' + file_location + ' -o ' + result_location
-
+    
     o = subprocess.check_call(command, shell= True)
     ## Checking for the output of the solver 
-    if os.path.isfile(result_location) == False:
-        #print ("No convergence")
+    if os.path.isfile(result_location_no_ic) == False:
+        print ("No convergence")
         convergence = 0
         return o, convergence
     
     else:
-        if os.path.getsize(result_location) == 0:
+        if os.path.getsize(result_location_no_ic) == 0:
             #print ("No convergence")
             convergence = 0
             return o, convergence
     
-    with open(result_location, 'r') as fo:
+    with open(result_location_no_ic, 'r') as fo:
         solver_msg = fo.read()
     
     if 'OPTIMAL' in solver_msg:
-        #print ("Ampl model converged!")
+        print ("Ampl model converged!")
         convergence = 1
     
     else:
-        #print ("No convergence")
+        print ("No convergence")
         convergence = 0
     
     return o, convergence

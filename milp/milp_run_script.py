@@ -32,7 +32,7 @@ def milp_run_script ():
     mrs_write_slave_param (cooling_load_data, weather_condition, ga_inputs, pwl_steps, parallel_thread_num)
     ##Solving the preparing and solving the MILP problem 
     obj_value, results, results_y, all_dataframes  = milp_prog_run(parallel_thread_num, bl_steps, solver)
-    
+      
     ##Augmenting the objective function 
     if obj_value != 'na':
         ##Calculating the difference in the return temperatures
