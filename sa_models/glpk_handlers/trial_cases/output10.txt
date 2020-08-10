@@ -1,0 +1,258 @@
+Problem:    sample3_def
+Rows:       74
+Columns:    46 (23 integer, 23 binary)
+Non-zeros:  183
+Status:     INTEGER OPTIMAL
+Objective:  power = 2180.662617 (MINimum)
+
+   No.   Row name        Activity     Lower bound   Upper bound
+------ ------------    ------------- ------------- -------------
+     1 y_onoff_proc[ch1_ret]
+                                   1             1             = 
+     2 y_onoff_proc[ch2_ret]
+                                   1             1             = 
+     3 y_onoff_proc[ch3_ret]
+                                   1             1             = 
+     4 u_lb_util[ch1_1]
+                                   0                          -0 
+     5 u_lb_util[ch1_2]
+                                   0                          -0 
+     6 u_lb_util[ch1_3]
+                                   0                          -0 
+     7 u_lb_util[ch1_4]
+                                   0                          -0 
+     8 u_lb_util[ch2_1]
+                                   0                          -0 
+     9 u_lb_util[ch2_2]
+                                   0                          -0 
+    10 u_lb_util[ch2_3]
+                               -0.25                          -0 
+    11 u_lb_util[ch2_4]
+                                   0                          -0 
+    12 u_lb_util[ch3_1]
+                                   0                          -0 
+    13 u_lb_util[ch3_2]
+                                   0                          -0 
+    14 u_lb_util[ch3_3]
+                                   0                          -0 
+    15 u_lb_util[ch3_4]
+                         -0.00640974                          -0 
+    16 u_lb_util[sp1]
+                           -0.277627                          -0 
+    17 u_lb_util[sscp]
+                           -0.277627                          -0 
+    18 u_lb_util[ssgv2]
+                           -0.277627                          -0 
+    19 u_lb_util[sshsb]
+                           -0.277627                          -0 
+    20 u_lb_util[sspfa]
+                           -0.277627                          -0 
+    21 u_lb_util[ssser]
+                           -0.277627                          -0 
+    22 u_lb_util[ssfir]
+                           -0.277627                          -0 
+    23 u_lb_util[sp2]
+                               -0.28                          -0 
+    24 u_lb_util[ch1_ret]
+                                   0                          -0 
+    25 u_lb_util[ch2_ret]
+                                   0                          -0 
+    26 u_lb_util[ch3_ret]
+                                   0                          -0 
+    27 u_ub_util[ch1_1]
+                               -0.25                          -0 
+    28 u_ub_util[ch1_2]
+                                   0                          -0 
+    29 u_ub_util[ch1_3]
+                                   0                          -0 
+    30 u_ub_util[ch1_4]
+                                   0                          -0 
+    31 u_ub_util[ch2_1]
+                                   0                          -0 
+    32 u_ub_util[ch2_2]
+                                   0                          -0 
+    33 u_ub_util[ch2_3]
+                                   0                          -0 
+    34 u_ub_util[ch2_4]
+                                   0                          -0 
+    35 u_ub_util[ch3_1]
+                                   0                          -0 
+    36 u_ub_util[ch3_2]
+                                   0                          -0 
+    37 u_ub_util[ch3_3]
+                                   0                          -0 
+    38 u_ub_util[ch3_4]
+                            -0.24359                          -0 
+    39 u_ub_util[sp1]
+                           -0.722373                          -0 
+    40 u_ub_util[sscp]
+                           -0.722373                          -0 
+    41 u_ub_util[ssgv2]
+                           -0.722373                          -0 
+    42 u_ub_util[sshsb]
+                           -0.722373                          -0 
+    43 u_ub_util[sspfa]
+                           -0.722373                          -0 
+    44 u_ub_util[ssser]
+                           -0.722373                          -0 
+    45 u_ub_util[ssfir]
+                           -0.722373                          -0 
+    46 u_ub_util[sp2]
+                               -0.72                          -0 
+    47 u_ub_util[ch1_ret]
+                                   0                          -0 
+    48 u_ub_util[ch2_ret]
+                                   0                          -0 
+    49 u_ub_util[ch3_ret]
+                                   0                          -0 
+    50 layer_balance[balancing_only,chil2sp1]
+                                   0            -0             = 
+    51 layer_balance[balancing_only,sp12cp]
+                                   0            -0             = 
+    52 layer_balance[balancing_only,sp12gv2]
+                                   0            -0             = 
+    53 layer_balance[balancing_only,sp12hsb]
+                                   0            -0             = 
+    54 layer_balance[balancing_only,sp12pfa]
+                                   0            -0             = 
+    55 layer_balance[balancing_only,sp12ser]
+                                   0            -0             = 
+    56 layer_balance[balancing_only,sp12fir]
+                                   0            -0             = 
+    57 layer_balance[balancing_only,ss2sp2]
+                                   0            -0             = 
+    58 layer_balance[balancing_only,sp22ch1]
+                                   0            -0             = 
+    59 layer_balance[balancing_only,sp22ch2]
+                                   0            -0             = 
+    60 layer_balance[balancing_only,sp22ch3]
+                                   0            -0             = 
+    61 add_cons_ltet_ub[totaluse_ch1]
+                                   1                           1 
+    62 add_cons_ltet_ub[totaluse_ch2]
+                                   1                           1 
+    63 add_cons_ltet_ub[totaluse_ch3]
+                                   1                           1 
+    64 add_cons_ltet_sl[ssgv2_in,ssgv2]
+                             277.627                      278.15 
+    65 add_cons_ltet_sl[ssgv2_out,ssgv2]
+                             83.8682                      287.15 
+    66 add_cons_ltet_sl[sshsb_in,sshsb]
+                             277.627                      278.15 
+    67 add_cons_ltet_sl[sshsb_out,sshsb]
+                              56.123                      287.15 
+    68 add_cons_ltet_sl[sspfa_in,sspfa]
+                             277.627                      278.15 
+    69 add_cons_ltet_sl[sspfa_out,sspfa]
+                              56.123                      287.15 
+    70 add_cons_ltet_sl[ssser_in,ssser]
+                             277.627                      278.15 
+    71 add_cons_ltet_sl[ssser_out,ssser]
+                              56.123                      287.15 
+    72 add_cons_ltet_sl[ssfir_in,ssfir]
+                             277.627                      278.15 
+    73 add_cons_ltet_sl[ssfir_out,ssfir]
+                                   0                      287.15 
+    74 power                 2180.66                             
+
+   No. Column name       Activity     Lower bound   Upper bound
+------ ------------    ------------- ------------- -------------
+     1 u_rate[ch1_1]
+                                   0             0          1000 
+     2 u_rate[ch1_2]
+                                   0             0          1000 
+     3 u_rate[ch1_3]
+                                   0             0          1000 
+     4 u_rate[ch1_4]
+                                   0             0          1000 
+     5 u_rate[ch2_1]
+                                   0             0          1000 
+     6 u_rate[ch2_2]
+                                   0             0          1000 
+     7 u_rate[ch2_3]
+                                0.75             0          1000 
+     8 u_rate[ch2_4]
+                                   0             0          1000 
+     9 u_rate[ch3_1]
+                                   0             0          1000 
+    10 u_rate[ch3_2]
+                                   0             0          1000 
+    11 u_rate[ch3_3]
+                                   0             0          1000 
+    12 u_rate[ch3_4]
+                             0.75641             0          1000 
+    13 u_rate[sp1]          0.277627             0          1000 
+    14 u_rate[sscp]         0.277627             0          1000 
+    15 u_rate[ssgv2]
+                            0.277627             0          1000 
+    16 u_rate[sshsb]
+                            0.277627             0          1000 
+    17 u_rate[sspfa]
+                            0.277627             0          1000 
+    18 u_rate[ssser]
+                            0.277627             0          1000 
+    19 u_rate[ssfir]
+                            0.277627             0          1000 
+    20 u_rate[sp2]              0.28             0          1000 
+    21 u_rate[ch1_ret]
+                                   1             0          1000 
+    22 u_rate[ch2_ret]
+                                   1             0          1000 
+    23 u_rate[ch3_ret]
+                                   1             0          1000 
+    24 y_onoff[ch1_ret]
+                    *              1             0             1 
+    25 y_onoff[ch2_ret]
+                    *              1             0             1 
+    26 y_onoff[ch3_ret]
+                    *              1             0             1 
+    27 y_onoff[ch1_1]
+                    *              1             0             1 
+    28 y_onoff[ch1_2]
+                    *              0             0             1 
+    29 y_onoff[ch1_3]
+                    *              0             0             1 
+    30 y_onoff[ch1_4]
+                    *              0             0             1 
+    31 y_onoff[ch2_1]
+                    *              0             0             1 
+    32 y_onoff[ch2_2]
+                    *              0             0             1 
+    33 y_onoff[ch2_3]
+                    *              1             0             1 
+    34 y_onoff[ch2_4]
+                    *              0             0             1 
+    35 y_onoff[ch3_1]
+                    *              0             0             1 
+    36 y_onoff[ch3_2]
+                    *              0             0             1 
+    37 y_onoff[ch3_3]
+                    *              0             0             1 
+    38 y_onoff[ch3_4]
+                    *              1             0             1 
+    39 y_onoff[sp1] *              1             0             1 
+    40 y_onoff[sscp]
+                    *              1             0             1 
+    41 y_onoff[ssgv2]
+                    *              1             0             1 
+    42 y_onoff[sshsb]
+                    *              1             0             1 
+    43 y_onoff[sspfa]
+                    *              1             0             1 
+    44 y_onoff[ssser]
+                    *              1             0             1 
+    45 y_onoff[ssfir]
+                    *              1             0             1 
+    46 y_onoff[sp2] *              1             0             1 
+
+Integer feasibility conditions:
+
+KKT.PE: max.abs.err = 0.00e+00 on row 0
+        max.rel.err = 0.00e+00 on row 0
+        High quality
+
+KKT.PB: max.abs.err = 1.87e-14 on row 57
+        max.rel.err = 1.87e-14 on row 57
+        High quality
+
+End of output
