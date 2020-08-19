@@ -2223,6 +2223,7 @@ def dist_nwk_piecewise_pressure_reg_pumpnwk_bilinear_temp(consumer_demand, m_tot
         ##Expressing total flowrate as a function of gv2 flowrate
         micetrofir_intermsof_mgv2_coeff = 1 + mhsb_intermsof_mgv2_coeff + mpfa_intermaof_mgv2_coeff + mser_intermsof_mgv2_coeff + mfir_intermsof_mgv2_coeff
         
+        
         total_flow = ref_flow 
         gv2_flow_temp = total_flow / micetrofir_intermsof_mgv2_coeff
         pressure = ice_main_coeff*pow(total_flow, 1.852) +  gv2_coeff*pow(gv2_flow_temp, 1.852)

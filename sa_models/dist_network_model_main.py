@@ -58,7 +58,7 @@ def run_distribution_network_model_main ():
     tin_dist_nwk_max = 273.15 + 20
     
     ##Running model 1
-    return_values_1, return_values_1_df = dist_nwk_org(consumer_demand, total_nwk_flow, perc_split, nwk_pump_select, tin_dist_nwk, max_flow)
+    return_values_1, return_values_1_df = dist_nwk_org(consumer_demand, total_nwk_flow, perc_split, nwk_pump_select, tin_dist_nwk, param, max_flow)
     ##Running model 2
     return_values_1, return_values_2_df = dist_nwk_piecewise_pressure (consumer_demand, total_nwk_flow, perc_split, nwk_pump_select, tin_dist_nwk, steps)
     ##Running model 3
